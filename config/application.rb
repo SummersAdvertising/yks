@@ -1,5 +1,6 @@
 require File.expand_path('../boot', __FILE__)
 
+
 require 'rails/all'
 
 if defined?(Bundler)
@@ -55,5 +56,6 @@ module Yks
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+    config.autoload_paths += %W( #{config.root}/app/models/ckeditor )
   end
 end

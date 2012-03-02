@@ -1,5 +1,6 @@
 Yks::Application.routes.draw do
   resources :system_site_maps
+  resources :services
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

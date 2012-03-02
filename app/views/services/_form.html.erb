@@ -1,0 +1,52 @@
+<%= form_for(@service) do |f| %>
+<%= javascript_include_tag 'ckeditor/ckeditor.js' %>
+  <% if @service.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@service.errors.count, "error") %> prohibited this services from being saved:</h2>
+
+      <ul>
+      <% @service.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :id %><br />
+    <%= f.text_field :id %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <%= javascript_include_tag :ckeditor %>
+  <div class="field">
+    <%= f.label :content %><br />
+    <%= f.text_area :content, :toolbar=>'Full', :width=>'400px', :height=>'200px' %>
+    <script>
+     $(function() {
+     if ($('service_content').length > 0)
+     {       
+       var data = $('service_content');
+       $.each(data, function(i)
+       {
+         CKEDITOR.replace(data[i].id);
+       }
+       );     
+     }  
+  }); 
+    </script>
+  </div>
+  <div class="field">
+    <%= f.label :time %><br />
+    <%= f.text_field :time %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br />
+    <%= f.check_box :status %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -2,16 +2,12 @@ class SystemSiteMapsController < ApplicationController
   # GET /system_site_maps
   # GET /system_site_maps.json
   def index
-    @system_site_maps = SystemSiteMap.where(:parent_id => '')
+    @system_site_maps = SystemSiteMap.all
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @system_site_maps }
     end
-  end
-  
-  def _index
-  	@temp = 1    
   end
 
   # GET /system_site_maps/1

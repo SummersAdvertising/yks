@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'ckeditor', '3.4.2.pre'
+
 gem 'rails', '3.2.1'
 
 # Bundle edge Rails instead:
