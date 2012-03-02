@@ -1,0 +1,27 @@
+<%= groups.html_safe %>
+<table>
+  <tr>
+    <th>Parent</th>
+    <th>Id</th>
+    <th>Title</th>
+    <th>Is static</th>
+    <th>Controller</th>
+    <th>Action</th>
+    <th>Parameter</th>
+    <th>Link</th>
+    <th>Script</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% SystemSiteMap.where(:parent_id => '').each do |system_site_map| %>
+  <li>
+    <%= system_site_map.id %>
+    <%= system_site_map.title %>
+    <%= link_to 'Show', system_site_map %>
+    <%= link_to 'Edit', edit_system_site_map_path(system_site_map) %>
+    <%= link_to 'Destroy', system_site_map, confirm: 'Are you sure?', method: :delete %>
+  </li>
+<% end %>
+</table>
