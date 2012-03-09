@@ -1,4 +1,5 @@
 class SystemSiteMapsController < ApplicationController
+layout "admin"
   # GET /system_site_maps
   # GET /system_site_maps.json
   def index

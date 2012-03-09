@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+
+<p>
+  <b>Id:</b>
+  <%= @new.id %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @new.title %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @new.content %>
+</p>
+
+<p>
+  <b>Time:</b>
+  <%= @new.time %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @new.status %>
+</p>
+
+
+<%= link_to 'Edit', edit_news_path(@new) %> |
+<%= link_to 'Back', :controller => 'news', :action => :index %>

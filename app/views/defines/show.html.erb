@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Type:</b>
+  <%= @define.usetype %>
+</p>
+
+<p>
+  <b>Id:</b>
+  <%= @define.id %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @define.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_define_path(@define) %> |
+<%= link_to 'Back', defines_path %>

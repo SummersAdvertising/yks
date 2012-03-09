@@ -1,4 +1,5 @@
 class ServicesController < ApplicationController
+layout "admin"
   # GET /system_site_maps
   # GET /system_site_maps.json
   def index
@@ -44,7 +45,7 @@ class ServicesController < ApplicationController
     #@system_site_map = SystemSiteMap.new( :parent_id => "2", :controller => "service", :parameter => @service.id )
 
     respond_to do |format|
-      if @service.save && @system_site_map.save
+      if @service.save# && @system_site_map.save
         format.html { redirect_to @service, notice: 'Service was successfully created.' }
         format.json { render json: @service, status: :created, location: @service }
       else

@@ -11,12 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120302170618) do
+ActiveRecord::Schema.define(:version => 20120309093803) do
 
   create_table "banners", :force => true do |t|
     t.string   "link"
     t.integer  "time"
-    t.integer  "status"
+    t.string   "status"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -39,11 +39,19 @@ ActiveRecord::Schema.define(:version => 20120302170618) do
   add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], :name => "idx_assetable_type"
   add_index "ckeditor_assets", ["user_id"], :name => "fk_user"
 
+  create_table "defines", :force => true do |t|
+    t.string   "usetype"
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "status"
+  end
+
   create_table "news", :force => true do |t|
     t.string   "title"
     t.text     "content"
     t.integer  "time"
-    t.integer  "status"
+    t.string   "status"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -52,7 +60,7 @@ ActiveRecord::Schema.define(:version => 20120302170618) do
     t.string   "title"
     t.text     "content"
     t.integer  "time"
-    t.integer  "status"
+    t.string   "status"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -74,7 +82,7 @@ ActiveRecord::Schema.define(:version => 20120302170618) do
     t.string   "title"
     t.text     "content"
     t.integer  "time"
-    t.integer  "status"
+    t.string   "status"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -83,6 +91,15 @@ ActiveRecord::Schema.define(:version => 20120302170618) do
     t.string   "title"
     t.text     "content"
     t.integer  "time"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.string   "status"
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "user"
+    t.string   "password"
+    t.string   "usertype"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

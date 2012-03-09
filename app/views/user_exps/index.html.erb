@@ -1,0 +1,26 @@
+<h1>Listing services</h1>
+
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Title</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @userexps.each do |userexp| %>
+  <tr>
+    <td><%= userexp.id %></td>
+    <td><%= userexp.title %></td>
+    <td><%= link_to 'Show', userexp %></td>
+    <td><%= link_to 'Edit', edit_user_exp_path(userexp) %></td>
+    <td><%= link_to 'Destroy', userexp, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+
+<br />
+
+<%= link_to 'New Service', new_user_exp_path %>

@@ -1,0 +1,27 @@
+<h1>Listing defines</h1>
+
+<table>
+  <tr>
+    <th>Type</th>
+    <th>Id</th>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @defines.each do |define| %>
+  <tr>
+    <td><%= define.usetype %></td>
+    <td><%= define.id %></td>
+    <td><%= define.name %></td>
+    <td><%= link_to 'Show', define %></td>
+    <td><%= link_to 'Edit', edit_define_path(define) %></td>
+    <td><%= link_to 'Destroy', define, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Define', new_define_path %>

@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+
+<p>
+  <b>Id:</b>
+  <%= @banner.id %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @banner.link %>
+</p>
+
+<p>
+  <b>Time:</b>
+  <%= @banner.time %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @banner.status %>
+</p>
+
+
+<%= link_to 'Edit', edit_banner_path(@banner) %> |
+<%= link_to 'Back', banners_path %>

@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+
+<p>
+  <b>Id:</b>
+  <%= @userexp.id %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @userexp.title %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @userexp.content %>
+</p>
+
+<p>
+  <b>Time:</b>
+  <%= @userexp.time %>
+</p>
+
+
+<%= link_to 'Edit', edit_user_exp_path(@userexp) %> |
+<%= link_to 'Back', user_exps_path %>

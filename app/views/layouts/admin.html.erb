@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>誼光後台管理系統</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<header>
+	</header>
+	<nav>
+		<ul>
+			<li><%= link_to '最新消息', :controller => 'news', :action => :index%></li>
+			<li><%= link_to '客服系統', tickets_path%></li>
+			<li><%= link_to '客服狀態管理', defines_path%></li>
+			<li><%= link_to '服務管理', services_path%></li>
+			<li><%= link_to '用戶體驗', user_exps_path%></li>
+			<li><%= link_to 'Banner', banners_path%></li>
+			<li><%= link_to '會員管理', users_path%></li>
+		</ul>
+	</nav>
+	<section>
+		<%= yield %>
+	<section>
+	<footer>
+	</footer>
+</body>
+</html>

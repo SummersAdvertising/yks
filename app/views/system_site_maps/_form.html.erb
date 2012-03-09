@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label :parent_id %><br />
-    <%= f.text_field :parent_id %>
+	<%= select("system_site_map", "parent_id", SystemSiteMap.all.collect {|p| [ p.title, p.id ] }, {:prompt => 'Select Parent'})%>
   </div>
   <div class="field">
     <%= f.label :id %><br />
