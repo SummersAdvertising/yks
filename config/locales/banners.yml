@@ -1,1 +1,6 @@
 zh-TW:
+    banners:
+        tablename: Banners
+        link: 連結
+        time: 時間
+        status: 狀態

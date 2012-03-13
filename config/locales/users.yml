@@ -1,1 +1,6 @@
 zh-TW:
+    users:
+        tablename: 使用者管理
+        user: 帳號
+        password: 密碼
+        define_id: 類型

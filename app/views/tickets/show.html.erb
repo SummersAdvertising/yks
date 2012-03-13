@@ -1,28 +1,24 @@
+<h1><%= t("tickets.tablename") %> - <%= t("helpers.show") %></h1>
+
 <p id="notice"><%= notice %></p>
 
-
 <p>
-  <b>Id:</b>
-  <%= @ticket.id %>
-</p>
-
-<p>
-  <b>Title:</b>
+  <b><%= t("tickets.title") %>:</b>
   <%= @ticket.title %>
 </p>
 
 <p>
-  <b>Content:</b>
+  <b><%= t("tickets.content") %>:</b>
   <%= @ticket.content %>
 </p>
 
 <p>
-  <b>Time:</b>
+  <b><%= t("tickets.time") %>:</b>
   <%= @ticket.time %>
 </p>
 
 <p>
-  <b>Status:</b>
+  <b><%= t("tickets.status") %>:</b>
   <%= @ticket.status %>
 </p>
 

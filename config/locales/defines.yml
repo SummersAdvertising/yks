@@ -1,1 +1,6 @@
 zh-TW:
+    defines:
+        tablename: 客服狀態管理
+        usetype: 類型
+        name: 名稱
+        status: 狀態

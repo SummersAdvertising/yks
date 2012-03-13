@@ -1,1 +1,7 @@
 zh-TW:
+    user_exps:
+        tablename: 用戶體驗
+        title: 標題
+        content: 內容
+        time: 時間
+        status: 狀態

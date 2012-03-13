@@ -125,17 +125,17 @@ zh-TW:
         one: 有 1 個錯誤發生使得「%{model}」無法被儲存。
         other: 有 %{count} 個錯誤發生使得「%{model}」無法被儲存。
   helpers:
-    new: 新增1
-    edit: 修改2
-    delete: 刪除3
-    show: 檢視4
+    new: 新增
+    edit: 修改
+    delete: 刪除
+    show: 檢視
     confirm: '確定刪除?'
     form:
       select:
         prompt: 請選擇
-      back: 返回5
-      submit: 儲存6
-      reset: 清除7
+      back: 返回
+      submit: 儲存
+      reset: 清除
   number:
     currency:
       format:

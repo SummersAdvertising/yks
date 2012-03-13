@@ -1,9 +1,8 @@
-<h1>Listing services</h1>
+<h1><%= t("news.tablename") %></h1>
 
 <table>
   <tr>
-    <th>Id</th>
-    <th>Title</th>
+    <th><%= t("news.title") %></th>
     <th></th>
     <th></th>
     <th></th>
@@ -11,7 +10,6 @@
 
 <% @news.each do |new| %>
   <tr>
-    <td><%= new.id %></td>
     <td><%= new.title %></td>
     <td><%= show new %></td>
     <td><%= edit new %></td>

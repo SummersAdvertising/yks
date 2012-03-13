@@ -11,13 +11,13 @@
 	</header>
 	<nav>
 		<ul>
-			<li><%= link_to '最新消息', :controller => 'news', :action => :index%></li>
-			<li><%= link_to '客服系統', tickets_path%></li>
-			<li><%= link_to '客服狀態管理', defines_path%></li>
-			<li><%= link_to '服務管理', services_path%></li>
-			<li><%= link_to '用戶體驗', user_exps_path%></li>
-			<li><%= link_to 'Banner', banners_path%></li>
-			<li><%= link_to '使用者管理', users_path%></li>
+			<li><%= link_to t("news.tablename"), :controller => 'news', :action => :index%></li>
+			<li><%= link_to t("tickets.tablename"), tickets_path%></li>
+			<li><%= link_to t("defines.tablename"), defines_path%></li>
+			<li><%= link_to t("services.tablename"), services_path%></li>
+			<li><%= link_to t("user_exps.tablename"), user_exps_path%></li>
+			<li><%= link_to t("banners.tablename"), banners_path%></li>
+			<li><%= link_to t("users.tablename"), users_path%></li>
 		</ul>
 	</nav>
 	<section>

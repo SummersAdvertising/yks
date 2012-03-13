@@ -1,10 +1,8 @@
-<h1>Listing defines</h1>
+<h1><%= t("defines.tablename") %></h1>
 
 <table>
   <tr>
-    <th>Type</th>
-    <th>Id</th>
-    <th>Name</th>
+    <th><%= t("defines.name") %></th>
     <th></th>
     <th></th>
     <th></th>
@@ -12,8 +10,6 @@
 
 <% @defines.each do |define| %>
   <tr>
-    <td><%= define.usetype %></td>
-    <td><%= define.id %></td>
     <td><%= define.name %></td>
     <td><%= show define %></td>
     <td><%= edit define %></td>

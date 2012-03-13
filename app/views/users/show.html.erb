@@ -1,12 +1,14 @@
+<h1><%= t("users.tablename") %> - <%= t("helpers.show") %></h1>
+
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>User:</b>
+  <b><%= t("users.user") %>:</b>
   <%= @user.user %>
 </p>
 
 <p>
-  <b>Type:</b>
-  <%= @user.define_id %>
+  <b><%= t("users.define_id") %>:</b>
+  <%= @user.define.name %>
 </p>
 <%= render 'shared/admin_form_command', :data => @user %>

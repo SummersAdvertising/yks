@@ -1,1 +1,7 @@
 zh-TW:
+    services:
+        tablename: 服務管理
+        title: 標題
+        content: 內容
+        time: 時間
+        status: 狀態

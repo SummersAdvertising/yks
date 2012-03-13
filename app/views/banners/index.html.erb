@@ -1,9 +1,8 @@
-<h1>Listing Banner</h1>
+<h1><%= t("banners.tablename") %></h1>
 
 <table>
   <tr>
-    <th>Id</th>
-    <th>link</th>
+    <th><%= t("banners.link") %></th>
     <th></th>
     <th></th>
     <th></th>
@@ -11,7 +10,6 @@
 
 <% @banners.each do |banner| %>
   <tr>
-    <td><%= banner.id %></td>
     <td><%= banner.link %></td>
     <td><%= show banner %></td>
     <td><%= edit banner %></td>

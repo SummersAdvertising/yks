@@ -1,1 +1,7 @@
 zh-TW:
+    tickets:
+        tablename: 客服系統
+        title: 標題
+        content: 內容
+        time: 時間
+        status: 狀態
