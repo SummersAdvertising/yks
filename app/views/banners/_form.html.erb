@@ -12,18 +12,19 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :link %><br />
+	<%= f.label :link, '連結' %><br />
     <%= f.text_field :link %>
   </div>
   <div class="field">
-    <%= f.label :time %><br />
+	<%= f.label :time, '時間' %><br />
     <%= f.text_field :time %>
   </div>
   <div class="field">
-    <%= f.label :status %><br />
+	<%= f.label :status, '狀態' %><br />
     <%= f.check_box :status %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= submit %>
+    <%= reset %>
   </div>
 <% end %>

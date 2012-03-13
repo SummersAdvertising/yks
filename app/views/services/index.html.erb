@@ -1,9 +1,8 @@
-<h1>Listing services</h1>
+<h1>服務管理</h1>
 
 <table>
   <tr>
-    <th>Id</th>
-    <th>Title</th>
+    <th>服務項目</th>
     <th></th>
     <th></th>
     <th></th>
@@ -11,16 +10,14 @@
 
 <% @services.each do |service| %>
   <tr>
-    <td><%= service.id %></td>
     <td><%= service.title %></td>
-    <td><%= link_to 'Show', service %></td>
-    <td><%= link_to 'Edit', edit_service_path(service) %></td>
-    <td><%= link_to 'Destroy', service, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= show service %></td>
+    <td><%= edit service %></td>
+    <td><%= delete service %></td>
   </tr>
 <% end %>
 </table>
 
-
 <br />
 
-<%= link_to 'New Service', new_service_path %>
+<%= new %>

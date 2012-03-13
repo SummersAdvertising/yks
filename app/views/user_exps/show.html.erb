@@ -21,6 +21,4 @@
   <%= @userexp.time %>
 </p>
 
-
-<%= link_to 'Edit', edit_user_exp_path(@userexp) %> |
-<%= link_to 'Back', user_exps_path %>
+<%= render 'shared/admin_form_command', :data => @userexp %>

@@ -15,13 +15,13 @@
     <td><%= define.usetype %></td>
     <td><%= define.id %></td>
     <td><%= define.name %></td>
-    <td><%= link_to 'Show', define %></td>
-    <td><%= link_to 'Edit', edit_define_path(define) %></td>
-    <td><%= link_to 'Destroy', define, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= show define %></td>
+    <td><%= edit define %></td>
+    <td><%= delete define %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Define', new_define_path %>
+<%= new %>

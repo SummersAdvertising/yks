@@ -1,0 +1,15 @@
+<%
+if params[:action] == "new"
+	
+else
+	if params[:action] == "edit"
+		@action = "show"
+	else
+		@action = "edit"
+	end
+%>
+<%= link_to t("helpers."+@action), :action => @action, :id => params[:id] %> |
+<%
+end
+%>
+<%= link_to t("helpers.form.back"), :action => "index" %>

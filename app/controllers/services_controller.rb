@@ -42,8 +42,11 @@ layout "admin"
   # POST /system_site_maps.json
   def create
     @service = Service.new(params[:service])
-    #@system_site_map = SystemSiteMap.new( :parent_id => "2", :controller => "service", :parameter => @service.id )
-
+    #@system_site_map = SystemSiteMap.new( :parent_id => "2", :title => @service.title, :controller => "service", :parameter => @service.id )
+    #system_site_map.save
+    
+    #@service.system_site_map_id = system_site_map.id
+    
     respond_to do |format|
       if @service.save# && @system_site_map.save
         format.html { redirect_to @service, notice: 'Service was successfully created.' }

@@ -1,6 +1,5 @@
 Yks::Application.routes.draw do
   resources :defines
-
   resources :system_site_maps
   resources :services
   resources :news

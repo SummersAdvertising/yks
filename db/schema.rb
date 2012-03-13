@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120309093803) do
+ActiveRecord::Schema.define(:version => 20120312114830) do
 
   create_table "banners", :force => true do |t|
     t.string   "link"
@@ -61,8 +61,9 @@ ActiveRecord::Schema.define(:version => 20120309093803) do
     t.text     "content"
     t.integer  "time"
     t.string   "status"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
+    t.integer  "system_site_maps_id"
   end
 
   create_table "system_site_maps", :force => true do |t|
@@ -99,9 +100,9 @@ ActiveRecord::Schema.define(:version => 20120309093803) do
   create_table "users", :force => true do |t|
     t.string   "user"
     t.string   "password"
-    t.string   "usertype"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer  "define_id",  :limit => 255
+    t.datetime "created_at",                :null => false
+    t.datetime "updated_at",                :null => false
   end
 
 end

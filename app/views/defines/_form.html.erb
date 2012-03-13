@@ -12,14 +12,15 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :usetype %><br />
+	<%= f.label :usetype, '類型' %><br />
     <%= f.text_field :usetype %>
   </div>
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :name, '項目名稱' %><br />
     <%= f.text_field :name %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= submit %>
+    <%= reset %>
   </div>
 <% end %>

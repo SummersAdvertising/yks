@@ -26,6 +26,4 @@
   <%= @new.status %>
 </p>
 
-
-<%= link_to 'Edit', edit_news_path(@new) %> |
-<%= link_to 'Back', :controller => 'news', :action => :index %>
+<%= render 'shared/admin_form_command', :data => @new %>

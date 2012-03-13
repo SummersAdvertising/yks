@@ -12,22 +12,23 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br />
+    <%= f.label :title, '標題' %><br />
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :content %><br />
+    <%= f.label :content, '內容' %><br />
     <%= f.text_area :content %>
   </div>
   <div class="field">
-    <%= f.label :time %><br />
+    <%= f.label :time, '時間' %><br />
     <%= f.text_field :time %>
   </div>
   <div class="field">
-    <%= f.label :status %><br />
+    <%= f.label :status, '狀態' %><br />
     <%= f.check_box :status %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= submit %>
+    <%= reset %>
   </div>
 <% end %>

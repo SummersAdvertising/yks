@@ -12,18 +12,19 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :user %><br />
+    <%= f.label :user, '帳號' %><br />
     <%= f.text_field :user %>
   </div>
   <div class="field">
-    <%= f.label :password %><br />
+    <%= f.label :password, '密碼' %><br />
     <%= f.text_field :password %>
   </div>
   <div class="field">
-    <%= f.label :usertype %><br />
-	<%= f.select :usertype, "<option value=\"master\">管理員</option><option value=\"employee\">一般員工</option>", {:prompt => 'Select Type'}%>
+    <%= f.label :define_id, '類型' %><br />
+	<%= f.select :define_id, "<option value=\"1\">管理員</option><option value=\"2\">一般員工</option>", :prompt => t("helpers.form.select.prompt")%>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= submit %>
+    <%= reset %>
   </div>
 <% end %>

@@ -1,5 +1,4 @@
 <h1>Editing service</h1>
 <%= render 'form' %>
 
-<%= link_to 'Show', @ticket %> |
-<%= link_to 'Back', tickets_path %>
+<%= render 'shared/admin_form_command', :data => @ticket %>

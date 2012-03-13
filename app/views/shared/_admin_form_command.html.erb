@@ -1,0 +1,19 @@
+<%
+if params[:action] == "new"
+	
+else
+	if params[:action] == "edit"
+%>
+		<%= show data %>
+<%
+	else
+%>
+		<%= edit data %>
+<%
+	end
+%>
+ |
+<%
+end
+%>
+<%= back %>

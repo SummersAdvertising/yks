@@ -1,5 +1,4 @@
 <h1>Editing service</h1>
 <%= render 'form' %>
 
-<%= link_to 'Show', @userexp %> |
-<%= link_to 'Back', user_exps_path %>
+<%= render 'shared/admin_form_command', :data => @userexp %>

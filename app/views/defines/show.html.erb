@@ -15,6 +15,4 @@
   <%= @define.name %>
 </p>
 
-
-<%= link_to 'Edit', edit_define_path(@define) %> |
-<%= link_to 'Back', defines_path %>
+<%= render 'shared/admin_form_command', :data => @define %>

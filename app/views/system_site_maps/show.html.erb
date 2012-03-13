@@ -40,6 +40,4 @@
   <%= @system_site_map.script %>
 </p>
 
-
-<%= link_to 'Edit', edit_system_site_map_path(@system_site_map) %> |
-<%= link_to 'Back', system_site_maps_path %>
+<%= render 'shared/admin_form_command', :data => @user %>

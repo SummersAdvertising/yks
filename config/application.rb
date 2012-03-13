@@ -33,7 +33,13 @@ module Yks
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+    
 
+    I18n.load_path += Dir[Rails.root.join('config', 'locale', '*.{rb,yml}')]
+
+    # set default locale to something other than :en
+    I18n.default_locale = "zh-TW"
+    
     # Configure the default encoding used in templates for Ruby 1.9.
     config.encoding = "utf-8"
 
