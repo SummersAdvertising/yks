@@ -1,4 +1,4 @@
-class Admin::NewsController < ApplicationController
+class Admin::NewsController < AdminController
 layout "admin"
   # GET /system_site_maps
   # GET /system_site_maps.json

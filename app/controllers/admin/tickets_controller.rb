@@ -1,4 +1,4 @@
-class Admin::TicketsController < ApplicationController
+class Admin::TicketsController < AdminController
 layout "admin"
 # GET /system_site_maps
 # GET /system_site_maps.json

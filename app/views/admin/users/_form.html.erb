@@ -20,7 +20,7 @@
     <%= f.text_field :password %>
   </div>
   <div class="field">
-    <%= f.label :define_id, '類型' %><br />
+    <%= f.label :define_id, '角色' %><br />
 	<%= f.select :define_id, Define.where( :usetype => 'usertype' ).collect {|p| [ p.name, p.id ] }, {:prompt => 'Select Type'}%>
   </div>
   <div class="actions">

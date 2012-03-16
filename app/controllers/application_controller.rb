@@ -1,6 +1,13 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery
   before_filter :set_locale
+
+  def permission
+  respond_to do |format|
+    format.html { redirect_to "/admin/login" }
+  end
+  end
+
+  protect_from_forgery
 
   def set_locale
     # 可以將 ["en", "zh-TW"] 設定為 VALID_LANG 放到 /config/environment.rb 中

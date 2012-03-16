@@ -11,11 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120312114830) do
+ActiveRecord::Schema.define(:version => 20120316041628) do
 
   create_table "banners", :force => true do |t|
     t.string   "link"
-    t.integer  "time"
+    t.datetime "time"
     t.string   "status"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(:version => 20120312114830) do
   create_table "news", :force => true do |t|
     t.string   "title"
     t.text     "content"
-    t.integer  "time"
+    t.datetime "time"
     t.string   "status"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(:version => 20120312114830) do
   create_table "services", :force => true do |t|
     t.string   "title"
     t.text     "content"
-    t.integer  "time"
+    t.datetime "time"
     t.string   "status"
     t.datetime "created_at",          :null => false
     t.datetime "updated_at",          :null => false
@@ -82,7 +82,7 @@ ActiveRecord::Schema.define(:version => 20120312114830) do
   create_table "tickets", :force => true do |t|
     t.string   "title"
     t.text     "content"
-    t.integer  "time"
+    t.datetime "time"
     t.string   "status"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
@@ -91,7 +91,7 @@ ActiveRecord::Schema.define(:version => 20120312114830) do
   create_table "user_exps", :force => true do |t|
     t.string   "title"
     t.text     "content"
-    t.integer  "time"
+    t.datetime "time"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "status"

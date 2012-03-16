@@ -9,7 +9,7 @@
 
 <% @defines.each do |define| %>
   <tr>
-    <td class="title"><%= define.name %><%= render 'shared/admin_list_command', :data => define %></td>
+    <td class="title"><%= show define, define.name %><%= render 'shared/admin_list_command', :data => define %></td>
   </tr>
 <% end %>
 </table>

@@ -1,16 +1,21 @@
 <h1><%= t("tickettypes.tablename") %></h1>
 
-<%= new %>
-<div class="list">
-<table>
-  <tr>
+<div class="list list-right">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr class="list-title">
     <td class="name"><%= t("tickettypes.name") %></td>
   </tr>
 
 <% @tickettypes.each do |tickettype| %>
-  <tr>
-    <td class="name"><%= tickettype.name %><%= render 'shared/admin_list_command', :data => tickettype %></td>
+  <tr class="list-content">
+    <td class="first"><%= show tickettype, tickettype.name %><%= render 'shared/admin_list_command', :data => tickettype %></td>
   </tr>
 <% end %>
 </table>
+</div>
+
+<div class="form form-left">
+<h2><%= t("helpers.new") %></h2>
+
+<%= render 'form' %>
 </div>

@@ -9,6 +9,9 @@ Yks::Application.routes.draw do
     resources :tickets
     resources :ticket_types
     resources :users
+    match 'login' => 'login#index'
+    match 'login/login' => 'login#login'
+    match 'logout' => 'login#logout'
   end
 
   # The priority is based upon order of creation:

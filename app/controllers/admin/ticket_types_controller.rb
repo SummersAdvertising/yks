@@ -1,9 +1,10 @@
-class Admin::TicketTypesController < ApplicationController
+class Admin::TicketTypesController < AdminController
   layout "admin"
 # GET /defines
 # GET /defines.json
 def index
   @tickettypes = Define.where( :usetype => 'tickettype' )
+  @tickettype = Define.new
 
   respond_to do |format|
     format.html # index.html.erb
@@ -42,10 +43,10 @@ def create
   @tickettype.usetype = 'tickettype'
 
   respond_to do |format|
-    if @servicetype.save
+    if @tickettype.save
       format.html { redirect_to admin_ticket_type_path(@tickettype), notice: 'Define was successfully created.' }
     else
-      format.html { render action: "new" }
+      format.html { render action: "index" }
     end
   end
 end

@@ -1,15 +1,15 @@
-<h1><%= t("banners.tablename") %></h1>
+<h1><%= t("banners.tablename") %><%= new %></h1>
 
-<%= new %>
+
 <div class="list">
-<table>
-  <tr>
-    <td class="link"><%= t("banners.link") %></td>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr class="list-title">
+    <td><%= t("banners.link") %></td>
   </tr>
 
 <% @banners.each do |banner| %>
-  <tr>
-    <td class="link"><%= banner.link %><%= render 'shared/admin_list_command', :data => banner %></td>
+  <tr class="list-content">
+    <td class="first"><a><%= show banner, banner.link %></a><%= render 'shared/admin_list_command', :data => banner %></td>
   </tr>
 <% end %>
 </table>

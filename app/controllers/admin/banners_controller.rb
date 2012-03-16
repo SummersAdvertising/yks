@@ -1,4 +1,4 @@
-class Admin::BannersController < ApplicationController
+class Admin::BannersController < AdminController
 protect_from_forgery :except => 'upload'
     layout "admin"
 # GET /system_site_maps

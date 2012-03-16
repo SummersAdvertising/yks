@@ -1,17 +1,17 @@
-<h1><%= t("news.tablename") %></h1>
+<h1><%= t("news.tablename") %><%= new %></h1>
 
-<%= new %>
+
 <div class="list">
-<table>
-  <tr>
-    <td class="title"><%= t("news.title") %></td>
-    <td class="time"><%= t("news.time") %></td>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr class="list-title">
+    <td><%= t("news.title") %></td>
+    <td><%= t("news.time") %></td>
   </tr>
 
 <% @news.each do |new| %>
-  <tr>
-    <td class="title"><%= new.title %><%= render 'shared/admin_list_command', :data => new %></td>
-    <td class="time"><%= new.time %></td>
+  <tr class="list-content">
+    <td class="first"><a><%= show new, new.title %></a><%= render 'shared/admin_list_command', :data => new %></td>
+    <td><%= new.time %></td>
   </tr>
 <% end %>
 </table>

@@ -1,4 +1,4 @@
-<%= form_for([:admin,@tickettype], :url => {:controller => 'ticket_types', :action => (params["action"] == "new"? "create": "update")}) do |f| %>
+<%= form_for([:admin,@tickettype], :url => {:controller => 'ticket_types', :action => (params["action"] == "index"? "create": "update")}) do |f| %>
   <% if @tickettype.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@tickettype.errors.count, "error") %> prohibited this define from being saved:</h2>

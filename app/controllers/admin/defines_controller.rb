@@ -1,4 +1,4 @@
-class Admin::DefinesController < ApplicationController
+class Admin::DefinesController < AdminController
     layout "admin"
   # GET /defines
   # GET /defines.json

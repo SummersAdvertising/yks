@@ -1,4 +1,4 @@
-class Admin::UsersController < ApplicationController
+class Admin::UsersController < AdminController
   layout "admin"
   # GET /users
   # GET /users.json

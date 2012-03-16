@@ -1,15 +1,15 @@
-<h1><%= t("user_exps.tablename") %></h1>
+<h1><%= t("user_exps.tablename") %><%= new %></h1>
 
-<%= new %>
+
 <div class="list">
-<table>
-  <tr>
-    <td class="title"><%= t("user_exps.title") %></td>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr class="list-title">
+    <td><%= t("user_exps.title") %></td>
   </tr>
 
 <% @userexps.each do |userexp| %>
-  <tr>
-    <td class="title"><%= userexp.title %><%= render 'shared/admin_list_command', :data => userexp %></td>
+  <tr class="list-content">
+    <td class="first"><a><%= show userexp, userexp.title %></a><%= render 'shared/admin_list_command', :data => userexp %></td>
   </tr>
 <% end %>
 </table>

@@ -1,4 +1,4 @@
-class Admin::ServicesController < ApplicationController
+class Admin::ServicesController < AdminController
 layout "admin"
   # GET /system_site_maps
   # GET /system_site_maps.json

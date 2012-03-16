@@ -21,14 +21,11 @@ $(function(){
 <body>
 <div id="top">
 	<ul class="left">
-		<li><a href="#">小圖</a></li>
-		<li><a href="#">公司行號名稱</a></li>
-		<li><a href="#">有的沒的1</a></li>
-		<li><a href="#">有的沒的2</a></li>
-		<li><a href="#">有的沒的3</a></li>
+		<li><a href="#">回首頁</a></li>
+		<li><a href="#">誼光後台管理系統</a></li>
 	</ul>
 	<ul class="right">
-		<li><a href="#">登出</a></li>
+		<li><a href="/admin/logout">登出</a></li>
 	</ul>
 </div>
 <!--top-->
@@ -62,7 +59,7 @@ $(function(){
 				<div class="side-title"><%= link_to t("users.tablename"), admin_users_path%></div>
 			</ul>
 			<ul class="side-box">
-				<div class="side-title"><%= link_to "網站節點", admin_system_site_maps_path%></div>
+				<div class="side-title"><%= link_to "網站地圖", admin_system_site_maps_path%></div>
 			</ul>
 		</ol>
 		<ol>
@@ -71,7 +68,7 @@ $(function(){
 	</div>
 	<!--side-->
 	
-	<div id="container" class="left">
+	<div id="container" class="right">
 		<div id="content">
 			<%= yield %>
 		</div>	

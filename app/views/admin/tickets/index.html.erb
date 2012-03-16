@@ -1,17 +1,17 @@
-<h1><%= t("tickets.tablename") %></h1>
+<h1><%= t("tickets.tablename") %><%= new %></h1>
 
-<%= new %>
+
 <div class="list">
-<table>
-  <tr>
-    <td class="title"><%= t("tickets.title") %></td>
-    <td class="time"><%= t("tickettypes.time") %></td>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr class="list-title">
+    <td><%= t("tickets.title") %></td>
+    <td><%= t("tickettypes.time") %></td>
   </tr>
 
 <% @tickets.each do |ticket| %>
-  <tr>
-    <td class="title"><%= ticket.title %><%= render 'shared/admin_list_command', :data => ticket %></td>
-    <td class="time"><%= ticket.time %></td>
+  <tr class="list-content">
+    <td class="first"><a><%= show ticket, ticket.title %></a><%= render 'shared/admin_list_command', :data => ticket %></td>
+    <td><%= ticket.time %></td>
   </tr>
 <% end %>
 </table>

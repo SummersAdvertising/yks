@@ -1,4 +1,4 @@
-class Admin::UserExpsController < ApplicationController
+class Admin::UserExpsController < AdminController
 layout "admin"
 # GET /system_site_maps
 # GET /system_site_maps.json
