@@ -1,0 +1,40 @@
+<%= javascript_include_tag 'http://ajax.googleapis.com/ajax/libs/mootools/1.2.2/mootools.js',
+'https://raw.github.com/tamoyal/fancyupload_with_rails/master/public/javascripts/fancyupload/source/Fx.ProgressBar.js',
+'https://raw.github.com/tamoyal/fancyupload_with_rails/master/public/javascripts/fancyupload/source/Swiff.Uploader.js',
+'https://raw.github.com/tamoyal/fancyupload_with_rails/master/public/javascripts/fancyupload/source/FancyUpload3.Attach.js'
+%>
+<%=file_uploader%>
+<%= form_for([:admin,@banner], :html => { :multipart => true }) do |f| %>
+  <% if @banner.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@banner.errors.count, "error") %> prohibited this services from being saved:</h2>
+
+      <ul>
+      <% @banner.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+	<img src="public/test/<%= @banner.id %>">
+	<%= label 'upload', 'File' -%>
+    <%= file_field 'upload', 'datafile' -%>
+  </div>
+  <div class="field">
+	<%= f.label :link, '連結' %><br />
+    <%= f.text_field :link %>
+  </div>
+  <div class="field">
+	<%= f.label :time, '時間' %><br />
+    <%= f.text_field :time %>
+  </div>
+  <div class="field">
+	<%= f.label :status, '狀態' %><br />
+    <%= f.check_box :status %>
+  </div>
+  <div class="actions">
+    <%= submit %>
+    <%= reset %>
+  </div>
+<% end %>

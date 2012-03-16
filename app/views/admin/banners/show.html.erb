@@ -1,0 +1,20 @@
+<h1><%= t("banners.tablename") %> - <%= t("helpers.show") %></h1>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b><%= t("banners.link") %>:</b>
+  <%= @banner.link %>
+</p>
+
+<p>
+  <b><%= t("banners.time") %>:</b>
+  <%= @banner.time %>
+</p>
+
+<p>
+  <b><%= t("banners.status") %>:</b>
+  <%= @banner.status %>
+</p>
+
+<%= render 'shared/admin_form_command', :data => @banner %>

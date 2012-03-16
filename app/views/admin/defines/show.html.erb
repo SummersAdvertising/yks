@@ -1,0 +1,15 @@
+<h1><%= t("defines.tablename") %> - <%= t("helpers.show") %></h1>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b><%= t("defines.usetype") %>:</b>
+  <%= @define.usetype %>
+</p>
+
+<p>
+  <b><%= t("defines.name") %>:</b>
+  <%= @define.name %>
+</p>
+
+<%= render 'shared/admin_form_command', :data => @define %>

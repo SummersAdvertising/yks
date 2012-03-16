@@ -1,0 +1,16 @@
+<h1><%= t("services.tablename") %></h1>
+
+<%= new %>
+<div class="list">
+<table>
+  <tr>
+    <td class="title"><%= t("services.title") %></td>
+  </tr>
+
+<% @services.each do |service| %>
+  <tr>
+    <td class="title"><%= service.title %><%= render 'shared/admin_list_command', :data => service %></td>
+  </tr>
+<% end %>
+</table>
+</div>

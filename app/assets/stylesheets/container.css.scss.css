@@ -1,0 +1,59 @@
+#container {
+	height:100%;
+	min-width:75%;
+	padding:20px;
+	overflow:auto;
+}
+.list {
+	border-top:1px solid #D1E5EE;
+	border-left:1px solid #D1E5EE;
+	border-right:1px solid #D1E5EE;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+}
+.list table {
+	font-family:"sans-serif";
+	font-size:12px;
+}
+
+.list tr {
+	border-top:1px solid #fff;
+	border-bottom:1px solid #D0DFE9;
+	line-height:35px;
+}
+ .list tr:nth-child(2n) {
+background:#F7FCFE
+}
+
+.list td {
+	padding:0 10px;
+	padding-bottom: 25px;
+}
+.list td a {
+	font-size:12px;
+	color:#21759B;
+}
+.list td a:hover {
+	color:#D54E21;
+}
+.list td:hover > div {
+	display: block;
+}
+
+.list .list-title {
+	background: #F3FAFF;
+	background: -webkit-linear-gradient(top, #F7FCFE 0%, #EFF8FF 100%);
+	background: -moz-linear-gradient(top, #F7FCFE 0%, #EFF8FF 100%);
+	text-shadow:-1px -1px 0 #fff;
+	font-size:14px;
+	line-height:35px;
+	font-family:"HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue"
+}
+.list .account{width:25%}
+.list .account a{font-weight:700;
+font-size:14px!important}
+.list .list_command{
+	position: absolute;
+	display: none;
+}

@@ -1,13 +1,15 @@
 Yks::Application.routes.draw do
-  resources :defines
-  resources :service_types
-  resources :system_site_maps
-  resources :services
-  resources :news
-  resources :user_exps
-  resources :banners
-  resources :tickets
-  resources :users
+  namespace :admin do
+    resources :defines
+    resources :system_site_maps
+    resources :services
+    resources :news
+    resources :user_exps
+    resources :banners
+    resources :tickets
+    resources :ticket_types
+    resources :users
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

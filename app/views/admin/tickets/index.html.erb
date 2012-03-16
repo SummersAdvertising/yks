@@ -1,0 +1,18 @@
+<h1><%= t("tickets.tablename") %></h1>
+
+<%= new %>
+<div class="list">
+<table>
+  <tr>
+    <td class="title"><%= t("tickets.title") %></td>
+    <td class="time"><%= t("tickettypes.time") %></td>
+  </tr>
+
+<% @tickets.each do |ticket| %>
+  <tr>
+    <td class="title"><%= ticket.title %><%= render 'shared/admin_list_command', :data => ticket %></td>
+    <td class="time"><%= ticket.time %></td>
+  </tr>
+<% end %>
+</table>
+</div>

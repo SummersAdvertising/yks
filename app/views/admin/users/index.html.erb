@@ -1,0 +1,23 @@
+<h1><%= t("users.tablename") %></h1>
+
+<%= new %>
+<div class="list">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="user">
+		<%= t("users.user") %>
+	</td>
+    <td class="define"><%= t("users.define_id") %></td>
+  </tr>
+
+<% @users.each do |user| %>
+  <tr>
+    <td class="user">
+		<%= user.user %>
+		<%= render 'shared/admin_list_command', :data => user %>
+	</td>
+    <td class="define"><%= user.define.name %></td>
+  </tr>
+<% end %>
+</table>
+</div>

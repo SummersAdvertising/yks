@@ -1,0 +1,16 @@
+<h1><%= t("user_exps.tablename") %></h1>
+
+<%= new %>
+<div class="list">
+<table>
+  <tr>
+    <td class="title"><%= t("user_exps.title") %></td>
+  </tr>
+
+<% @userexps.each do |userexp| %>
+  <tr>
+    <td class="title"><%= userexp.title %><%= render 'shared/admin_list_command', :data => userexp %></td>
+  </tr>
+<% end %>
+</table>
+</div>

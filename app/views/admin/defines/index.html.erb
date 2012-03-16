@@ -1,0 +1,16 @@
+<h1><%= t("defines.tablename") %></h1>
+
+<%= new %>
+<div class="list">
+<table>
+  <tr>
+    <td class=""><%= t("defines.name") %></td>
+  </tr>
+
+<% @defines.each do |define| %>
+  <tr>
+    <td class="title"><%= define.name %><%= render 'shared/admin_list_command', :data => define %></td>
+  </tr>
+<% end %>
+</table>
+</div>

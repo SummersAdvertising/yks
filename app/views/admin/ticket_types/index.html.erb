@@ -1,0 +1,16 @@
+<h1><%= t("tickettypes.tablename") %></h1>
+
+<%= new %>
+<div class="list">
+<table>
+  <tr>
+    <td class="name"><%= t("tickettypes.name") %></td>
+  </tr>
+
+<% @tickettypes.each do |tickettype| %>
+  <tr>
+    <td class="name"><%= tickettype.name %><%= render 'shared/admin_list_command', :data => tickettype %></td>
+  </tr>
+<% end %>
+</table>
+</div>

@@ -1,0 +1,34 @@
+<%= form_for([:admin,@ticket]) do |f| %>
+  <% if @ticket.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@ticket.errors.count, "error") %> prohibited this services from being saved:</h2>
+
+      <ul>
+      <% @banner.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title, '標題' %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :content, '內容' %><br />
+    <%= f.text_area :content %>
+  </div>
+  <div class="field">
+    <%= f.label :time, '時間' %><br />
+    <%= f.text_field :time %>
+  </div>
+  <div class="field">
+    <%= f.label :status, '狀態' %><br />
+	<%= select("ticket", "status", Define.where( :usetype => 'tickettype' ).collect {|p| [ p.name, p.id ] }, {:prompt => 'Select Type'})%>
+  </div>
+  <div class="actions">
+    <%= submit %>
+    <%= reset %>
+  </div>
+<% end %>

@@ -1,0 +1,22 @@
+<%= form_for([:admin,@tickettype], :url => {:controller => 'ticket_types', :action => (params["action"] == "new"? "create": "update")}) do |f| %>
+  <% if @tickettype.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@tickettype.errors.count, "error") %> prohibited this define from being saved:</h2>
+
+      <ul>
+      <% @tickettype.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name, '項目名稱' %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="actions">
+    <%= submit %>
+    <%= reset %>
+  </div>
+<% end %>

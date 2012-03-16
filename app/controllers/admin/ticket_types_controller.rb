@@ -1,0 +1,78 @@
+class Admin::TicketTypesController < ApplicationController
+  layout "admin"
+# GET /defines
+# GET /defines.json
+def index
+  @tickettypes = Define.where( :usetype => 'tickettype' )
+
+  respond_to do |format|
+    format.html # index.html.erb
+  end
+end
+
+# GET /defines/1
+# GET /defines/1.json
+def show
+  @tickettype = Define.find(params[:id])
+
+  respond_to do |format|
+    format.html # show.html.erb
+  end
+end
+
+# GET /defines/new
+# GET /defines/new.json
+def new
+  @tickettype = Define.new
+
+  respond_to do |format|
+    format.html # new.html.erb
+  end
+end
+
+# GET /defines/1/edit
+def edit
+  @tickettype = Define.find(params[:id])
+end
+
+# POST /defines
+# POST /defines.json
+def create
+  @tickettype = Define.new(params[:define])
+  @tickettype.usetype = 'tickettype'
+
+  respond_to do |format|
+    if @servicetype.save
+      format.html { redirect_to admin_ticket_type_path(@tickettype), notice: 'Define was successfully created.' }
+    else
+      format.html { render action: "new" }
+    end
+  end
+end
+
+# PUT /defines/1
+# PUT /defines/1.json
+def update
+  @tickettype = Define.find(params[:id])
+  @tickettype.usetype = 'tickettype'
+
+  respond_to do |format|
+    if @tickettype.update_attributes(params[:define])
+      format.html { redirect_to admin_ticket_type_path(@tickettype), notice: 'Define was successfully updated.' }
+    else
+      format.html { render action: "edit" }
+    end
+  end
+end
+
+# DELETE /defines/1
+# DELETE /defines/1.json
+def destroy
+  @tickettype = Define.find(params[:id])
+  @tickettype.destroy
+
+  respond_to do |format|
+    format.html { redirect_to admin_ticket_types_url }
+  end
+end
+end

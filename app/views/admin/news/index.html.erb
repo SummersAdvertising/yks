@@ -1,0 +1,18 @@
+<h1><%= t("news.tablename") %></h1>
+
+<%= new %>
+<div class="list">
+<table>
+  <tr>
+    <td class="title"><%= t("news.title") %></td>
+    <td class="time"><%= t("news.time") %></td>
+  </tr>
+
+<% @news.each do |new| %>
+  <tr>
+    <td class="title"><%= new.title %><%= render 'shared/admin_list_command', :data => new %></td>
+    <td class="time"><%= new.time %></td>
+  </tr>
+<% end %>
+</table>
+</div>

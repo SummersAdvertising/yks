@@ -5,25 +5,82 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <%= javascript_include_tag "rails" %>
+<script type="text/javascript">
+$(function(){
+   $('.side-box').find('.side-title').click(function(){
+      var $qa_content = $(this).next('.side-text');
+      if(!$qa_content.is(':visible')){
+	     $('.side-text:visible').slideUp();
+	  }
+		$qa_content.slideToggle()
+	})
+});
+</script>
 </head>
 <body>
-	<header>
-	</header>
-	<nav>
-		<ul>
-			<li><%= link_to t("news.tablename"), :controller => 'news', :action => :index%></li>
-			<li><%= link_to t("tickets.tablename"), tickets_path%></li>
-			<li><%= link_to t("defines.tablename"), defines_path%></li>
-			<li><%= link_to t("services.tablename"), services_path%></li>
-			<li><%= link_to t("user_exps.tablename"), user_exps_path%></li>
-			<li><%= link_to t("banners.tablename"), banners_path%></li>
-			<li><%= link_to t("users.tablename"), users_path%></li>
-		</ul>
-	</nav>
-	<section>
-		<%= yield %>
-	<section>
-	<footer>
-	</footer>
+<div id="top">
+	<ul class="left">
+		<li><a href="#">小圖</a></li>
+		<li><a href="#">公司行號名稱</a></li>
+		<li><a href="#">有的沒的1</a></li>
+		<li><a href="#">有的沒的2</a></li>
+		<li><a href="#">有的沒的3</a></li>
+	</ul>
+	<ul class="right">
+		<li><a href="#">登出</a></li>
+	</ul>
+</div>
+<!--top-->
+
+<div id="main">
+	<div id="side" class="left">
+		<ol>
+			<ul class="side-box">
+				<div class="side-title"><%= link_to t("news.tablename"), :controller => 'news', :action => :index%></div>
+			</ul>
+			<ul class="side-box">
+				<div class="side-title"><%= link_to t("services.tablename"), admin_services_path%></div>
+			</ul>
+			<ul class="side-box">
+				<div class="side-title"><%= link_to t("user_exps.tablename"), admin_user_exps_path%></div>
+			</ul>
+			<ul class="side-box">
+				<div class="side-title"><%= link_to t("banners.tablename"), admin_banners_path%></div>
+			</ul>
+		</ol>
+		<ol>
+			<ul class="side-box">
+				<div class="side-title"><%= link_to t("tickets.tablename"), admin_tickets_path%></div>
+			</ul>
+			<ul class="side-box">
+				<div class="side-title"><%= link_to t("tickettypes.tablename"), admin_ticket_types_path%></div>
+			</ul>
+		</ol>
+		<ol>
+			<ul class="side-box">
+				<div class="side-title"><%= link_to t("users.tablename"), admin_users_path%></div>
+			</ul>
+			<ul class="side-box">
+				<div class="side-title"><%= link_to "網站節點", admin_system_site_maps_path%></div>
+			</ul>
+		</ol>
+		<ol>
+			<ul id="side-none" class="side-box"></ul>
+		</ol>
+	</div>
+	<!--side-->
+	
+	<div id="container" class="left">
+		<div id="content">
+			<%= yield %>
+		</div>	
+		<!--content-->
+		<div id="footer"></div>
+		<!--footer-->
+	</div>
+	<!--container--> 
+</div>
+<!--main-->
 </body>
 </html>

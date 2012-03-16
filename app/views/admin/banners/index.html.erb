@@ -1,0 +1,16 @@
+<h1><%= t("banners.tablename") %></h1>
+
+<%= new %>
+<div class="list">
+<table>
+  <tr>
+    <td class="link"><%= t("banners.link") %></td>
+  </tr>
+
+<% @banners.each do |banner| %>
+  <tr>
+    <td class="link"><%= banner.link %><%= render 'shared/admin_list_command', :data => banner %></td>
+  </tr>
+<% end %>
+</table>
+</div>
