@@ -11,20 +11,21 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field form-title">
     <%= f.label :title, '標題' %><br />
     <%= f.text_field :title %>
   </div>
-  <div class="field">
-    <%= f.label :content, '內容' %><br />
-    <%= f.text_area :content %>
-  </div>
-  <div class="field">
+    <div class="field form-time">
     <%= f.label :time, '時間' %><br />
     <%= f.text_field :time %>
   </div>
-  <div class="field">
-    <%= f.label :status, '狀態' %><br />
+  <div class="field form-content">
+    <h3><%= f.label :content, '內容' %></h3><br />
+    <%= f.text_area :content %>
+  </div>
+
+  <div class="field form-status">
+    <h3><%= f.label :status, '狀態' %></h3><br />
 	<%= select("ticket", "status", Define.where( :usetype => 'tickettype' ).collect {|p| [ p.name, p.id ] }, {:prompt => 'Select Type'})%>
   </div>
   <div class="actions">
