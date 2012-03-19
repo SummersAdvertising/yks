@@ -1,0 +1,22 @@
+<h1><%= t("users.tablename") %> - <%= t("helpers.new") %></h1>
+<%= form_for([:admin, @user], :url => {:action => "changepw"}) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :password, '密碼' %><br />
+    <%= f.password_field :password %>
+  </div>
+  <div class="actions">
+    <%= submit %>
+    <%= reset %>
+  </div>
+<% end %>

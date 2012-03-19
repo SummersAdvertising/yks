@@ -4,10 +4,9 @@
 	padding:20px 2.5%;
 }
 h1 {
-	font: 300 23px "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue";
-	text-shadow: 0 -1px 0 #dfdfdf;
-	color: #174F69;
-	padding: 0 0 20px 0;
+  font: 300 24px "sans-serif";
+  color: #174F69;
+  padding: 0 0 20px 0;
 }
 h1 a {
 	font: 300 12px "sans-serif";
@@ -84,37 +83,4 @@ h1 a {
 .list-right {
 	float:right;
 	width:61%;
-}
-.form-left {
-	float:left;
-	width:34.5%;
-	padding-right:3.5%
-}
-h2 {
-	font:700 13.2px "sans-serif";
-	color:#333;
-	padding:20px 0 0 0;
-}
-.field {
-	font:300 12px "sans-serif";
-	color:#222;
-	padding:20px 0 20px 10px
-}
-.field #define_name {
-	border:1px solid #DFDFDF;
-	-webkit-border-radius: 5px;
-	border-radius: 5px;
-	padding:5px;
-	width:100%;
-	margin:5px 0 0 0
-}
-.actions input {
-	background:#f9f9f9;
-	background: -webkit-linear-gradient(top, #ffffff 0%, #f4f4f4 100%);
-	background: -moz-linear-gradient(top, #ffffff 0%, #f4f4f4 100%);
-	border:1px solid #bbb;
-	-webkit-border-radius: 15px;
-	border-radius: 15px;
-	color:#464646;
-	text-shadow:0 1px #fff
 }

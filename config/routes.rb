@@ -12,6 +12,8 @@ Yks::Application.routes.draw do
     match 'login' => 'login#index'
     match 'login/login' => 'login#login'
     match 'logout' => 'login#logout'
+    match 'change' => 'users#change'
+    match 'changepw' => 'users#changepw'
   end
 
   # The priority is based upon order of creation:

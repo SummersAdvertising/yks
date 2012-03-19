@@ -1,5 +1,25 @@
 class Admin::UsersController < AdminController
   layout "admin"
+  
+  def change
+  @user = User.where("user = :user", { :user => session["user"] }).first
+    respond_to do |format|
+      format.html
+    end
+  end
+  
+  def changepw
+    @user = User.where("user = :user", { :user => session["user"] }).first
+    data = params["user"]
+    respond_to do |format|
+      if @user.update_attributes(:password => data['password'])
+        format.html { redirect_to({:controller => :login, :action => :index}, notice: '') }
+      else
+        format.html { render action: "edit" }
+      end
+    end
+  end
+  
   # GET /users
   # GET /users.json
   def index
