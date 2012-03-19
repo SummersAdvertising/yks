@@ -2,24 +2,26 @@
 
 <p id="notice"><%= notice %></p>
 
+<div class="show">
 <p>
-  <b><%= t("news.title") %>:</b>
+  <b><%= t("news.title") %>：</b>
   <%= @new.title %>
 </p>
 
 <p>
-  <b><%= t("news.content") %>:</b>
-  <%= @new.content %>
-</p>
-
-<p>
-  <b><%= t("news.time") %>:</b>
+  <b><%= t("news.time") %>：</b>
   <%= @new.time %>
 </p>
 
 <p>
-  <b><%= t("news.status") %>:</b>
+  <b><%= t("news.content") %>：</b>
+  <%= @new.content %>
+</p>
+
+<p>
+  <b><%= t("news.status") %>：</b>
   <%= @new.status %>
 </p>
 
 <%= render 'shared/admin_form_command', :data => @new %>
+</div>

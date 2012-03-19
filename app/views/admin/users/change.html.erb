@@ -12,8 +12,16 @@
     </div>
   <% end %>
   <div class="field">
-    <%= f.label :password, '密碼' %><br />
+    <%= f.label :password, '舊密碼' %><br />
     <%= f.password_field :password %>
+  </div>
+  <div class="field">
+    <%= label_tag 'newpassword', '新密碼' %><br />
+    <%= password_field_tag 'newpassword' %>
+  </div>
+  <div class="field">
+    <%= label_tag 'confirmpassword', '確認密碼' %><br />
+    <%= password_field_tag 'confirmpassword' %>
   </div>
   <div class="actions">
     <%= submit %>
