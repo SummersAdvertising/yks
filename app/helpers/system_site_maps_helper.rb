@@ -6,9 +6,7 @@ module SystemSiteMapsHelper
       system_site_maps.each do |system_site_map|
         result += "<li>"
         result += String(system_site_map.title)
-        result += link_to('Show', system_site_map) + "|"
-        result += link_to('Edit', edit_system_site_map_path(system_site_map)) + "|"
-        result += link_to('Destroy', system_site_map, confirm: 'Are you sure?', method: :delete)
+        result += render 'shared/admin_list_command', :data => system_site_map
         result += "</li>"
         result += groups(system_site_map.id)
       end
