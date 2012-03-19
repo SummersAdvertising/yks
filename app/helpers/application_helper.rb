@@ -3,8 +3,8 @@ module ApplicationHelper
     raw tag "input", { :type => 'submit', :value => (text != nil ? text : t("helpers.form.submit")) }
   end
   
-  def reset(text=nil)
-    raw tag "input", { :type => 'reset', :value => (text != nil ? text : t("helpers.form.reset")) }
+  def cancel(text=nil)
+    raw tag "input", { :type => 'button', :value => (text != nil ? text : t("helpers.form.cancel")), :onclick => "location.href='"+ url_for(:action=>"index")+"';" }
   end
   
   def new(text=nil)

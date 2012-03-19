@@ -1,10 +1,11 @@
 <h1><%= t("tickettypes.tablename") %> - <%= t("helpers.show") %></h1>
 
-<p id="notice"><%= notice %></p>
-
-<p>
+<span id="notice"><%= notice %></span>
+<div class="show">
+<div>
   <b><%= t("tickettypes.name") %>:</b>
   <%= @tickettype.name %>
-</p>
+</div>
 
 <%= render 'shared/admin_form_command', :data => @tickettype %>
+</div>

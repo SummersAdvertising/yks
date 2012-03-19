@@ -1,25 +1,26 @@
 <h1><%= t("tickets.tablename") %> - <%= t("helpers.show") %></h1>
 
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b><%= t("tickets.title") %>:</b>
+<span id="notice"><%= notice %></span>
+<div class="show">
+<div>
+  <b><%= t("tickets.title") %>：</b>
   <%= @ticket.title %>
-</p>
+</div>
 
-<p>
-  <b><%= t("tickets.content") %>:</b>
+<div>
+  <b><%= t("tickets.content") %>：</b>
   <%= @ticket.content %>
-</p>
+</div>
 
-<p>
-  <b><%= t("tickets.time") %>:</b>
+<div>
+  <b><%= t("tickets.time") %>：</b>
   <%= @ticket.time %>
-</p>
+</div>
 
-<p>
-  <b><%= t("tickets.status") %>:</b>
+<div>
+  <b><%= t("tickets.status") %>：</b>
   <%= @ticket.status %>
-</p>
+</div>
 
 <%= render 'shared/admin_form_command', :data => @ticket %>
+</div>
