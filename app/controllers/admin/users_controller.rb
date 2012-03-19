@@ -1,6 +1,6 @@
 class Admin::UsersController < AdminController
   layout "admin"
-  
+  require 'digest/sha1'
   def change
   @user = User.where("user = :user", { :user => session["user"] }).first
     respond_to do |format|
@@ -9,17 +9,20 @@ class Admin::UsersController < AdminController
   end
   
   def changepw
-    @user = User.where("user = :user", { :user => session["user"] }).first
-    data = params["user"]
+    @user = User.where("user = :user and password = :password", { :user => session["user"], :password => Digest::SHA1.hexdigest(params["user"]['password']) }).first
+
     respond_to do |format|
-      if @user.update_attributes(:password => data['password'])
-        format.html { redirect_to({:controller => :login, :action => :index}, notice: '') }
-      else
-        format.html { render action: "edit" }
+      if params["newpassword"] == params["confirmpassword"] && @user != nil
+        if @user.update_attributes(:password => Digest::SHA1.hexdigest(params["newpassword"]))
+          format.html { redirect_to({:controller => :login, :action => :index}, notice: 'change be finaly') }
+        end
       end
+      format.html { redirect_to action: "change" }
     end
   end
-  
+  def self.sha1(pass)
+    Digest::SHA1.hexdigest("---changme--#{pass}--")
+  end
   # GET /users
   # GET /users.json
   def index

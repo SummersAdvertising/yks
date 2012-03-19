@@ -26,6 +26,6 @@ module ApplicationHelper
   
   def back(text=nil)
     #<%= link_to t("helpers.form.back"), :action => "index" %>
-    raw link_to (text != nil ? text : t("helpers.form.back")), {:action => "index"}
+    raw link_to (text != nil ? text : t("helpers.form.back")), {:action => "index"}, :class => "back"
   end
 end
