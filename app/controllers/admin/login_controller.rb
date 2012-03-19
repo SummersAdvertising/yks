@@ -8,7 +8,7 @@ class Admin::LoginController < ApplicationController
   end
     def login
       user = params[:user]
-      @user = User.where("user = :user AND password = :password", { :user => user["user"], :password => user['password']})
+      @user = User.where("user = :user AND password = :password", { :user => user["user"], :password => Digest::SHA1.hexdigest(user['password'])})
       respond_to do |format|
         if @user.first != nil
           session[:user] = @user.first.user

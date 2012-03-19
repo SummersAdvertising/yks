@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   def permission
   respond_to do |format|
-    format.html { redirect_to "/admin/login" }
+		format.html { redirect_to :controller => :login, :action => :login }
   end
   end
 
