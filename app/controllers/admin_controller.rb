@@ -4,9 +4,9 @@ class AdminController < ApplicationController
 
   def permission
     if session[:user] == nil
-  respond_to do |format|
-    format.html { redirect_to "/admin/login" }
-  end
-  end
+		  respond_to do |format|
+			format.html { redirect_to :controller => :login, :action => :login }
+		  end
+ 	 end
   end
 end
