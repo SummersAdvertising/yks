@@ -42,7 +42,7 @@ class Admin::DefinesController < AdminController
 
     respond_to do |format|
       if @define.save
-        format.html { redirect_to [:admin,@define], notice: 'Define was successfully created.' }
+        format.html { redirect_to [:admin,@define], notice: t("helpers.notice.new") }
       else
         format.html { render action: "new" }
       end
@@ -56,7 +56,7 @@ class Admin::DefinesController < AdminController
 
     respond_to do |format|
       if @define.update_attributes(params[:define])
-        format.html { redirect_to [:admin,@define], notice: 'Define was successfully updated.' }
+        format.html { redirect_to [:admin,@define], notice: t("helpers.notice.update") }
       else
         format.html { render action: "edit" }
       end

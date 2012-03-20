@@ -1,15 +1,10 @@
 <h1><%= t("tickets.tablename") %> - <%= t("helpers.show") %></h1>
 
-<span id="notice"><%= notice %></span>
+<%= render 'shared/admin_form_notice' %>
 <div class="show">
 <div>
   <b><%= t("tickets.title") %>：</b>
   <%= @ticket.title %>
-</div>
-
-<div>
-  <b><%= t("tickets.content") %>：</b>
-  <%= simple_format @ticket.content %>
 </div>
 
 <div>
@@ -18,8 +13,13 @@
 </div>
 
 <div>
+  <b><%= t("tickets.content") %>：</b>
+  <%= simple_format @ticket.content %>
+</div>
+
+<div>
   <b><%= t("tickets.status") %>：</b>
-  <%= @ticket.status %>
+  <%= @ticket.define.name %>
 </div>
 
 <%= render 'shared/admin_form_command', :data => @ticket %>

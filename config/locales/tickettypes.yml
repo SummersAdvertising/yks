@@ -3,4 +3,5 @@ zh-TW:
         tablename: 客服狀態管理
         usetype: 類型
         name: 名稱
+        time: 時間
         status: 狀態

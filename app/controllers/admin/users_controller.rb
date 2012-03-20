@@ -1,6 +1,16 @@
 class Admin::UsersController < AdminController
   layout "admin"
   require 'digest/sha1'
+  before_filter :permission
+
+  def permission
+    if session[:user] != 'master'
+		  respond_to do |format|
+			format.html { redirect_to :controller => :news, :action => :index }
+		  end
+ 	 end
+  end
+  
   def change
   @user = User.where("user = :user", { :user => session["user"] }).first
     respond_to do |format|
@@ -59,10 +69,11 @@ class Admin::UsersController < AdminController
   # POST /users.json
   def create
     @user = User.new(params[:user])
+    @user.password = Digest::SHA1.hexdigest(@user.password)
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to [:admin,@user], notice: 'User was successfully created.' }
+        format.html { redirect_to [:admin,@user], notice: t("helpers.notice.new") }
       else
         format.html { render action: "new" }
       end
@@ -73,10 +84,11 @@ class Admin::UsersController < AdminController
   # PUT /users/1.json
   def update
     @user = User.find(params[:id])
-
+    params[:user]['password'] = Digest::SHA1.hexdigest(params[:user]['password'])
+    
     respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.html { redirect_to [:admin,@user], notice: 'User was successfully updated.' }
+        format.html { redirect_to [:admin,@user], notice: t("helpers.notice.update") }
       else
         format.html { render action: "edit" }
       end

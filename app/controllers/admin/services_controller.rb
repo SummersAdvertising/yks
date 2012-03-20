@@ -49,7 +49,7 @@ layout "admin"
         system_site_map.save
         @service.update_attributes(:system_site_maps_id => system_site_map.id)
         
-        format.html { redirect_to [:admin,@service], notice: 'Service was successfully created.' }
+        format.html { redirect_to [:admin, @service], notice: t("helpers.notice.new") }
       else
         format.html { render action: "new" }
       end
@@ -65,7 +65,7 @@ layout "admin"
     respond_to do |format|
       if @service.update_attributes(params[:service])
         system_site_map.update_attributes(:title => @service.title)
-        format.html { redirect_to [:admin,@service], notice: 'System site map was successfully updated.' }
+        format.html { redirect_to [:admin,@service], notice: t("helpers.notice.update") }
       else
         format.html { render action: "edit" }
       end
@@ -77,7 +77,7 @@ layout "admin"
   def destroy
     @service = Service.find(params[:id])
     system_site_map = SystemSiteMap.where( :parameter => params[:id] ).first
-    system_site_map.destroy
+    system_site_map.destroy if system_site_map != nil
     @service.destroy
 
     respond_to do |format|

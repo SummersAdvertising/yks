@@ -42,7 +42,7 @@ layout "admin"
 
     respond_to do |format|
       if @system_site_map.save
-        format.html { redirect_to [:admin,@system_site_map], notice: 'System site map was successfully created.' }
+        format.html { redirect_to [:admin,@system_site_map], notice: t("helpers.notice.new") }
       else
         format.html { render action: "new" }
       end
@@ -56,7 +56,7 @@ layout "admin"
 
     respond_to do |format|
       if @system_site_map.update_attributes(params[:system_site_map])
-        format.html { redirect_to [:admin,@system_site_map], notice: 'System site map was successfully updated.' }
+        format.html { redirect_to [:admin,@system_site_map], notice: t("helpers.notice.update") }
       else
         format.html { render action: "edit" }
       end

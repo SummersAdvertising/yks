@@ -25,8 +25,8 @@
   </div>
 
   <div class="field form-status">
-    <h3><%= f.label :status, '狀態' %></h3><br />
-	<%= select("ticket", "status", Define.where( :usetype => 'tickettype' ).collect {|p| [ p.name, p.id ] }, {:prompt => 'Select Type'})%>
+    <h3><%= f.label :define_id, '狀態' %></h3><br />
+	<%= select("ticket", "define_id", Define.where( :usetype => 'tickettype' ).collect {|p| [ p.name, p.id ] }, {:prompt => 'Select Type'})%>
   </div>
   <div class="actions">
     <%= submit %>

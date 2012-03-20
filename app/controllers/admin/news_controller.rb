@@ -42,7 +42,7 @@ layout "admin"
 
     respond_to do |format|
       if @new.save
-        format.html { redirect_to [:admin,@new], notice: 'Service was successfully created.' }
+        format.html { redirect_to [:admin,@new], notice: t("helpers.notice.new") }
       else
         format.html { render action: "new" }
       end
@@ -56,7 +56,7 @@ layout "admin"
 
     respond_to do |format|
       if @new.update_attributes(params[:news])
-        format.html { redirect_to [:admin,@new], notice: 'System site map was successfully updated.' }
+        format.html { redirect_to [:admin,@new], notice: t("helpers.notice.update") }
       else
         format.html { render action: "edit" }
       end

@@ -50,7 +50,7 @@ def create
        File.open("#{filewhere}", "wb") do |f|  
           f.write(file.read)  
        end
-      format.html { redirect_to [:admin,@banner], notice: 'Service was successfully created.' }
+      format.html { redirect_to [:admin,@banner], notice: t("helpers.notice.new") }
     else
       format.html { render action: "new" }
     end
@@ -71,7 +71,7 @@ def update
        File.open("#{filewhere}", "wb") do |f|  
           f.write(file.read)  
        end
-      format.html { redirect_to [:admin,@banner], notice: 'System site map was successfully updated.' }
+      format.html { redirect_to [:admin,@banner], notice: t("helpers.notice.update") }
     else
       format.html { render action: "edit" }
     end

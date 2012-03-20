@@ -42,7 +42,7 @@ def create
 
   respond_to do |format|
     if @userexp.save
-      format.html { redirect_to [:admin,@userexp], notice: 'Service was successfully created.' }
+      format.html { redirect_to [:admin,@userexp], notice: t("helpers.notice.new") }
     else
       format.html { render action: "new" }
     end
@@ -56,7 +56,7 @@ def update
 
   respond_to do |format|
     if @userexp.update_attributes(params[:user_exp])
-      format.html { redirect_to [:admin,@userexp], notice: 'System site map was successfully updated.' }
+      format.html { redirect_to [:admin,@userexp], notice: t("helpers.notice.update") }
     else
       format.html { render action: "edit" }
     end

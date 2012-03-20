@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120316041628) do
+ActiveRecord::Schema.define(:version => 20120320040834) do
 
   create_table "banners", :force => true do |t|
     t.string   "link"
@@ -83,7 +83,7 @@ ActiveRecord::Schema.define(:version => 20120316041628) do
     t.string   "title"
     t.text     "content"
     t.datetime "time"
-    t.string   "status"
+    t.integer  "define_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

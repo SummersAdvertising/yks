@@ -1,12 +1,14 @@
+/*-------------------------------------------------------------------網頁右邊*/
 #container {
 	height: 100%;
 	width:80%;
 	padding:20px 2.5%;
 }
+/*-------------------------------------------------------------------大標題*/
 h1 {
-  font: 300 24px "sans-serif";
-  color: #174F69;
-  padding: 0 0 20px 0;
+	font: 300 24px "sans-serif";
+	color: #174F69;
+	padding: 0 0 20px 0;
 }
 h1 a {
 	font: 300 12px "sans-serif";
@@ -20,6 +22,7 @@ h1 a {
 	bottom:3px;
 	left:10px
 }
+/*-------------------------------------------------------------------文章列表*/
 .list {
 	border-top: 1px solid #D1E5EE;
 	border-left: 1px solid #D1E5EE;
@@ -32,6 +35,7 @@ h1 a {
 	font-family: "sans-serif";
 	font-size: 12px;
 }
+/*-------------------------------------------------------------------文章標題*/
 .list .list-title {
 	background: #F3FAFF;
 	background: -webkit-linear-gradient(top, #f7fcfe 0%, #eff8ff 100%);
@@ -41,6 +45,7 @@ h1 a {
 	line-height: 35px;
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue";
 }
+/*-------------------------------------------------------------------文章內文*/
 .list .list-content {
 	padding-bottom: 20px;
 }
@@ -65,6 +70,7 @@ h1 a {
 .list td a:hover {
 	color: #D54E21;
 }
+/*-------------------------------------------------------------------文章編輯*/
 .list .list-command {
 	position: absolute;
 	display: none;
@@ -80,6 +86,7 @@ h1 a {
 .list .list-content .first {
 	font-weight:700
 }
+/*-------------------------------------------------------------------客服狀態(右)*/
 .list-right {
 	float:right;
 	width:61%;

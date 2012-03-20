@@ -1,9 +1,11 @@
+/*-------------------------------------------------------------------網頁左邊*/
 #side {
 	background:#D1E5EE;
 	height:auto;
 	width:14%;
 	border-right:1px solid #D1E5EE
 }
+/*-------------------------------------------------------------------分類子選單*/
 #side .side-text {
 	background:#fff;
 	padding:5px 0;
@@ -19,9 +21,10 @@
 	background:#EFF8FF;
 	color:#333
 }
-#side .side-text a:active {
+#side .side-text .active {
 	font-weight:700
 }
+/*-------------------------------------------------------------------分類父選單*/
 #side .side-title {
 	background:#EFF8FF;
 	cursor:pointer
@@ -36,13 +39,19 @@
 #side .side-title a:hover {
 	background:#E0F1FF;
 }
-#side .side-title a:active {
+#side .side-title .active {
 	background:#5C93B3;
 	background: -webkit-linear-gradient(top, #619BBB 0%, #5589AA 100%);
 	background: -moz-linear-gradient(top, #619BBB 0%, #5589AA 100%);
 	color:#fff;
 	text-shadow:0 -1px 0px #333
 }
+#side .side-title .active:hover {
+	background:#5C93B3;
+	background: -webkit-linear-gradient(top, #619BBB 0%, #5589AA 100%);
+	background: -moz-linear-gradient(top, #619BBB 0%, #5589AA 100%);
+}
+/*-------------------------------------------------------------------大分類群組*/
 #side .side-box {
 	border-bottom:1px solid #CAE6FF;
 	border-top:1px solid #fff;
@@ -52,6 +61,7 @@
 	border-bottom:1px solid #BED1DD;
 	margin-bottom:3px
 }
+/*-------------------------------------------------------------------延伸樣式*/
 #side #side-none {
 	background:#EFF8FF;
 	height:auto;

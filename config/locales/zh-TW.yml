@@ -135,7 +135,11 @@ zh-TW:
         prompt: 請選擇
       back: 返回
       submit: 儲存
-      reset: 清除
+      cancel: 取消
+    notice:
+      new: 新增已經完成。
+      update: 修改已經完成。
+      delete: 刪除已經完成。
   number:
     currency:
       format:

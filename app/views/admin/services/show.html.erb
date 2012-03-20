@@ -1,15 +1,10 @@
 <h1><%= t("services.tablename") %> - <%= t("helpers.show") %></h1>
 
-<span id="notice"><%= notice %></span>
+<%= render 'shared/admin_form_notice' %>
 <div class="show">
 <div>
   <b><%= t("services.title") %>：</b>
   <%= @service.title %>
-</div>
-
-<div>
-  <b><%= t("services.content") %>：</b>
-  <%= @service.content %>
 </div>
 
 <div>
@@ -18,8 +13,8 @@
 </div>
 
 <div>
-  <b><%= t("services.status") %>：</b>
-  <%= @service.status %>
+  <b><%= t("services.content") %>：</b>
+  <%= simple_format @service.content %>
 </div>
 
 <%= render 'shared/admin_form_command', :data => @service %>
