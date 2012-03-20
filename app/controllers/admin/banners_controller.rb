@@ -39,10 +39,17 @@ end
 # POST /system_site_maps.json
 def create
   @banner = Banner.new(params[:banner])
-
+  
   respond_to do |format|
     if @banner.save
-      @post = DataFile.save(params[:upload])
+     
+      #file.original_filename
+       file = params[:upload]['filename']
+       filename = @banner.id
+       filewhere = "public/#{filename}.jpg"
+       File.open("#{filewhere}", "wb") do |f|  
+          f.write(file.read)  
+       end
       format.html { redirect_to [:admin,@banner], notice: 'Service was successfully created.' }
     else
       format.html { render action: "new" }
@@ -57,13 +64,13 @@ def update
 
   respond_to do |format|
     if @banner.update_attributes(params[:banner])
-       #name =  upload['datafile'].original_filename
-       #directory = "public/data"
-       # create the file path
-       #path = File.join(directory, name)
-       # write the file
-       #File.open(path, "wb") { |f| f.write(upload['datafile'].read) }
-      #@post = DataFile.save(params[:upload], @banner.id.to_s)
+      #file.original_filename
+       file = params[:upload]['filename']
+       filename = @banner.id
+       filewhere = "public/#{filename}.jpg"
+       File.open("#{filewhere}", "wb") do |f|  
+          f.write(file.read)  
+       end
       format.html { redirect_to [:admin,@banner], notice: 'System site map was successfully updated.' }
     else
       format.html { render action: "edit" }

@@ -1,27 +1,26 @@
 <h1><%= t("news.tablename") %> - <%= t("helpers.show") %></h1>
 
-<p id="notice"><%= notice %></p>
-
+<span id="notice"><%= notice %></span>
 <div class="show">
-<p>
+<div>
   <b><%= t("news.title") %>：</b>
   <%= @new.title %>
-</p>
+</div>
 
-<p>
+<div>
   <b><%= t("news.time") %>：</b>
   <%= @new.time %>
-</p>
+</div>
 
-<p>
+<div>
   <b><%= t("news.content") %>：</b>
-  <%= @new.content %>
-</p>
+  <%= simple_format @new.content %>
+</div>
 
-<p>
+<div>
   <b><%= t("news.status") %>：</b>
   <%= @new.status %>
-</p>
+</div>
 
 <%= render 'shared/admin_form_command', :data => @new %>
 </div>

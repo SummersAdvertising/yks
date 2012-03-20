@@ -20,9 +20,6 @@ class Admin::UsersController < AdminController
       format.html { redirect_to action: "change" }
     end
   end
-  def self.sha1(pass)
-    Digest::SHA1.hexdigest("---changme--#{pass}--")
-  end
   # GET /users
   # GET /users.json
   def index

@@ -1,9 +1,3 @@
-<%= javascript_include_tag 'http://ajax.googleapis.com/ajax/libs/mootools/1.2.2/mootools.js',
-'https://raw.github.com/tamoyal/fancyupload_with_rails/master/public/javascripts/fancyupload/source/Fx.ProgressBar.js',
-'https://raw.github.com/tamoyal/fancyupload_with_rails/master/public/javascripts/fancyupload/source/Swiff.Uploader.js',
-'https://raw.github.com/tamoyal/fancyupload_with_rails/master/public/javascripts/fancyupload/source/FancyUpload3.Attach.js'
-%>
-<%=file_uploader%>
 <%= form_for([:admin,@banner], :html => { :multipart => true }) do |f| %>
   <% if @banner.errors.any? %>
     <div id="error_explanation">
@@ -17,9 +11,9 @@
     </div>
   <% end %>
   <div class="field">
-	<img src="public/test/<%= @banner.id %>">
-	<%= label 'upload', 'File' -%>
-    <%= file_field 'upload', 'datafile' -%>
+	<img src="/public/<%=@banner.id%>.jpg">
+	<%= label 'upload', 'filename', '檔案' %>
+    <%= file_field 'upload', 'filename' %>
   </div>
   <div class="field">
 	<%= f.label :link, '連結' %><br />
@@ -35,6 +29,6 @@
   </div>
   <div class="actions">
     <%= submit %>
-    <%= reset %>
+    <%= cancel %>
   </div>
 <% end %>

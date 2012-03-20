@@ -1,0 +1,28 @@
+.show {
+	font: 300 12px "sans-serif";
+	color: #333
+}
+.show div {
+	background:#F7FCFE;
+	border:1px solid #D1E5EE;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	padding:5px 10px;
+	margin-bottom:5px;
+	line-height:20px;
+}
+.show b {
+	font: 700 13px "sans-serif";
+	color: #21759B;
+	text-shadow:0 -1px 0 #fff
+}
+#notice {
+	font: 300 12px "sans-serif";
+	background: #FFFFDC;
+	padding:5px 50px;
+	margin-bottom:30px;
+	border:1px solid #DDDD82;
+	position:relative;
+	bottom:47px;
+	left:185px
+}
