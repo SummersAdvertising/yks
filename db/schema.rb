@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120320040834) do
+ActiveRecord::Schema.define(:version => 20120320081734) do
 
   create_table "banners", :force => true do |t|
     t.string   "link"
@@ -80,12 +80,16 @@ ActiveRecord::Schema.define(:version => 20120320040834) do
   end
 
   create_table "tickets", :force => true do |t|
-    t.string   "title"
-    t.text     "content"
+    t.string   "name"
+    t.text     "remark"
     t.datetime "time"
     t.integer  "define_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "phone"
+    t.string   "address"
+    t.string   "email"
+    t.integer  "hopetime"
   end
 
   create_table "user_exps", :force => true do |t|

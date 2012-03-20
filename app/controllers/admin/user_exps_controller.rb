@@ -39,7 +39,13 @@ end
 # POST /system_site_maps.json
 def create
   @userexp = UserExp.new(params[:user_exp])
-
+  
+   file = params[:upload]['filename']
+   filename = @userexp.id
+   filewhere = "public/user_exps/#{filename}.jpg"
+   File.open("#{filewhere}", "wb") do |f|  
+      f.write(file.read)  
+   end
   respond_to do |format|
     if @userexp.save
       format.html { redirect_to [:admin,@userexp], notice: t("helpers.notice.new") }
@@ -53,7 +59,13 @@ end
 # PUT /system_site_maps/1.json
 def update
   @userexp = UserExp.find(params[:id])
-
+  
+   file = params[:upload]['filename']
+   filename = @userexp.id
+   filewhere = "public/user_exps/#{filename}.jpg"
+   File.open("#{filewhere}", "wb") do |f|  
+      f.write(file.read)  
+   end
   respond_to do |format|
     if @userexp.update_attributes(params[:user_exp])
       format.html { redirect_to [:admin,@userexp], notice: t("helpers.notice.update") }

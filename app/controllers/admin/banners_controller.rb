@@ -46,9 +46,9 @@ def create
       #file.original_filename
        file = params[:upload]['filename']
        filename = @banner.id
-       filewhere = "public/#{filename}.jpg"
+       filewhere = "public/banners/#{filename}.jpg"
        File.open("#{filewhere}", "wb") do |f|  
-          f.write(file.read)  
+          f.write(file.read)
        end
       format.html { redirect_to [:admin,@banner], notice: t("helpers.notice.new") }
     else
@@ -67,7 +67,7 @@ def update
       #file.original_filename
        file = params[:upload]['filename']
        filename = @banner.id
-       filewhere = "public/#{filename}.jpg"
+       filewhere = "public/banners/#{filename}.jpg"
        File.open("#{filewhere}", "wb") do |f|  
           f.write(file.read)  
        end

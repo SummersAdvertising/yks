@@ -35,11 +35,16 @@ def edit
   @ticket = Ticket.find(params[:id])
 end
 
+  # GET /system_site_maps/1/edit
+  def remarkedit
+    @ticket = Ticket.find(params[:id])
+  end
+
 # POST /system_site_maps
 # POST /system_site_maps.json
 def create
   @ticket = Ticket.new(params[:ticket])
-
+  @ticket.time = Time.now
   respond_to do |format|
     if @ticket.save
       format.html { redirect_to [:admin,@ticket], notice: t("helpers.notice.new") }
@@ -53,7 +58,7 @@ end
 # PUT /system_site_maps/1.json
 def update
   @ticket = Ticket.find(params[:id])
-
+  @ticket.time = Time.now
   respond_to do |format|
     if @ticket.update_attributes(params[:ticket])
       format.html { redirect_to [:admin,@ticket], notice: t("helpers.notice.update") }
