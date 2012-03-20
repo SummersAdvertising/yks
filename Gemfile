@@ -39,3 +39,8 @@ gem 'jquery-rails'
 
 gem 'execjs'
 gem 'therubyracer'
+<<<<<<< HEAD
+=======
+
+#gem 'restful'
+>>>>>>> 9b3cb025df6aac58b8466ce2b52d72ce2b781066
