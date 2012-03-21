@@ -1,6 +1,6 @@
 <h1><%= t("user_exps.tablename") %> - <%= t("helpers.show") %></h1>
 
-<span id="notice"><%= notice %></span>
+<%= render 'shared/admin_form_notice' %>
 <div class="show">
 <div>
   <b><%= t("user_exps.title") %>：</b>
@@ -8,13 +8,13 @@
 </div>
 
 <div>
-  <b><%= t("user_exps.content") %>：</b>
-  <%= simple_format @userexp.content %>
+  <b><%= t("user_exps.time") %>：</b>
+  <%= @userexp.time %>
 </div>
 
 <div>
-  <b><%= t("user_exps.time") %>：</b>
-  <%= @userexp.time %>
+  <b><%= t("user_exps.content") %>：</b>
+  <%= simple_format @userexp.content %>
 </div>
 
 <%= render 'shared/admin_form_command', :data => @userexp %>

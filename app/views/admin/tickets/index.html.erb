@@ -4,14 +4,22 @@
 <div class="list">
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr class="list-title">
-    <td><%= t("tickets.title") %></td>
-    <td><%= t("tickettypes.time") %></td>
+    <td><%= t("tickets.name") %></td>
+    <td><%= t("tickets.phone") %></td>
+    <td><%= t("tickets.address") %></td>
+    <td><%= t("tickets.email") %></td>
+    <td><%= t("tickets.hopetime") %></td>
+    <td><%= t("tickettypes.status") %></td>
   </tr>
 
 <% @tickets.each do |ticket| %>
   <tr class="list-content">
-    <td class="first"><a><%= show ticket, ticket.title %></a><%= render 'shared/admin_list_command', :data => ticket %></td>
-    <td><%= ticket.time %></td>
+    <td class="first"><a><%= show ticket, ticket.name %></a><%= render 'shared/admin_list_command', :data => ticket %><div class="list-command"><%=link_to t("helpers.edit"), {:action => "remarkedit", :id => ticket.id}, :class => "mod"%></div></td>
+    <td><%= ticket.phone %></td>
+    <td><%= ticket.address %></td>
+    <td><%= ticket.email %></td>
+    <td><%= (ticket.hopetime==0?"平日":"周末及假日") %></td>
+    <td><%= ticket.define.name %></td>
   </tr>
 <% end %>
 </table>

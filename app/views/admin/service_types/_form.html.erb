@@ -1,0 +1,22 @@
+<%= form_for([:admin,@system_site_map], :url => {:controller => 'service_types', :action => (params["action"] == "new"? "create": "update")}) do |f| %>
+  <% if @system_site_map.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@system_site_map.errors.count, "error") %> prohibited this system_site_map from being saved:</h2>
+
+      <ul>
+      <% @system_site_map.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title, '服務項目' %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="actions">
+    <%= submit %>
+    <%= cancel %>
+  </div>
+<% end %>

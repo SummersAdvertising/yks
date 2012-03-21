@@ -1,5 +1,4 @@
 html, body {
-	height:100%;
 	font-family:"sans-serif";
 	line-height:1.4em;
 	min-width:600px;
@@ -15,7 +14,7 @@ a {
 	float:right
 }
 #main {
-	*overflow:none;
+ *overflow:none;
 	overflow:hidden;
 	width:100%;
 	min-width:1024px;
@@ -27,4 +26,3 @@ a {
 #main a:hover {
 	color:#D54E21
 }
-

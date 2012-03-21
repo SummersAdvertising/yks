@@ -1,4 +1,4 @@
-<h1><%= t("services.tablename") %><%= new %></h1>
+<h1><%= t("services.tablename") %> - <%= @system_site_map.title %><%= new %></h1>
 
 
 <div class="list">
@@ -9,7 +9,7 @@
 
 <% @services.each do |service| %>
   <tr class="list-content">
-    <td class="first"><a><%= show service, service.title %></a><%= render 'shared/admin_list_command', :data => service %></td>
+    <td class="first"><%= show service, service.title %><%= render 'shared/admin_list_command', :data => service %></td>
   </tr>
 <% end %>
 </table>

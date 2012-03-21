@@ -3,6 +3,7 @@ Yks::Application.routes.draw do
     resources :defines
     resources :system_site_maps
     resources :services
+    resources :service_types
     resources :news
     resources :user_exps
     resources :banners

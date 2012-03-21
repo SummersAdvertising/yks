@@ -10,21 +10,21 @@
       </ul>
     </div>
   <% end %>
-  <div class="field">
-	<img src="/public/<%=@banner.id%>.jpg">
+  <div class="field form-file">
+	<%= raw '<img src="/banners/' + @banner.id.to_s + '.jpg">' if params[:action] == "edit" %>
 	<%= label 'upload', 'filename', '檔案' %>
     <%= file_field 'upload', 'filename' %>
   </div>
-  <div class="field">
+  <div class="field form-title">
 	<%= f.label :link, '連結' %><br />
     <%= f.text_field :link %>
   </div>
-  <div class="field">
+  <div class="field form-time">
 	<%= f.label :time, '時間' %><br />
     <%= f.text_field :time %>
   </div>
-  <div class="field">
-	<%= f.label :status, '狀態' %><br />
+  <div class="field form-status">
+	<h3><%= f.label :status, '狀態' %></h3><br />
     <%= f.check_box :status %>
   </div>
   <div class="actions">

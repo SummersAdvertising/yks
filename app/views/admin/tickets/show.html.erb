@@ -1,25 +1,40 @@
 <h1><%= t("tickets.tablename") %> - <%= t("helpers.show") %></h1>
 
-<span id="notice"><%= notice %></span>
+<%= render 'shared/admin_form_notice' %>
 <div class="show">
 <div>
-  <b><%= t("tickets.title") %>：</b>
-  <%= @ticket.title %>
+  <b><%= t("tickets.name") %>：</b>
+  <%= @ticket.name %>
 </div>
 
 <div>
-  <b><%= t("tickets.content") %>：</b>
-  <%= simple_format @ticket.content %>
+  <b><%= t("tickets.phone") %>：</b>
+  <%= @ticket.phone %>
 </div>
 
 <div>
-  <b><%= t("tickets.time") %>：</b>
-  <%= @ticket.time %>
+  <b><%= t("tickets.address") %>：</b>
+  <%= @ticket.address %>
+</div>
+
+<div>
+  <b><%= t("tickets.email") %>：</b>
+  <%= @ticket.email %>
+</div>
+
+<div>
+  <b><%= t("tickets.hopetime") %>：</b>
+  <%= (@ticket.hopetime==0?"平日":"周末及假日") %>
+</div>
+
+<div>
+  <b><%= t("tickets.remark") %>：</b>
+  <%= simple_format @ticket.remark %>
 </div>
 
 <div>
   <b><%= t("tickets.status") %>：</b>
-  <%= @ticket.status %>
+  <%= @ticket.define.name %>
 </div>
 
 <%= render 'shared/admin_form_command', :data => @ticket %>

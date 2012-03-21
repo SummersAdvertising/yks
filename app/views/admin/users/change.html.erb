@@ -11,17 +11,21 @@
       </ul>
     </div>
   <% end %>
+  <div id="old-pw">
   <div class="field">
-    <%= f.label :password, '舊密碼' %><br />
+    <%= f.label :password, '請輸入舊密碼' %><br />
     <%= f.password_field :password %>
   </div>
+  </div>
+  <div id="new-pw">
   <div class="field">
-    <%= label_tag 'newpassword', '新密碼' %><br />
+    <%= label_tag 'newpassword', '請輸入新密碼' %><br />
     <%= password_field_tag 'newpassword' %>
   </div>
   <div class="field">
-    <%= label_tag 'confirmpassword', '確認密碼' %><br />
+    <%= label_tag 'confirmpassword', '再次確認新密碼' %><br />
     <%= password_field_tag 'confirmpassword' %>
+  </div>
   </div>
   <div class="actions">
     <%= submit %>

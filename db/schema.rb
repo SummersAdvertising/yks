@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120316041628) do
+ActiveRecord::Schema.define(:version => 20120321035022) do
 
   create_table "banners", :force => true do |t|
     t.string   "link"
@@ -61,31 +61,35 @@ ActiveRecord::Schema.define(:version => 20120316041628) do
     t.text     "content"
     t.datetime "time"
     t.string   "status"
-    t.datetime "created_at",          :null => false
-    t.datetime "updated_at",          :null => false
-    t.integer  "system_site_maps_id"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+    t.integer  "system_site_map_id"
   end
 
   create_table "system_site_maps", :force => true do |t|
-    t.string   "parent_id"
+    t.integer  "system_site_map_id"
     t.boolean  "is_static"
     t.string   "controller"
     t.string   "action"
     t.string   "parameter"
     t.string   "link"
     t.string   "script"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
     t.string   "title"
   end
 
   create_table "tickets", :force => true do |t|
-    t.string   "title"
-    t.text     "content"
+    t.string   "name"
+    t.text     "remark"
     t.datetime "time"
-    t.string   "status"
+    t.integer  "define_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "phone"
+    t.string   "address"
+    t.string   "email"
+    t.integer  "hopetime"
   end
 
   create_table "user_exps", :force => true do |t|

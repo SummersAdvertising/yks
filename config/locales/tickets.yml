@@ -1,7 +1,11 @@
 zh-TW:
     tickets:
         tablename: 客服系統
-        title: 標題
-        content: 內容
+        name: 姓名
+        phone: 聯絡電話
+        address: 希望服務地址
+        email: E-mail
+        hopetime: 希望服務時間
+        remark: 註記
         time: 時間
         status: 狀態

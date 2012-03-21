@@ -12,7 +12,7 @@ class Admin::LoginController < ApplicationController
       respond_to do |format|
         if @user.first != nil
           session[:user] = @user.first.user
-          format.html { redirect_to admin_users_url }
+          format.html { redirect_to controller: "news", action: "index" }
         else    
           @user = User.new
           session[:user] = nil

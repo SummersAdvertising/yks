@@ -1,0 +1,12 @@
+<h1><%= t("services.tablename") %> - <%= t("helpers.show") %></h1>
+
+<%= render 'shared/admin_form_notice' %>
+<div class="show">
+	
+<div>
+  <b><%= t("services.title") %>：</b>
+  <%= @system_site_map.title %>
+</div>
+
+<%= render 'shared/admin_form_command', :data => @system_site_map %>
+</div>

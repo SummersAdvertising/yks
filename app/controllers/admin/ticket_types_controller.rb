@@ -44,7 +44,7 @@ def create
 
   respond_to do |format|
     if @tickettype.save
-      format.html { redirect_to admin_ticket_type_path(@tickettype), notice: 'Define was successfully created.' }
+      format.html { redirect_to admin_ticket_type_path(@tickettype), notice: t("helpers.notice.new") }
     else
       format.html { render action: "index" }
     end
@@ -59,7 +59,7 @@ def update
 
   respond_to do |format|
     if @tickettype.update_attributes(params[:define])
-      format.html { redirect_to admin_ticket_type_path(@tickettype), notice: 'Define was successfully updated.' }
+      format.html { redirect_to admin_ticket_type_path(@tickettype), notice: t("helpers.notice.update") }
     else
       format.html { render action: "edit" }
     end

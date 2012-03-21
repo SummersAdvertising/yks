@@ -1,3 +1,4 @@
+﻿/*-------------------------------------------------------------------通用樣式*/
 h2 {
 	font: 700 13.2px "sans-serif";
 	color: #333;
@@ -20,9 +21,11 @@ h2 {
 	padding: 5px;
 	width: 97.5%;
 	margin: 5px 0 0 0;
+	*margin: 5px 0 0 -10px;
 	font: 300 13px "sans-serif";
 	color: #222;
 }
+/*-------------------------------------------------------------------編輯修改*/
 .actions input {
 	background: #f9f9f9;
 	background: -webkit-linear-gradient(top, white 0%, #f4f4f4 100%);
@@ -32,12 +35,14 @@ h2 {
 	border-radius: 15px;
 	color: #464646;
 	text-shadow: 0 1px white;
+	width: 50px;
+	height:25px;
 }
 .actions input:hover {
 	border: 1px solid #666;
 	color:#000
 }
-/*-------------------------------------------------------------------*/
+/*-------------------------------------------------------------------客服狀態管理*/
 .form-left {
 	float: left;
 	width: 34.5%;
@@ -46,11 +51,11 @@ h2 {
 .form-left form {
 	width:100%!important
 }
-/*-------------------------------------------------------------------*/
+/*-------------------------------------------------------------------標題欄位*/
 .form-title input {
 	border: 1px solid #bdccd5;
 }
-/*-------------------------------------------------------------------*/
+/*-------------------------------------------------------------------內文欄位*/
 .form-content {
 	border: 1px solid #ccc;
 	-webkit-border-radius: 5px;
@@ -69,13 +74,15 @@ h2 {
 .form-content textarea {
 	max-width: 95%;
 	width: 95%;
+	*max-width: 92%;
+	*width: 92%;
 	border: 0;
 	padding: 0 10px;
 	font: 300 13px "sans-serif";
 	color: #222;
+	overflow:auto
 }
-/*-------------------------------------------------------------------*/
-
+/*-------------------------------------------------------------------狀態欄位*/
 .form-status {
 	background:#F7FCFE;
 	width:100%;
@@ -84,6 +91,7 @@ h2 {
 	border:1px solid #D1E5EE;
 	-webkit-border-radius: 5px;
 	border-radius: 5px;
+	height:35px
 }
 .form-status h3 {
 	padding:10px 0 0 10px
@@ -100,4 +108,40 @@ h2 {
 	left:50px;
 	bottom:35px;
 }
-
+/*-------------------------------------------------------------------修改密碼*/
+#new-pw {
+	background: #F7FCFE;
+	width: 100%;
+	overflow: hidden;
+ *overflow: none;
+	border: 1px solid #D1E5EE;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	margin:0 0 20px 10px
+}
+#new-pw input {
+	width:92%;
+	border: 1px solid #D1E5EE;
+}
+.form-file input {
+	background:#fff
+}
+/*-------------------------------------------------------------------客服表單*/
+.form-radio input {
+	width:33px;
+}
+#ticket {
+	background: #F8F8F8;
+	padding: 5px 0;
+	margin-left: 10px;
+	border: 1px solid #ddd;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	width: 100%;
+}
+#ticket .field label {
+	width:100px;
+	display:block;
+	font-weight:700;
+	float:left
+}

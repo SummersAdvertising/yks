@@ -1,4 +1,4 @@
-<%= form_for([:admin,@userexp]) do |f| %>
+<%= form_for([:admin,@userexp], :html => { :multipart => true }) do |f| %>
   <% if @userexp.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@userexp.errors.count, "error") %> prohibited this services from being saved:</h2>
@@ -11,6 +11,11 @@
     </div>
   <% end %>
 
+  <div class="field form-file">
+	<%= raw '<img src="/user_exps/' + @userexp.id.to_s + '.jpg">' if params[:action] == "edit" %>
+	<%= label 'upload', 'filename', '檔案' %>
+    <%= file_field 'upload', 'filename' %>
+  </div>
   <div class="field form-title">
     <%= f.label :title, '標題' %><br />
     <%= f.text_field :title %>

@@ -1,0 +1,51 @@
+<h1><%= t("tickets.tablename") %> - <%= t("helpers.edit") %></h1>
+<div class="edit">
+	<%= form_for([:admin,@ticket]) do |f| %>
+	  <% if @ticket.errors.any? %>
+	    <div id="error_explanation">
+	      <h2><%= pluralize(@ticket.errors.count, "error") %> prohibited this services from being saved:</h2>
+
+	      <ul>
+	      <% @ticket.errors.full_messages.each do |msg| %>
+	        <li><%= msg %></li>
+	      <% end %>
+	      </ul>
+	    </div>
+	  <% end %>
+      <div id="ticket">
+	  <div class="field form-title">
+	    <%= f.label :name, '姓名' %>
+	    <%= @ticket.name %>
+	  </div>
+	  <div class="field form-title">
+	    <%= f.label :phone, '聯絡電話' %>
+	    <%= @ticket.phone %>
+	  </div>
+	  <div class="field form-title">
+	    <%= f.label :address, '希望服務地址' %>
+	    <%= @ticket.address %>
+	  </div>
+	  <div class="field form-title">
+	    <%= f.label :email, 'email' %>
+	    <%= @ticket.email %>
+	  </div>
+	  <div class="field form-title">
+	    <%= f.label :hopetime, '希望服務時間' %>
+	    <%= (@ticket.hopetime==0?"平日":"周末及假日") %>
+	  </div>
+	  </div>
+	  <div class="field form-content">
+	    <h3><%= f.label :remark, '註解' %></h3><br>
+	    <%= f.text_area :remark %>
+	  </div>
+
+	  <div class="field form-status">
+	    <h3><%= f.label :define_id, '狀態' %></h3><br />
+		<%= select("ticket", "define_id", Define.where( :usetype => 'tickettype' ).collect {|p| [ p.name, p.id ] }, {:prompt => 'Select Type'})%>
+	  </div>
+	  <div class="actions">
+	    <%= submit %>
+	    <%= cancel %>
+	  </div>
+	<% end %>
+</div>
