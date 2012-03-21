@@ -21,6 +21,7 @@ h2 {
 	padding: 5px;
 	width: 97.5%;
 	margin: 5px 0 0 0;
+	*margin: 5px 0 0 -10px;
 	font: 300 13px "sans-serif";
 	color: #222;
 }
@@ -73,6 +74,8 @@ h2 {
 .form-content textarea {
 	max-width: 95%;
 	width: 95%;
+	*max-width: 92%;
+	*width: 92%;
 	border: 0;
 	padding: 0 10px;
 	font: 300 13px "sans-serif";
@@ -128,11 +131,17 @@ h2 {
 	width:33px;
 }
 #ticket {
-	background:#F8F8F8;
-	padding:5px 0;
-	margin-left:10px;
-	border:1px solid #ddd;
+	background: #F8F8F8;
+	padding: 5px 0;
+	margin-left: 10px;
+	border: 1px solid #ddd;
 	-webkit-border-radius: 5px;
 	border-radius: 5px;
-	width:100%;
+	width: 100%;
+}
+#ticket .field label {
+	width:100px;
+	display:block;
+	font-weight:700;
+	float:left
 }

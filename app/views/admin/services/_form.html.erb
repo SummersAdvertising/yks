@@ -1,5 +1,5 @@
 <%= form_for([:admin,@service]) do |f| %>
-<%= javascript_include_tag "/public/ckeditor/ckeditor.js" %>
+<%= javascript_include_tag "/ckeditor/ckeditor.js" %>
   <% if @service.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@service.errors.count, "error") %> prohibited this services from being saved:</h2>
@@ -11,6 +11,7 @@
       </ul>
     </div>
   <% end %>
+<%=hidden_field_tag :pid, params[:pid] %>
 
   <div class="field form-title">
     <%= f.label :title, '服務項目' %><br />

@@ -1,5 +1,6 @@
 <span id="notice"><%= notice %></span>
 
+<div class="show">
 <div>
   <b>Parent:</b>
   <%= @system_site_map.parent_id %>
@@ -40,4 +41,5 @@
   <%= @system_site_map.script %>
 </div>
 
-<%= render 'shared/admin_form_command', :data => @user %>
+<%= render 'shared/admin_form_command', :data => @system_site_map %>
+</div>

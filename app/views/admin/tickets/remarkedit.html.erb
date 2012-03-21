@@ -31,7 +31,7 @@
 	  </div>
 	  <div class="field form-title">
 	    <%= f.label :hopetime, '希望服務時間' %>
-	    <%= @ticket.hopetime %>
+	    <%= (@ticket.hopetime==0?"平日":"周末及假日") %>
 	  </div>
 	  </div>
 	  <div class="field form-content">

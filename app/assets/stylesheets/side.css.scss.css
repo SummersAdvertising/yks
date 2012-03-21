@@ -1,4 +1,4 @@
-/*-------------------------------------------------------------------網頁左邊*/
+﻿/*-------------------------------------------------------------------網頁左邊*/
 #side {
 	background:#D1E5EE;
 	height:auto;
@@ -9,7 +9,6 @@
 #side .side-text {
 	background:#fff;
 	padding:5px 0;
-	display:none
 }
 #side .side-text a {
 	font-size:12px;

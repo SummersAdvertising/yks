@@ -1,0 +1,16 @@
+<h1><%= t("services.tablename") %><%= new %></h1>
+
+
+<div class="list">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr class="list-title">
+    <td><%= t("services.title") %></td>
+  </tr>
+
+<% @system_site_maps.each do |system_site_map| %>
+  <tr class="list-content">
+    <td class="first"><%= show system_site_map, system_site_map.title %><%= render 'shared/admin_list_command', :data => system_site_map %></td>
+  </tr>
+<% end %>
+</table>
+</div>

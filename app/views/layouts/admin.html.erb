@@ -7,17 +7,9 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   <%= javascript_include_tag "rails" %>
-<script type="text/javascript">
-$(function(){
-   $('.side-box').find('.side-title').click(function(){
-      var $qa_content = $(this).next('.side-text');
-      if(!$qa_content.is(':visible')){
-	     $('.side-text:visible').slideUp();
-	  }
-		$qa_content.slideToggle()
-	})
-});
-</script>
+<%= javascript_include_tag "/javascripts/jquery-1.7.1.min.js" %>
+
+
 </head>
 <body>
 <div id="top">
@@ -39,7 +31,12 @@ $(function(){
 				<div class="side-title"><%= menu t("news.tablename"), "news", 'index'%></div>
 			</ul>
 			<ul class="side-box">
-				<div class="side-title"><%= menu t("services.tablename"), 'services'%></div>
+				<div class="side-title"><%= menu t("services.tablename"), "service_types", 'index'%></div>
+			<div class="side-text">
+				<% SystemSiteMap.find(2).system_site_maps.each do |service| %>
+<li><%= link_to service.title, :controller => 'services', :action => 'index', :pid=>service.id %></li>
+<% end %>
+			</div>
 			</ul>
 			<ul class="side-box">
 				<div class="side-title"><%= menu t("user_exps.tablename"), 'user_exps'%></div>

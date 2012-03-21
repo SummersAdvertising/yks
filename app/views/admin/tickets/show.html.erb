@@ -24,7 +24,7 @@
 
 <div>
   <b><%= t("tickets.hopetime") %>：</b>
-  <%= @ticket.hopetime %>
+  <%= (@ticket.hopetime==0?"平日":"周末及假日") %>
 </div>
 
 <div>
