@@ -70,7 +70,7 @@ layout "admin"
     @new.destroy
 
     respond_to do |format|
-      format.html { redirect_to admin_news_url }
+      format.html { redirect_to :controller => :news, :action => :index }
     end
   end
 end

@@ -1,7 +1,8 @@
 /*-------------------------------------------------------------------檢視文章*/
 .show {
-	font: 300 12px "sans-serif";
-	color: #333
+  font-size:12px;
+  font-family:"sans-serif";
+  color: #333333;
 }
 /*-------------------------------------------------------------------文章項目*/
 .show div {
@@ -43,25 +44,26 @@
 *overflow:none
 }
 .show .tool a {
-	float:left;
-	display: block;
-	-webkit-border-radius: 15px;
-	border-radius: 15px;
-	width: 50px;
-	height:15px;
-	margin: 10px 5px 0 0
+  float: left;
+  display: block;
+  -webkit-border-radius: 15px;
+  border-radius: 15px;
+  width: 50px;
+  height: 17px;
+  margin: 10px 5px 0 0;
 }
 /*-------------------------------------------------------------------檢視返回*/
 
 .show .back {
-	background: #f9f9f9;
-	background: -webkit-linear-gradient(top, white 0%, #f4f4f4 100%);
-	background: -moz-linear-gradient(top, white 0%, #f4f4f4 100%);
-	border: 1px solid #bbb;
-	color: #464646!important;
-	text-shadow: 0 1px white;
-	text-align: center;
-	padding: 5px 0 2px;
+  background: #f9f9f9;
+  background: -webkit-linear-gradient(top, white 0%, #f4f4f4 100%);
+  background: -moz-linear-gradient(top, white 0%, #f4f4f4 100%);
+  border: 1px solid #bbb;
+  color: #464646!important;
+  text-shadow: 0 1px white;
+  text-align: center;
+  padding:1px 0 0 0;
+  height:22px!important;
 }
 .show .back:hover {
 	border: 1px solid #666;

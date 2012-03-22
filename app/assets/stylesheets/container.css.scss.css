@@ -54,9 +54,7 @@ h1 a {
 }
 .list td {
 	padding-left: 10px;
- *position: relative;
 	border-bottom: 1px solid #D0DFE9;
-	*display:block
 }
 .list td a {
 	font-size: 12px;
@@ -67,14 +65,22 @@ h1 a {
 }
 .list .list-content .first {
 	font-weight: 700;
+	*position: relative;
+}
+.list .list-content .first img {
+	position:relative;
+	top:18px;
+	*top:10px;
+	height:50px;
+	width:auto;
 }
 /*-------------------------------------------------------------------文章編輯*/
 .list .list-command {
 	position: absolute;
 	display: none;
 	margin-top:-15px;
- *margin-top:12px;
- *left:10px;
+       *bottom:5px;
+	   *left:10px;
 	font-weight:300
 }
 .list .list-command .del {

@@ -4,13 +4,13 @@
 <div class="list">
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr class="list-title">
-    <td></td>
+    <td width="20%"></td>
     <td><%= t("banners.link") %></td>
   </tr>
 
 <% @banners.each do |banner| %>
   <tr class="list-content">
-  	<td class="first"><img src="/banners/<%= banner.id %>.jpg"></td>
+  	<td class="first" align="center" valign="middle"><img src="/banners/<%= banner.id %>.jpg"></td>
     <td class="first"><a><%= show banner, banner.link %></a><%= render 'shared/admin_list_command', :data => banner %></td>
   </tr>
 <% end %>
