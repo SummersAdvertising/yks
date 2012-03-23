@@ -60,15 +60,15 @@ ActiveRecord::Schema.define(:version => 20120323091434) do
 #   Unknown type 'content' for column 'price'
 
   create_table "system_site_maps", :force => true do |t|
-    t.integer  "system_site_map_id"
+    t.integer  "system_site_map_id", :limit => 255
     t.boolean  "is_static"
     t.string   "controller"
     t.string   "action"
     t.string   "parameter"
     t.string   "link"
     t.string   "script"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
     t.string   "title"
   end
 
