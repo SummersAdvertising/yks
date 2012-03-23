@@ -1,0 +1,332 @@
+@charset "utf-8";
+/* CSS Document */
+
+html{
+    overflow-y:scroll;
+}
+
+body{
+    margin:0px;
+}
+
+a{
+    outline: none; /* for Firefox Google Chrome  */
+    behavior:expression(this.onFocus=this.blur()); /* for IE */
+
+}
+img{
+    border:0;
+}
+
+/*最外框*/
+#outbody{
+    margin:auto;
+	position:relative;
+	width:1024px;
+
+	z-index:2;
+}
+
+/*上方選單整體框*/
+#topframe{
+    background-image:url(images/titlebackground_01.jpg);
+	width:1024px;
+	height:84px;
+	z-index:6;
+	position:absolute;
+}
+#topframebg{
+	width:1024px;
+	height:84px;
+	z-index:6;
+}
+#topframe2{
+    background-image:url(images/titlebackground_02.jpg);
+	width:1024px;
+	height:99px;
+    top:84px;
+	position:absolute;
+	z-index:2;
+}
+
+/*logo*/
+#logoframe{
+    top:0px;
+	left:70px;
+	width:210px;
+	height:122px;
+	position:absolute;
+	z-index:6;
+}
+
+/*上方按鈕框*/
+#btnbar{
+    top:34px;
+	left:400px;
+	height:50px;
+	position:absolute;	
+	z-index:6;
+}
+
+#btnbar .nav{
+ 	float:left;
+	width:94px;
+	height:50px;
+	font: 14px "微軟正黑體", Arial, Helvetica, sans-serif;
+	line-height:62px;
+	text-align:center;
+	z-index:6;
+}
+
+#btnbar .nav a{
+	float:left;
+	color:#FFFFFF;
+	text-decoration:none; 
+	width:94px;
+	height:50px;
+	background-image:url(images/btn_out.png);
+	background-repeat:no-repeat;
+	background-position:center;	
+	z-index:6;
+}
+
+#btnbar .nav a:hover{
+    color:#FFFFFF;
+	width:94px;
+	height:50px;
+	background-image:url(images/btn_over.png);
+	background-repeat:no-repeat;
+	background-position:center;		
+	z-index:6;
+}
+
+#btnbar .nav a.active{
+    color:#000000;
+	background-image:url(images/btn_click.png);
+	background-repeat:no-repeat;	
+	z-index:6;
+}
+
+#btnbar .nav2{
+ 	float:left;
+	width:30px;
+	height:50px;
+    padding:22px 0px 0px 0px;
+	text-align:center;
+	z-index:6;
+}
+
+
+
+
+/*滑動下拉*/
+#slidercover{
+	top:0px;
+	left:799px;
+	position:absolute;
+	width:189px;
+	height:38px;
+	z-index:4;
+}
+/*最外層*/
+#sliderWrap {
+    top:0px;
+	left:810px;
+	position:absolute;
+ 	width: 189px;
+ 	z-index:3;
+}
+/*內層*/
+#slider {
+	position: absolute;
+	background-image:url(images/slider.png);
+	background-repeat:no-repeat;
+	background-position: bottom;
+	width: 189px;
+	height: 220px;
+	margin-top: -161px;
+	z-index:3;
+	top: 26px;
+}
+/*內容*/
+#sliderContent {
+ 	position: absolute;
+	font: 12px "微軟正黑體", Arial, Helvetica, sans-serif;
+ 	color:#333333;
+ 	padding: 10px;
+	z-index:2;
+}
+
+/*關閉開啟按鈕*/
+#openCloseWrap {
+	position:absolute;
+	margin: 160px 0 0 120px;
+	font-size:12px;
+	font-weight:bold;
+	left: -68px;
+	top: 13px;
+	z-index:4;
+}
+
+/*需求*/
+
+#needbtn{
+	position:absolute;
+	left: 21px;
+	top: 30px;
+	width:149px;
+	height:36px;
+	z-index:2;
+}
+
+/*電話*/
+
+
+#needphone{
+	position:absolute;
+	left: 32px;
+	top: 80px;
+	width:149px;
+	z-index:2;
+}
+
+
+/*中間外框*/
+#middlebody{
+    margin:auto;
+	position:relative;
+	top:183px;
+	width:1024px;
+	z-index:1;
+}
+
+/*右邊內容框*/
+
+#rightframe{
+    float:right;
+	width:680px;
+	margin:14px 34px 0px 0px;
+	padding:0px 0px 0px 0px;
+	
+}
+
+#line1{
+   width:660px;
+   float:left;   
+   border-top:1px dashed #fd881f;
+   margin:1px 0px 0px 0px;
+}
+#righttitle1{
+   width:660px;
+   float:left;
+   font: 22px "微軟正黑體", Arial, Helvetica, sans-serif;
+   font-weight:bold;
+   color:#4a1a00;
+   margin:2px 0px 0px 0px;
+}
+#rightcontent{
+   float:left;
+   width:660px;
+   padding:10px 0px 10px 0px;
+}
+
+/*左方最外框*/
+#menuout{
+    flaot:left;
+	margin:0px 0px 0px 2px;
+	width:274px;	
+    z-index:1;
+}
+
+/*左邊圖片*/
+#menuimage{
+    float:left;
+	width:274px;
+}
+
+/*左邊BANNER*/
+#menubanner{
+    float:left;
+	width:274px;
+	padding: 6px 0px 6px 10px;
+}
+
+/*事業群*/
+#businessbox{
+   width:274px;
+   float:left;
+   z-index: 1;
+}
+#businesstitle{
+   width:274px;
+   height:74px;
+   float:left;
+   z-index:2; 
+   background-image:url(images/businesstopbg.png);
+   text-align:center;
+   color:#0066CC;
+   font: 18px "微軟正黑體", Arial, Helvetica, sans-serif;
+}
+#businesslist{
+	width:274px;
+    float:left;
+	z-index:2;
+	background-image:url(images/businessbg.png);
+	background-repeat:repeat-y;
+	color:#666666;
+    font: 13px "微軟正黑體", Arial, Helvetica, sans-serif;
+    line-height:26px;
+	padding:11px 0px 11px 30px;	
+}
+#businesslist a{
+	color:#666666;
+    font: 13px "微軟正黑體", Arial, Helvetica, sans-serif;
+	line-height:26px;
+}
+
+#businessend{
+   width:274px;
+   height:22px;
+   float:left;
+   z-index:2; 
+   background-image:url(images/businessend.png);
+ 
+}
+
+
+
+#footerframe{
+   margin-left:auto;
+   margin-right:auto;
+   margin-top:30px;
+   position:relative;
+   width:1024px;
+   height:247px;
+   background-image:url(images/footerbg.jpg);
+   background-repeat:no-repeat;
+}
+
+#tel{
+   float:left;
+   padding:182px 30px 0px 100px;
+}
+
+#otherlink{
+   float:right;
+   width:1024px;
+   padding:26px 0px 0px 0px;
+   text-align:center;
+   color:#111111;
+   font:12px "微軟正黑體", Arial, Helvetica, sans-serif;
+   line-height:20px;
+}
+
+#otherlink a{
+   color:#333333;
+   text-decoration:none;
+}
+
+#otherlink a:hover{
+   color:#333333;
+   text-decoration:underline;
+}
