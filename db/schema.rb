@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120321035022) do
+ActiveRecord::Schema.define(:version => 20120323091434) do
 
   create_table "banners", :force => true do |t|
     t.string   "link"
@@ -56,15 +56,8 @@ ActiveRecord::Schema.define(:version => 20120321035022) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "services", :force => true do |t|
-    t.string   "title"
-    t.text     "content"
-    t.datetime "time"
-    t.string   "status"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
-    t.integer  "system_site_map_id"
-  end
+# Could not dump table "services" because of following StandardError
+#   Unknown type 'content' for column 'price'
 
   create_table "system_site_maps", :force => true do |t|
     t.integer  "system_site_map_id"

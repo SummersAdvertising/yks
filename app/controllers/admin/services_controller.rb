@@ -40,7 +40,15 @@ layout "admin"
   def create
     @service = Service.new(params[:service])
     parent_system_site_map_id = params[:pid]
-    #system_site_map = SystemSiteMap.where( :parameter => @service.system_site_map_id ).first
+    contents = params[:contents]
+    content = "["
+    0.upto(3) do |i|
+      content = content + "{title:\"#{contents['block' + i.to_s].to_s}\","
+      content = content + "content:\"#{contents['blockcontent' + i.to_s].to_s}\"}"
+      content = content + "," if i != 4
+    end
+    content = content + "]"
+    @service.content = content
     
     respond_to do |format|
       if @service.save# && @system_site_map.save
@@ -64,7 +72,16 @@ layout "admin"
     @service = Service.find(params[:id])
     system_site_map = SystemSiteMap.where( :parameter => params[:id] ).first
     parent_system_site_map_id = params[:pid]
-
+    contents = params[:contents]
+    content = "["
+    0.upto(3) do |i|
+      content = content + "{title:\"#{contents['block' + i.to_s].to_s}\","
+      content = content + "content:\"#{contents['blockcontent' + i.to_s].to_s}\"}"
+      content = content + "," if i != 4
+    end
+    content = content + "]"
+    @service.content = content
+    
     respond_to do |format|
       if @service.update_attributes(params[:service])
         system_site_map.update_attributes(:title => @service.title, :system_site_map_id => parent_system_site_map_id)

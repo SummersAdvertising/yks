@@ -1,3 +1,4 @@
+
 <%= form_for([:admin,@service]) do |f| %>
   <% if @service.errors.any? %>
     <div id="error_explanation">
@@ -16,35 +17,38 @@
     <%= f.label :title, '服務項目' %><br />
     <%= f.text_field :title %>
   </div>
-    <div class="field form-time">
-    <%= f.label :time, '時間' %><br />
-    <%= f.text_field :time %>
-  </div>
   <div class="field form-time">
     <%= f.label :time, '時間' %><br />
     <%= f.text_field :time %>
   </div>
-  <div class="field form-content">
-    <h3><%= label "content", "price" , '內容' %></h3><br />
-    <%= text_area "content", "price" %>
-  </div>
   
   <div class="field form-content">
-    <h3><%= label "content", "price" , '項目' %></h3><br />
-    <%= text_area "content", "price" %>
+    <%= f.label :price, '平均報價' %><br />
+    <%= f.text_area :price %>
   </div>
   
-  <div class="field form-content">
-    <h3><%= label "content", "price" , '可選擇' %></h3><br />
-    <%= text_area "content", "price" %>
+  <% 0.upto(3) do |i| %>
+  <div class="field form-time">
+    <%= text_field "contents", "block" + i.to_s %>
+    <%= text_area "contents", "blockcontent" + i.to_s %>
   </div>
+  <% end %>
   
-  <div class="field form-content">
-    <h3><%= label "content", "price" , '機動員配合家服員定期施作' %></h3><br />
-    <%= text_area "content", "price" %>
-  </div>
   <div class="actions">
     <%= submit %>
     <%= cancel %>
   </div>
+    <script>
+    //假設傳入的JSON內容如下：
+    JData = <%= raw @service.content%>
+
+    //我們可以透過.length得知其中的物件數
+    var NumOfJData = JData.length; //NumOfJData=3
+
+    //利用alert來逐筆將資料以message window的方式傳出
+    for (var i = 0; i < NumOfJData; i++) {
+      $('#contents_block' + i).val(JData[i]["title"]);
+      $('#contents_blockcontent' + i).val(JData[i]["content"]);
+    }
+    </script>
 <% end %>
