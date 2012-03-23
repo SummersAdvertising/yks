@@ -1,5 +1,4 @@
 <%= form_for([:admin,@service]) do |f| %>
-<%= javascript_include_tag "/ckeditor/ckeditor.js" %>
   <% if @service.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@service.errors.count, "error") %> prohibited this services from being saved:</h2>
@@ -21,22 +20,28 @@
     <%= f.label :time, '時間' %><br />
     <%= f.text_field :time %>
   </div>
+  <div class="field form-time">
+    <%= f.label :time, '時間' %><br />
+    <%= f.text_field :time %>
+  </div>
   <div class="field form-content">
-    <h3><%= f.label :content, '內容' %></h3><br />
-    <%= f.text_area :content %>
-			<script type="text/javascript">
-			//<![CDATA[
-
-				// This call can be placed at any point after the
-				// <textarea>, or inside a <head><script> in a
-				// window.onload event handler.
-
-				// Replace the <textarea id="editor"> with an CKEditor
-				// instance, using default configurations.
-				CKEDITOR.replace( 'service_content' );
-
-			//]]>
-			</script>
+    <h3><%= label "content", "price" , '內容' %></h3><br />
+    <%= text_area "content", "price" %>
+  </div>
+  
+  <div class="field form-content">
+    <h3><%= label "content", "price" , '項目' %></h3><br />
+    <%= text_area "content", "price" %>
+  </div>
+  
+  <div class="field form-content">
+    <h3><%= label "content", "price" , '可選擇' %></h3><br />
+    <%= text_area "content", "price" %>
+  </div>
+  
+  <div class="field form-content">
+    <h3><%= label "content", "price" , '機動員配合家服員定期施作' %></h3><br />
+    <%= text_area "content", "price" %>
   </div>
   <div class="actions">
     <%= submit %>
