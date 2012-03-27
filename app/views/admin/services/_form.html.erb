@@ -1,4 +1,4 @@
-
+<div id="service-form">
 <%= form_for([:admin,@service]) do |f| %>
   <% if @service.errors.any? %>
     <div id="error_explanation">
@@ -12,7 +12,7 @@
     </div>
   <% end %>
 <%=hidden_field_tag :pid, params[:pid] %>
-
+<div id="service-form-left">
   <div class="field form-title">
     <%= f.label :title, '服務項目' %><br />
     <%= f.text_field :title %>
@@ -21,23 +21,25 @@
     <%= f.label :time, '時間' %><br />
     <%= f.text_field :time %>
   </div>
-  
+
   <div class="field form-content">
-    <%= f.label :price, '平均報價' %><br />
+    <h3><%= f.label :price, '平均報價' %></h3>
     <%= f.text_area :price %>
   </div>
-  
-  <% 0.upto(3) do |i| %>
-  <div class="field form-time">
-    <%= text_field "contents", "block" + i.to_s %>
-    <%= text_area "contents", "blockcontent" + i.to_s %>
-  </div>
-  <% end %>
-  
   <div class="actions">
     <%= submit %>
     <%= cancel %>
   </div>
+</div>
+<div id="service-form-right">   
+  <% 0.upto(3) do |i| %>
+  <div class="field form-content">
+    <h3><%= text_field "contents", "block" + i.to_s %></h3>
+    <%= text_area "contents", "blockcontent" + i.to_s %>
+  </div>
+  <% end %>
+</div>  
+  
     <script>
     //假設傳入的JSON內容如下：
     JData = <%= raw @service.content%>
@@ -52,3 +54,4 @@
     }
     </script>
 <% end %>
+</div>
