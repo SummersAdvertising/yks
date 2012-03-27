@@ -17,6 +17,7 @@ Yks::Application.routes.draw do
     match 'changepw' => 'users#changepw'
   end
   
+  match 'page-(:id).html' => 'system#content'
   resources :system_site_maps
 
   # The priority is based upon order of creation:
