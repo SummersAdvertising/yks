@@ -1,0 +1,58 @@
+<div id="rightframe">
+<div id="servicetitle1"><%= @service.title %></div>
+<div id="line1"></div>
+<div id="servicetitle2">平均報價</div>
+<div id="line1"></div>
+<div class="gray_15" id="servicecontent">
+	<%= @service.price.gsub(/\n/, '<br />').html_safe %>
+</div>
+<div id="line1"></div>
+<div id="servicetitle2">介紹</div>
+<div id="line1"></div>
+<div id="servicecontent">
+	<% 
+		@service.content.each do | content | 
+		
+		itemAry = content[1]['blockcontent'].split("\n")
+	%>	
+	
+  <span class="black_15">【<%= content[1]['block'] %>】</span><br>
+  <span class="gray_13">
+  <ul>
+  	<% 
+  		if itemAry.size  		
+	  		# 產生回圈輸出項目內容
+	  		itemAry.each do |item|	  		
+	  		%>
+	  		<li><%= item %></li>
+	  		<%  		
+	  		end
+  		end
+  	 %>
+  </ul>
+  </span><br>
+  <br>
+  	
+	<% end %>
+</div>
+</div><!--rightframe end-->
+<div id="menuout">
+<div id="menuimage"><img src="<%= image_path("servicetitle.png") %>" width="274" height="59"></div>
+<div id="menulistbody">
+  <ul id="menu">
+  <% @menu_tree['children'].each do | mainCategory |  %>
+  	<li>
+		<a href="service2.htm"><%= mainCategory['sitemap'].title %></a>
+		<ul>
+	  	<% mainCategory['children'].each do | serviceHash | %>  		
+				<li><%= link_to serviceHash['sitemap'].title, service_path(serviceHash['service']) %></li>
+	  	<% end %>
+		</ul>
+	</li>
+  
+  <% end %>
+  </ul>
+</div><!--menulistbody end-->
+<div id="menuimage"><img src="<%= image_path("menubgend.png") %>" width="274" height="15"></div>
+<%= render :partial => 'pages/bussiness' %>
+</div><!--menuout end-->

@@ -1,0 +1,48 @@
+// Place all the styles related to the user_exp controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@charset "utf-8";
+/* CSS Document */
+
+#witnessframe{
+   width:680px;
+   float:left;
+}
+
+#witnessphoto{
+   width:101px;
+   height:124px;
+   float:left;
+   padding:0px 20px 30px 0px;
+}
+
+#witnessline{
+   width:470px;
+   float:left;
+   border-top:1px dashed #fd881f;
+}
+
+#witnesstitle{
+   width:470px;
+   float:left;
+   font: 22px "微軟正黑體", Arial, Helvetica, sans-serif;
+   font-weight:bold;
+   color:#4a1a00;
+}
+
+#witnessname{
+   width:470px;
+   float:left;
+   font: 13px "微軟正黑體", Arial, Helvetica, sans-serif;
+   color:#4a1a00;
+   line-height:25px;
+}
+
+#witnesstext{
+   width:470px;
+   float:left;
+   font: 13px "微軟正黑體", Arial, Helvetica, sans-serif;
+   color:#666666;
+   line-height:22px;
+}

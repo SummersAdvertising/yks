@@ -40,14 +40,9 @@ layout "admin"
   def create
     @service = Service.new(params[:service])
     parent_system_site_map_id = params[:pid]
-    contents = params[:contents]
-    content = "["
-    0.upto(3) do |i|
-      content = content + "{title:\"#{contents['block' + i.to_s].to_s}\","
-      content = content + "content:\"#{contents['blockcontent' + i.to_s].to_s}\"}"
-      content = content + "," if i != 4
-    end
-    content = content + "]"
+    
+    package_content
+    
     @service.content = content
     
     respond_to do |format|
@@ -71,16 +66,9 @@ layout "admin"
   def update
     @service = Service.find(params[:id])
     system_site_map = SystemSiteMap.where( :parameter => params[:id] ).first
-    parent_system_site_map_id = params[:pid]
-    contents = params[:contents]
-    content = "["
-    0.upto(3) do |i|
-      content = content + "{title:\"#{contents['block' + i.to_s].to_s}\","
-      content = content + "content:\"#{contents['blockcontent' + i.to_s].to_s}\"}"
-      content = content + "," if i != 4
-    end
-    content = content + "]"
-    @service.content = content
+	parent_system_site_map_id = params[:pid]
+    
+    package_content
     
     respond_to do |format|
       if @service.update_attributes(params[:service])
@@ -104,4 +92,11 @@ layout "admin"
       format.html { redirect_to :action => "index", :pid => params[:pid] }
     end
   end
+  
+private
+	def package_content		
+	    contents = params[:contents]	    
+	    @service.content = ActiveSupport::JSON.encode(contents	)
+	    
+	 end 
 end

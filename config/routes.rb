@@ -18,6 +18,10 @@ Yks::Application.routes.draw do
   end
   
   resources :system_site_maps
+  resources :user_exps
+  resources :services
+  
+  match 'page/:pagename' => 'system_site_maps#show'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

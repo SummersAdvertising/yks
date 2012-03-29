@@ -1,0 +1,32 @@
+<div id="rightframe">
+	<div id="newstitle"><%= @news.title %></div>
+	<div id="newscontent"><%= @news.content.html_safe %></div>
+</div><!--rightframe end-->
+<div id="menuout">
+<div id="menuimage"><img src="<%= image_path("newstitle.png") %>" width="274" height="59"></div>
+<div id="menulistbody">
+	<% @news_all.each do |news| %>
+		 <ul id="menu"><%= link_to news.title, :controller => 'news', :action => 'show', :id => news.id %></ul>
+		 <div id="menuline"></div>
+	<% end %>
+</div>
+<div id="menuimage"><img src="<%= image_path("menubgend.png") %>" width="274" height="15"></div>
+<div id="menubanner"><img src="<%= image_path("banner1.jpg") %>" width="260" height="90"></div>
+<div id="menuimage"><img src="<%= image_path("businessicon.png") %>" width="274" height="89" id="btn1"></div>
+<div id="businessbox" style="display:none">
+ <div id="businesstitle">
+	<br>
+	<br>
+	新光保全事業群連結</div>
+	<div id="businesslist">
+	<a href="http://www.bjyks.com.cn/" target="_blank">北京誼光物業管理</a><br>
+	<a href="http://www.yks.com.tw/front/bin/cglist.phtml?Category=337645" target="_blank">新保事業群</a><br>
+	<a href="http://www.sks.com.tw/index.php?option=com_content&view=category&layout=blog&id=3&Itemid=83" target="_blank">新保文化基金會</a><br>
+	<a href="http://www.sks.com.tw/" target="_blank">台灣新光保全</a><br>
+	<a href="http://www.104.com.tw/jobbank/cust_job/introduce.cfm?invoice=16840445000" target="_blank">台灣保全公司(現金運送業務)</a><br>
+	<a href="http://tw.myblog.yahoo.com/sks-blog/" target="_blank">新光保全部落格-暗夜の薔薇騎士Blog</a><br>
+	<a href="http://tw.myblog.yahoo.com/anhsin-classroom/profile" target="_blank">新光保全-安心教室推廣活動Blog</a><br>
+	<a href="http://tw.myblog.yahoo.com/h121151/" target="_blank">公寓大廈管理維護探討Blog</a>     </div>
+ <div id="businessend"></div>
+</div><!--businessbox end-->
+</div><!--menuout end-->

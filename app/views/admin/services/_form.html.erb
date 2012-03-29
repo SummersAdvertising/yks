@@ -27,10 +27,10 @@
     <%= f.text_area :price %>
   </div>
   
-  <% 0.upto(3) do |i| %>
+  <% 0.upto(4) do |i| %>
   <div class="field form-time">
-    <%= text_field "contents", "block" + i.to_s %>
-    <%= text_area "contents", "blockcontent" + i.to_s %>
+    <%= text_field "contents[" + i.to_s  + "]", "block" %>
+    <%= text_area "contents[" + i.to_s  + "]", "blockcontent" %>
   </div>
   <% end %>
   
