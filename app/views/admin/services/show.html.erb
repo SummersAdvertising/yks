@@ -14,17 +14,7 @@
 
 <div>
   <b><%= t("services.content") %>：</b>
-  
-  <% 
-		@service.content.each do | content | 
-	%>	
-	
-  <span class="black_15">【<%= content[1]['block'] %>】</span><br>
-  <span class="gray_13">
-    <%= content[1]['blockcontent']%>
-  </span>
-  	
-	<% end %>
+  <%= simple_format @service.content %>
 </div>
 
 <%= render 'shared/admin_form_command', :data => @service %>

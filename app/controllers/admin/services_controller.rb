@@ -15,7 +15,7 @@ layout "admin"
   # GET /system_site_maps/1.json
   def show
     @service = Service.find(params[:id])
-    build_service_content
+
     respond_to do |format|
       format.html # show.html.erb
     end
@@ -99,10 +99,4 @@ private
 	    @service.content = ActiveSupport::JSON.encode(contents	)
 	    
 	 end 
-
- 	def build_service_content
-
- 		@service.content = JSON.parse(@service.content)
-
- 	end
 end

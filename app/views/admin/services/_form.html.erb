@@ -44,8 +44,10 @@
     //假設傳入的JSON內容如下：
     JData = <%= raw @service.content%>
 
+    //我們可以透過.length得知其中的物件數
     var NumOfJData = JData.length; //NumOfJData=3
 
+    //利用alert來逐筆將資料以message window的方式傳出
     for (var i = 0; i < NumOfJData; i++) {
       $('#contents_block' + i).val(JData[i]["title"]);
       $('#contents_blockcontent' + i).val(JData[i]["content"]);
