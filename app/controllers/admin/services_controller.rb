@@ -15,7 +15,7 @@ layout "admin"
   # GET /system_site_maps/1.json
   def show
     @service = Service.find(params[:id])
-
+    build_service_content
     respond_to do |format|
       format.html # show.html.erb
     end
@@ -25,6 +25,7 @@ layout "admin"
   # GET /system_site_maps/new.json
   def new
     @service = Service.new
+    #build_service_content
     respond_to do |format|
       format.html # new.html.erb
     end
@@ -33,6 +34,7 @@ layout "admin"
   # GET /system_site_maps/1/edit
   def edit
     @service = Service.find(params[:id])
+    build_service_content
   end
 
   # POST /system_site_maps
@@ -42,8 +44,6 @@ layout "admin"
     parent_system_site_map_id = params[:pid]
     
     package_content
-    
-    @service.content = content
     
     respond_to do |format|
       if @service.save# && @system_site_map.save
@@ -98,5 +98,11 @@ private
 	    contents = params[:contents]	    
 	    @service.content = ActiveSupport::JSON.encode(contents	)
 	    
-	 end 
+	 end
+
+ 	def build_service_content
+
+ 		@service.content = JSON.parse(@service.content)
+
+ 	end
 end

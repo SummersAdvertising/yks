@@ -26,21 +26,20 @@
     <h3><%= f.label :price, '平均報價' %></h3>
     <%= f.text_area :price %>
   </div>  
-</div>
-  <div id="service-form-right">
+  
   <% 0.upto(4) do |i| %>
-  <div class="field form-content">
-    <h3><%= text_field "contents[" + i.to_s  + "]", "block" %></h3>
+  <div class="field form-time">
+    <%= text_field "contents[" + i.to_s  + "]", "block" %>
     <%= text_area "contents[" + i.to_s  + "]", "blockcontent" %>
   </div>
   <% end %>
-  </div>
+  
   <div class="actions">
     <%= submit %>
     <%= cancel %>
   </div>
 </div>  
-<% if @service.content != nil %>
+  
     <script>
     //假設傳入的JSON內容如下：
     //Data = <%#= raw @service.content%>
@@ -54,6 +53,7 @@
     //  $('#contents_blockcontent' + i).val(JData[i]["content"]);
     //}
     <% 
+    
       i=0
   		@service.content.each do | content |
   	%>
@@ -64,6 +64,5 @@
 	    end
 	  %>
     </script>
-<% end %>    
 <% end %>
 </div>
