@@ -32,10 +32,10 @@
 				<div class="side-title"><%= menu t("news.tablename"), "news", 'index'%></div>
 			</ul>
 			<ul class="side-box">
-				<div class="side-title"><%= menu t("services.tablename"), "service_types", 'index'%></div>
+				<div class="side-title"><%= menu t("services.tablename"), "service_types"%></div>
 			<div class="side-text">
 				<% SystemSiteMap.find(2).system_site_maps.each do |service| %>
-<li><%= link_to service.title, :controller => 'services', :action => 'index', :pid=>service.id %></li>
+<li><%= menu service.title, "services", "index", service.id %></li>
 <% end %>
 			</div>
 			</ul>
