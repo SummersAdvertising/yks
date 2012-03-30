@@ -26,16 +26,11 @@
     <h3><%= f.label :price, '平均報價' %></h3>
     <%= f.text_area :price %>
   </div>  
-  <div class="actions">
-    <%= submit %>
-    <%= cancel %>
-  </div>
-</div>
-<div id="service-form-right">   
-  <% 0.upto(3) do |i| %>
-  <div class="field form-content">
-    <h3><%= text_field "contents", "block" + i.to_s %></h3>
-    <%= text_area "contents", "blockcontent" + i.to_s %>
+  
+  <% 0.upto(4) do |i| %>
+  <div class="field form-time">
+    <%= text_field "contents[" + i.to_s  + "]", "block" %>
+    <%= text_area "contents[" + i.to_s  + "]", "blockcontent" %>
   </div>
   <% end %>
 </div>  
