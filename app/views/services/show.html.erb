@@ -22,7 +22,7 @@
   	<% 
   		if itemAry.size  		
 	  		# 產生回圈輸出項目內容
-	  		itemAry.each do |item|	  		
+	  		itemAry.each do |item|	 
 	  		%>
 	  		<li><%= item %></li>
 	  		<%  		
@@ -40,12 +40,16 @@
 <div id="menuimage"><img src="<%= image_path("servicetitle.png") %>" width="274" height="59"></div>
 <div id="menulistbody">
   <ul id="menu">
-  <% @menu_tree['children'].each do | mainCategory |  %>
+  <% @menu_tree['children'].each do | mainCategory | %>
   	<li>
-		<a href="service2.htm"><%= mainCategory['sitemap'].title %></a>
+		<a href="service2.htm" <%= if mainCategory['sitemap'].id == @parent_id then 'class=linkActived' end %>>
+			<%= mainCategory['sitemap'].title %>
+		</a>
 		<ul>
 	  	<% mainCategory['children'].each do | serviceHash | %>  		
-				<li><%= link_to serviceHash['sitemap'].title, service_path(serviceHash['service']) %></li>
+				<li <%= if serviceHash['service'].id == @service_id then 'class=serviceSelected' end %>>
+					<%= link_to serviceHash['sitemap'].title, service_path(serviceHash['service']) %>
+				</li>
 	  	<% end %>
 		</ul>
 	</li>
