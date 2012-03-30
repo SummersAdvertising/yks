@@ -4,13 +4,8 @@ class ServicesController < ApplicationController
 	def index
 		 @service = Service.first
 		 
-		 @service_id = @service.id
-		 
 		 build_service_content
-		 build_service_menu
-		 
-		 @parent_id = @service.system_site_map_id
-		 
+		 		 
 		 respond_to do | format |
 		 	format.html { render :template => 'services/show.html.erb' }
 		 end
@@ -20,14 +15,9 @@ class ServicesController < ApplicationController
 	def show
 		 @service = Service.find( params[:id] )
 		 
-		 @service_id = params[:id]
-		 
 		 build_service_content
-		 build_service_menu
 		 
-		 @parent_id = @service.system_site_map_id
-		 
-		 respond_to do | format |
+		  respond_to do | format |
 		 	format.html { render :template => 'services/show.html.erb' }
 		 end
 	end
@@ -72,5 +62,9 @@ private
 		
 		@service.content = JSON.parse(@service.content)
 		
+		 @service_id = @service.id
+		 current_site_map = SystemSiteMap.find(@service.system_site_map_id)
+		 @parent_id = current_site_map.system_site_map_id
+		 
 	end
 end

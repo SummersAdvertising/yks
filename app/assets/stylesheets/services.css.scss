@@ -35,16 +35,16 @@ ul#menu li a {
   padding: 23px 30px 20px 20px;
 }
 
-ul#menu li a.linkActived{
+ul#menu li a.linkActived, ul#menu li a.parentSelected{
   background-image:image-url("menuover.png");
   color:#FFFFFF;
 }
+
 
 ul#menu li a:hover {
   background-image:image-url("menuover.png");
   color:#FFFFFF;
 }
-
 
 
 ul#menu li ul li a {
@@ -54,7 +54,7 @@ ul#menu li ul li a {
   padding:10px 30px 10px 10px;
 }
 
-ul#menu li ul li a:hover {
+ul#menu li ul li a:hover, ul#menu li ul li.serviceSelected a {
   color:#cc0000;	
   background-image:image-url("menubg2.png");  
 }
