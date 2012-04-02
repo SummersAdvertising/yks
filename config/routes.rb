@@ -21,6 +21,7 @@ Yks::Application.routes.draw do
   resources :system_site_maps
   resources :user_exps
   resources :services
+  resources :banners
   
   match 'page/:pagename' => 'system_site_maps#show'
 
