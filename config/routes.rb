@@ -18,6 +18,9 @@ Yks::Application.routes.draw do
     match 'uploadimage' => 'news#uploadimage'
   end
   
+  
+  match 'contact' => 'contact#new'
+  
   match 'page-(:id).html' => 'system#content'
   resources :system_site_maps
   resources :user_exps

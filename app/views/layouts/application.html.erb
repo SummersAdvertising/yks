@@ -102,7 +102,7 @@ preloadImages("btn_click.png","btn_out.png","btn_over.png","businessbg.png","bus
        <div id="openCloseIdentifier"></div>
 	   <div id="slider">
 			<div id="sliderContent">
-			  <div id="needbtn"><a href="#"><img src="<%= image_path("needbtn.png") %>" width="149" height="36" id="neetbtn" name="neetbtn" onmouseover="mouseOver1()" onmouseout="mouseOut1()" onClick="MM_openBrWindow('contact.htm','contact','scrollbars=yes,width=630,height=530')"></a></div>
+			  <div id="needbtn"><a href="#"><img src="<%= image_path("needbtn.png") %>" width="149" height="36" id="neetbtn" name="neetbtn" onmouseover="mouseOver1()" onmouseout="mouseOut1()" onClick="MM_openBrWindow('<%= url_for(:action => 'index', :controller => 'contact') %>','contact','scrollbars=yes,width=630,height=530')"></a></div>
 <div id="needphone">
                  台北：(02) 2503-3500<br>
                  板橋：(02) 2961-4594<br>
