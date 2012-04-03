@@ -33,7 +33,8 @@
 				// instance, using default configurations.
         CKEDITOR.replace( 'news_content', 
              {  
-                  filebrowserImageUploadUrl : '<%= url_for(:action => 'uploadimage', :controller => 'news') %>'
+                  filebrowserUploadUrl : '/admin/uploadimage',
+                  filebrowserImageUploadUrl : '/admin/uploadimage'
              }
            );
 			//]]>

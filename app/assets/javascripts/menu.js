@@ -41,9 +41,9 @@ function initMenu() {
 		$(this).addClass('linkActived');
 		
       var checkElement = $(this).next();
-      if((checkElement.is('ul')) && (checkElement.is(':visible'))) {
-        return false;
-        }
+      /*if((checkElement.is('ul')) && (checkElement.is(':visible'))) {	
+	        return false;
+        }*/
       if((checkElement.is('ul')) && (!checkElement.is(':visible'))) {
         $('#menu ul:visible').slideUp('normal');
         checkElement.slideDown('normal');

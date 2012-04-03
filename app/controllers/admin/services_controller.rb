@@ -66,7 +66,8 @@ layout "admin"
   def update
     @service = Service.find(params[:id])
     system_site_map = SystemSiteMap.where( :parameter => params[:id] ).first
-	parent_system_site_map_id = params[:pid]
+    
+    parent_system_site_map_id = params[:pid]
     
     package_content
     

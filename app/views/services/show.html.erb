@@ -42,7 +42,7 @@
   <ul id="menu">
   <% @menu_tree['children'].each do | mainCategory | %>
   	<li>
-		<a href="service2.htm" <%= if mainCategory['sitemap'].id == @parent_id then 'class=linkActived' end %>>
+		<a href="<%= url_for service_path(mainCategory['service']) %>" <%= if mainCategory['sitemap'].id == @parent_id || mainCategory['service'].id.to_s == params[:id] then 'class=linkActived' end %>>
 			<%= mainCategory['sitemap'].title %>
 		</a>
 		<ul>

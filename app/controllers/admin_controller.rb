@@ -1,6 +1,6 @@
 class AdminController < ApplicationController
-  before_filter :set_locale
-  before_filter :permission
+before_filter :set_locale
+before_filter :permission
 
   def permission
     if session[:user] == nil

@@ -47,7 +47,7 @@ def create
       if params[:upload] != nil
        file = params[:upload]['filename']
        filename = @banner.id
-       filewhere = "public/banners/#{filename}.jpg"
+       filewhere = "#{Rails.root}/public/banners/#{filename}.jpg"
        File.open("#{filewhere}", "wb") do |f|  
           f.write(file.read)
        end
@@ -70,7 +70,7 @@ def update
       if params[:upload] != nil
        file = params[:upload]['filename']
        filename = @banner.id
-       filewhere = "public/banners/#{filename}.jpg"
+       filewhere = "#{Rails.root}/public/banners/#{filename}.jpg"
        File.open("#{filewhere}", "wb") do |f|  
           f.write(file.read)  
        end

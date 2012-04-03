@@ -1,4 +1,5 @@
 class BannersController < ApplicationController
+  layout :except => [:index]
 	def index
 		 @banners = Banner.all
 		 

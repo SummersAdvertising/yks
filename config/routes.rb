@@ -15,6 +15,7 @@ Yks::Application.routes.draw do
     match 'logout' => 'login#logout'
     match 'change' => 'users#change'
     match 'changepw' => 'users#changepw'
+    match 'uploadimage' => 'news#uploadimage'
   end
   
   match 'page-(:id).html' => 'system#content'

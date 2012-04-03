@@ -3,7 +3,7 @@ layout "admin"
   # GET /system_site_maps
   # GET /system_site_maps.json
   def index
-    @system_site_maps = SystemSiteMap.where(:system_site_map_id => 2)
+    @services = SystemSiteMap.where(:system_site_map_id => 2)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,8 +13,9 @@ layout "admin"
   # GET /system_site_maps/1
   # GET /system_site_maps/1.json
   def show
-    @system_site_map = SystemSiteMap.find(params[:id])
-
+    @service = Service.find(params[:id])
+    build_service_content
+    
     respond_to do |format|
       format.html # show.html.erb
     end
@@ -23,7 +24,7 @@ layout "admin"
   # GET /system_site_maps/new
   # GET /system_site_maps/new.json
   def new
-    @system_site_map = SystemSiteMap.new
+    @service = Service.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -32,17 +33,23 @@ layout "admin"
 
   # GET /system_site_maps/1/edit
   def edit
-    @system_site_map = SystemSiteMap.find(params[:id])
+    @service = Service.find(params[:id])
+    build_service_content
   end
 
   # POST /system_site_maps
   # POST /system_site_maps.json
   def create
-    @system_site_map = SystemSiteMap.new(params[:system_site_map])
-    @system_site_map.system_site_map_id = 2
+    @service = Service.new(params[:service])
+    
+    package_content
+  
     respond_to do |format|
-      if @system_site_map.save
-        format.html { redirect_to({:action=>:show, :id=>@system_site_map.id}, notice: t("helpers.notice.new")) }
+      if @service.save# && @system_site_map.save
+        system_site_map = SystemSiteMap.new( :system_site_map_id => 2, :title => @service.title, :controller => "services", :parameter => @service.id )
+        system_site_map.save
+        @service.update_attributes(:system_site_map => system_site_map)
+        format.html { redirect_to({:action=>:show, :id=>@service.id}, notice: t("helpers.notice.new")) }
       else
         format.html { render action: "new" }
       end
@@ -52,10 +59,14 @@ layout "admin"
   # PUT /system_site_maps/1
   # PUT /system_site_maps/1.json
   def update
-    @system_site_map = SystemSiteMap.find(params[:id])
-
+    @service = Service.find(params[:id])
+    system_site_map = SystemSiteMap.where( :parameter => params[:id] ).first
+    
+    package_content
+    
     respond_to do |format|
-      if @system_site_map.update_attributes(params[:system_site_map])
+      if @service.update_attributes(params[:service])
+        system_site_map.update_attributes(:title => @service.title)
         format.html { redirect_to({:action=>:show}, notice: t("helpers.notice.update")) }
       else
         format.html { render action: "edit" }
@@ -66,11 +77,26 @@ layout "admin"
   # DELETE /system_site_maps/1
   # DELETE /system_site_maps/1.json
   def destroy
-    @system_site_map = SystemSiteMap.find(params[:id])
-    @system_site_map.destroy
+    @service = Service.find(params[:id])
+    system_site_map = SystemSiteMap.where( :parameter => params[:id] ).first
+    system_site_map.destroy
+    @service.destroy
 
     respond_to do |format|
       format.html { redirect_to({:action=>:index}, notice: t("helpers.notice.update")) }
     end
   end
+  
+private
+	def package_content		
+	    contents = params[:contents]	    
+	    @service.content = ActiveSupport::JSON.encode(contents	)
+	    
+	 end
+
+ 	def build_service_content
+
+ 		@service.content = JSON.parse(@service.content)
+
+ 	end
 end

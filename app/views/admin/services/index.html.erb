@@ -13,7 +13,7 @@
 		<div class="list-command">
 		<%= link_to t("helpers.edit"), {:action => "edit", :pid => params[:pid], :id => service.parameter}, :class => "mod" %><span>│</span>
 		<%= link_to t("helpers.delete"), { :action => "destroy", :pid => params[:pid], :id => service.parameter }, :class => "del", :confirm => "Are you sure you want to delete this article?", :method => :delete %>
-	</td>
+	  </td>
   </tr>
 <% end %>
 </table>
