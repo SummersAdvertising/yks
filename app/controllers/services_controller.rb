@@ -7,7 +7,8 @@ class ServicesController < ApplicationController
 		 build_service_content
 		 		 
 		 respond_to do | format |
-		 	format.html { render :template => 'services/show.html.erb' }
+		 	#format.html { render :template => 'services/show.html.erb' }
+		 	format.html { redirect_to :action => "show", :id => @service.id}
 		 end
 		 
 	end
