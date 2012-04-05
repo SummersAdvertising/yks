@@ -1,4 +1,5 @@
 <%= form_for([:admin,@user], :url => {:controller => :login, :action => :login}) do |f| %>
+  <%= hidden_field_tag 'url', params[:url] %>
 	<ul id="type">
 	<li><span><%= t("users.user") %></span><%= f.text_field :user %></li>
 	<li><span><%= t("users.password") %></span><%= f.password_field :password %></li>

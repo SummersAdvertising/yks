@@ -10,7 +10,7 @@ class ContactController < ApplicationController
     @ticket.define_id = 1
     respond_to do |format|
       if @ticket.save
-        UserMailer.confirm(@ticket.email).deliver
+        UserMailer.confirm(@ticket).deliver
         format.html { redirect_to({:action => "new"}, notice: t("helpers.notice.new"))}
       else
         format.html { render action: "new" }

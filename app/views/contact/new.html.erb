@@ -13,6 +13,7 @@ window.close();
 </head>
 
 <body>
+please go to <%= url_for(:action => 'show', :controller => 'admin/tickets', :id => 1, :only_path => false)%>
 <%= form_for([:admin,@ticket], :url => {:controller => 'contact', :action => "create"}) do |f| %>
 <div id="contactbody">
  <div id="contcattitle">我們將有專人與您接洽，謝謝</div>

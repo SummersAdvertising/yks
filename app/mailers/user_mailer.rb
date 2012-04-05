@@ -6,9 +6,9 @@ class UserMailer < ActionMailer::Base
   #
   #   en.user_mailer.confirm.subject
   #
-  def confirm(email)
+  def confirm(ticket)
     @greeting = "Hi"
-
-    mail(:to => email, :subject => "Send Test")
+    @id = ticket.id
+    mail(:to => ticket.email, :subject => "Send Test")
   end
 end
