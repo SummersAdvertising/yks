@@ -68,7 +68,6 @@ ActiveRecord::Schema.define(:version => 20120328081704) do
   end
 
   create_table "system_site_maps", :force => true do |t|
-    t.string   "parent_id",          :limit => 11
     t.string   "title"
     t.integer  "system_site_map_id"
     t.boolean  "is_static"
@@ -77,8 +76,8 @@ ActiveRecord::Schema.define(:version => 20120328081704) do
     t.string   "parameter"
     t.string   "link"
     t.string   "script"
-    t.datetime "created_at",                       :null => false
-    t.datetime "updated_at",                       :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
   end
 
   create_table "tickets", :force => true do |t|
