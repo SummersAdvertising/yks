@@ -32,10 +32,14 @@
 				<div class="side-title"><%= menu t("news.tablename"), "news", 'index'%></div>
 			</ul>
 			<ul class="side-box">
-				<div class="side-title"><%= menu t("services.tablename"), "service_types", 'index'%></div>
+				<div class="side-title"><%= menu t("services.tablename"), "service_types"%></div>
 			<div class="side-text">
 				<% SystemSiteMap.find(2).system_site_maps.each do |service| %>
+<<<<<<< HEAD
 <li><%= menu service.title, "services", 'index', service.id %></li>
+=======
+<li><%= menu service.title, "services", "index", service.id %></li>
+>>>>>>> 2f7fcefcac741255c4144a4e5e60bd510786d85c
 <% end %>
 			</div>
 			</ul>

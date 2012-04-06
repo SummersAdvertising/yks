@@ -5,8 +5,8 @@
 #   git config --global core.excludesfile ~/.gitignore_global
 
 # Ignore bundler config
-.DS_Store
-.dropbox
+/.DS_Store
+/.dropbox
 /.bundle
 
 # Ignore the default SQLite database.
