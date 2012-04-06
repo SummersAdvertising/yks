@@ -10,7 +10,7 @@
 
 <% @banners.each do |banner| %>
   <tr class="list-content">
-  	<td class="first" align="center" valign="middle"><img src="/banners/<%= banner.id %>.jpg"></td>
+  	<td class="first" align="center" valign="middle"><img src="<%= image_path("/banners/#{banner.id}.jpg") %>" alt="open" /></td>
     <td class="first"><a><%= show banner, banner.link %></a><%= render 'shared/admin_list_command', :data => banner %></td>
   </tr>
 <% end %>

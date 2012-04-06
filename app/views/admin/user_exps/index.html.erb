@@ -10,7 +10,7 @@
 
 <% @userexps.each do |userexp| %>
   <tr class="list-content">
-  	<td class="first" align="center" valign="middle"><img src="/user_exps/<%= userexp.id %>.jpg" /></td>
+  	<td class="first" align="center" valign="middle"><img src="<%= image_path("/user_exps/#{userexp.id}.jpg") %>" alt="open" /></td>
     <td class="first"><%= show userexp, userexp.title %><%= render 'shared/admin_list_command', :data => userexp %></td>
   </tr>
 <% end %>
