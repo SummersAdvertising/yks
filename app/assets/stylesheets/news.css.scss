@@ -1,0 +1,59 @@
+// Place all the styles related to the news controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@charset "utf-8";
+/* CSS Document */
+#menulistbody{
+    float:left;
+	width:274px;
+	z-index:3px;
+	background-image:url(images/menubg2.png);
+	background-repeat:repeat-y;
+}
+
+
+/*左方目錄下拉選單*/
+ul#menu, ul#menu ul {
+  list-style-type:none;
+  margin: 14px 10px 14px 40px;
+  padding: 0;
+  width: 200px;
+  font: 13px "微軟正黑體", Arial, Helvetica, sans-serif;
+  color:#333333;
+  line-height:22px;
+}
+
+ul#menu a {
+  display: block;
+  text-decoration: none;
+  color:#333333;	
+}
+
+ul#menu a:hover {
+  display: block;
+  text-decoration: underline;
+  color:#fd881f;	
+}
+
+#menuline{
+  width:213px;
+  margin: 0px 0px 0px 30px;
+  border-top:1px dashed #999999;
+}
+
+
+#newstitle{
+   width:660px;
+   float:left;
+   font: 26px "微軟正黑體", Arial, Helvetica, sans-serif;
+   color:#333333;
+   margin:0px 0px 0px 0px;
+}
+
+#newscontent{
+   width:660px;
+   padding:20px 0px 0px 0px;
+   float:left;
+   font: 13px "微軟正黑體", Arial, Helvetica, sans-serif;
+   color:#666666;
+}

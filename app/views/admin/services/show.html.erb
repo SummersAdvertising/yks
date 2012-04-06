@@ -14,7 +14,31 @@
 
 <div>
   <b><%= t("services.content") %>：</b>
-  <%= simple_format @service.content %>
+	<% 
+		@service.content.each do | content | 
+		if content[1]['block'] != "" || content[1]['blockcontent'] != ""
+		itemAry = content[1]['blockcontent'].split("\n")
+	%>	
+	
+  <span class="black_15">【<%= content[1]['block'] %>】</span><br>
+  <span class="gray_13">
+  <ul>
+  	<% 
+  		if itemAry.size  		
+	  		# 產生回圈輸出項目內容
+	  		itemAry.each do |item|	 
+	  		%>
+	  		<li><%= item %></li>
+	  		<%  		
+	  		end
+  		end
+  	 %>
+  </ul>
+  </span><br>
+  <br>
+  	
+	<%end 
+	  end %>
 </div>
 
 <%= render 'shared/admin_form_command', :data => @service %>

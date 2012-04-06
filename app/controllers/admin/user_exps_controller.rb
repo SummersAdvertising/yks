@@ -40,14 +40,14 @@ end
 def create
   @userexp = UserExp.new(params[:user_exp])
   
-   file = params[:upload]['filename']
-   filename = @userexp.id
-   filewhere = "public/user_exps/#{filename}.jpg"
-   File.open("#{filewhere}", "wb") do |f|  
-      f.write(file.read)  
-   end
   respond_to do |format|
     if @userexp.save
+     file = params[:upload]['filename']
+     filename = @userexp.id
+     filewhere = "public/user_exps/#{filename}.jpg"
+     File.open("#{filewhere}", "wb") do |f|  
+        f.write(file.read)  
+     end
       format.html { redirect_to [:admin,@userexp], notice: t("helpers.notice.new") }
     else
       format.html { render action: "new" }
@@ -60,14 +60,17 @@ end
 def update
   @userexp = UserExp.find(params[:id])
   
-   file = params[:upload]['filename']
-   filename = @userexp.id
-   filewhere = "public/user_exps/#{filename}.jpg"
-   File.open("#{filewhere}", "wb") do |f|  
-      f.write(file.read)  
-   end
   respond_to do |format|
     if @userexp.update_attributes(params[:user_exp])
+     if params[:upload]     	
+	     file = params[:upload]['filename']
+	     exit
+	     filename = @userexp.id
+	     filewhere = "public/user_exps/#{filename}.jpg"
+	     File.open("#{filewhere}", "wb") do |f|  
+	        f.write(file.read)  
+	     end
+     end 
       format.html { redirect_to [:admin,@userexp], notice: t("helpers.notice.update") }
     else
       format.html { render action: "edit" }

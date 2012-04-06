@@ -4,7 +4,9 @@ layout "admin"
   # GET /system_site_maps.json
   def index
     @system_site_maps = SystemSiteMap.all
-
+    
+    @home_id = SystemSiteMap.where(:title => 'home')[0].id
+    
     respond_to do |format|
       format.html # index.html.erb
     end

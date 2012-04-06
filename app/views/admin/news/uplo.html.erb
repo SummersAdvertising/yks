@@ -1,0 +1,47 @@
+<%= javascript_include_tag "/javascripts/ckeditor/ckeditor.js" %>
+<%= form_for([:admin,@new]) do |f| %>
+  <% if @new.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@new.errors.count, "error") %> prohibited this services from being saved:</h2>
+
+      <ul>
+      <% @new.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field form-title">
+    <%= f.label :title, '標題' %>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field form-time">
+    <%= f.label :time, '時間' %>
+    <%= f.text_field :time %>
+  </div>
+  <div class="field form-content">
+    <h3><%= f.label :content, '內容' %></h3>
+    <%= f.text_area :content %>
+			<script type="text/javascript">
+			//<![CDATA[
+
+				// This call can be placed at any point after the
+				// <textarea>, or inside a <head><script> in a
+				// window.onload event handler.
+
+				// Replace the <textarea id="editor"> with an CKEditor
+				// instance, using default configurations.
+        CKEDITOR.replace( 'news_content', 
+             {  
+                  filebrowserUploadUrl : '/admin/uploadimage',
+                  filebrowserImageUploadUrl : '/admin/uploadimage'
+             }
+           );
+			//]]>
+			</script>
+  </div>
+  <div class="actions">
+    <%= submit %>
+    <%= cancel %>
+  </div>
+<% end %>

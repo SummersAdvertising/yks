@@ -15,7 +15,19 @@ Yks::Application.routes.draw do
     match 'logout' => 'login#logout'
     match 'change' => 'users#change'
     match 'changepw' => 'users#changepw'
+    match 'uploadimage' => 'news#uploadimage'
   end
+  
+  
+  match 'contact' => 'contact#new'
+  
+  match 'page-(:id).html' => 'system#content'
+  resources :system_site_maps
+  resources :user_exps
+  resources :services
+  resources :banners
+  
+  match 'page/:pagename' => 'system_site_maps#show'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -73,4 +85,7 @@ Yks::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   match ':controller(/:action(/:id))(.:format)'
+  
+  root :to => 'system_site_maps#index'
+  
 end

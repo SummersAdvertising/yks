@@ -1,0 +1,101 @@
+// Place all the styles related to the service controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+@charset "utf-8";
+/* CSS Document */
+
+/*左邊目錄外框*/
+#menulistbody{
+    float:left;
+	width:274px;
+	z-index:3px;
+}
+/*左方目錄下拉選單*/
+ul#menu, ul#menu ul {
+  list-style-type:none;
+  margin: 0;
+  padding: 0;
+  width: 274px;
+}
+
+ul#menu a {
+  display: block;
+  text-decoration: none;	
+}
+
+ul#menu li {
+
+}
+
+ul#menu li a {
+  background-image:image-url("menubg.png");
+  color: #666666;	
+  font: 16px "微軟正黑體", Arial, Helvetica, sans-serif;
+  text-align:right;
+  padding: 23px 30px 20px 20px;
+}
+
+ul#menu li a.linkActived, ul#menu li a.parentSelected{
+  background-image:image-url("menuover.png");
+  color:#FFFFFF;
+}
+
+
+ul#menu li a:hover {
+  background-image:image-url("menuover.png");
+  color:#FFFFFF;
+}
+
+
+ul#menu li ul li a {
+  background-image:image-url("menubg2.png");
+  font: 15px "微軟正黑體", Arial, Helvetica, sans-serif;
+  color:#541e1e;	
+  padding:10px 30px 10px 10px;
+}
+
+ul#menu li ul li a:hover, ul#menu li ul li.serviceSelected a {
+  color:#cc0000;	
+  background-image:image-url("menubg2.png");  
+}
+
+ul#menu li ul li a.linkActived{
+  color:#cc0000;	
+  background-image:image-url("menubg2.png");  
+}
+
+#servicetitle1{
+   width:680px;
+   float:left;
+   font: 26px "微軟正黑體", Arial, Helvetica, sans-serif;
+   color:#DC7110;
+   margin:0px 0px 3px 0px;
+}
+
+#servicetitle2{
+   width:680px;
+   float:left;
+   font: 22px "微軟正黑體", Arial, Helvetica, sans-serif;
+   font-weight:bold;
+   color:#4a1a00;
+   margin:2px 0px 0px 0px;
+}
+#servicetitle3{
+   width:680px;
+   float:left;
+   font: 20px "微軟正黑體", Arial, Helvetica, sans-serif;
+   color:#666666;
+   margin:0px 0px 3px 0px;
+}
+
+#servicecontent{
+   float:left;
+   width:680px;
+   padding:10px 0px 10px 0px;
+}
+
+#servicecontent li{
+   list-style-image:image-url("point.jpg");
+   list-style-position:outside;
+   margin-left:-23px;;
+}

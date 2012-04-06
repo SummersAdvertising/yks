@@ -1,0 +1,44 @@
+#site-map {
+  font-size: 13px;
+}
+
+#site-map .add {
+  background: #257EA8;
+  background: -webkit-linear-gradient(top, #298cba 0%, #227399 100%);
+  background: -moz-linear-gradient(top, #298cba 0%, #227399 100%);
+  font: 700 13.2px "sans-serif";
+  color: #fff!important;
+  text-align: center;
+  border: 1px solid #298CBA;
+  text-shadow: 0 -1px 0 #195572;
+  padding: 4px 0 3px;
+  -webkit-border-radius: 15px;
+  border-radius: 15px;
+  width: 50px;
+  height: 17px;
+  display: block;
+}
+
+#site-map .add:hover {
+  border: 1px solid #13455B;
+  color: #eaf2fa !important;
+}
+
+#site-map li {
+  position: relative;
+}
+
+#site-map .list-command {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 60px;
+}
+
+#site-map li:hover .list-command {
+  display: block;
+}
+
+#site-map ul {
+  margin: 0 0 0 30px;
+}

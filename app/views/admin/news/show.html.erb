@@ -14,7 +14,7 @@
 
 <div>
   <b><%= t("news.content") %>：</b>
-  <%= simple_format @new.content %>
+  <%= nl2br @new.content %>
 </div>
 
 <%= render 'shared/admin_form_command', :data => @new %>

@@ -7,9 +7,13 @@
     <td><%= t("services.title") %></td>
   </tr>
 
-<% @system_site_maps.each do |system_site_map| %>
+<% @services.each do |service| %>
   <tr class="list-content">
-    <td class="first"><%= show system_site_map, system_site_map.title %><%= render 'shared/admin_list_command', :data => system_site_map %></td>
+    <td class="first"><%= link_to service.title, :action => 'show', :id => service.parameter %>
+		<div class="list-command">
+		<%= link_to t("helpers.edit"), {:action => "edit", :id => service.parameter}, :class => "mod" %><span>│</span>
+		<%= link_to t("helpers.delete"), { :action => "destroy", :id => service.parameter }, :class => "del", :confirm => "Are you sure you want to delete this article?", :method => :delete %>
+    </td>
   </tr>
 <% end %>
 </table>

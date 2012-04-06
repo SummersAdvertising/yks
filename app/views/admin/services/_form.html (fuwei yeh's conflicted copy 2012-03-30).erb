@@ -1,0 +1,68 @@
+<div id="service-form">
+<%= form_for([:admin,@service]) do |f| %>
+  <% if @service.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@service.errors.count, "error") %> prohibited this services from being saved:</h2>
+
+      <ul>
+      <% @service.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<%=hidden_field_tag :pid, params[:pid] %>
+<div id="service-form-left">
+  <div class="field form-title">
+    <%= f.label :title, '服務項目' %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field form-time">
+    <%= f.label :time, '時間' %><br />
+    <%= f.text_field :time %>
+  </div>
+
+  <div class="field form-content">
+    <h3><%= f.label :price, '平均報價' %></h3>
+    <%= f.text_area :price %>
+  </div>  
+  
+  <% 0.upto(4) do |i| %>
+  <div class="field form-time">
+    <%= text_field "contents[" + i.to_s  + "]", "block" %>
+    <%= text_area "contents[" + i.to_s  + "]", "blockcontent" %>
+  </div>
+  <% end %>
+  
+  <div class="actions">
+    <%= submit %>
+    <%= cancel %>
+  </div>
+</div>  
+  
+    <script>
+    //假設傳入的JSON內容如下：
+    //Data = <%#= raw @service.content%>
+
+    //我們可以透過.length得知其中的物件數
+    //var NumOfJData = JData.length; //NumOfJData=3
+
+    //利用alert來逐筆將資料以message window的方式傳出
+    //for (var i = 0; i < NumOfJData; i++) {
+    //  $('#contents_block' + i).val(JData[i]["title"]);
+    //  $('#contents_blockcontent' + i).val(JData[i]["content"]);
+    //}
+    <% 
+    
+      i=0
+  		@service.content.each do | content |
+  	%>
+      $('#contents_<%= i%>_block').val("<%=content[1]['block']%>");
+      $('#contents_<%= i%>_blockcontent').val("<%=content[1]['blockcontent']%>");
+	  <%
+	    i=i+1
+	    end
+	  %>
+    </script>
+<% end %>
+</div>

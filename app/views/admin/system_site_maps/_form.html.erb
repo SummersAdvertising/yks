@@ -12,8 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :parent_id %><br />
-	<%= select("system_site_map", "parent_id", SystemSiteMap.all.collect {|p| [ p.title, p.id ] }, {:prompt => 'Select Parent'})%>
+    <%= f.label :system_site_map_id %><br />
+	<%= f.select(:system_site_map_id, SystemSiteMap.all.collect {|p| [ p.title, p.id ] }, {:prompt => 'Select Parent'})%>
   </div>
   <div class="field">
     <%= f.label :id %><br />

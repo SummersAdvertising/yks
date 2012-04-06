@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120321035022) do
+ActiveRecord::Schema.define(:version => 20120328081704) do
 
   create_table "banners", :force => true do |t|
     t.string   "link"
@@ -64,18 +64,19 @@ ActiveRecord::Schema.define(:version => 20120321035022) do
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
     t.integer  "system_site_map_id"
+    t.text     "price"
   end
 
   create_table "system_site_maps", :force => true do |t|
-    t.integer  "system_site_map_id", :limit => 255
+    t.integer  "system_site_map_id"
     t.boolean  "is_static"
     t.string   "controller"
     t.string   "action"
     t.string   "parameter"
     t.string   "link"
     t.string   "script"
-    t.datetime "created_at",                        :null => false
-    t.datetime "updated_at",                        :null => false
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
     t.string   "title"
   end
 
@@ -99,14 +100,15 @@ ActiveRecord::Schema.define(:version => 20120321035022) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "status"
+    t.string   "name"
   end
 
   create_table "users", :force => true do |t|
     t.string   "user"
     t.string   "password"
-    t.integer  "define_id",  :limit => 255
-    t.datetime "created_at",                :null => false
-    t.datetime "updated_at",                :null => false
+    t.integer  "define_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end

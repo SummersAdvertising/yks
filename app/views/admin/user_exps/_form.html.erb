@@ -20,12 +20,16 @@
     <%= f.label :title, '標題' %><br />
     <%= f.text_field :title %>
   </div>
+  <div class="field form-title">
+    <%= f.label :name, '用戶名稱' %><br />
+    <%= f.text_field :name %>
+  </div>
     <div class="field form-time">
     <%= f.label :time, '時間' %><br />
     <%= f.text_field :time %>
   </div>
   <div class="field form-content">
-    <h3><%= f.label :content, '內容' %></h3><br />
+    <h3><%= f.label :content, '內文' %></h3><br />
     <%= f.text_area :content %>
   </div>
 

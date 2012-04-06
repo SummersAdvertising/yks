@@ -1,5 +1,20 @@
 class Admin::NewsController < AdminController
-layout "admin"
+  skip_before_filter :verify_authenticity_token
+  layout "admin", :except => [:uploadimage]
+  
+  def uploadimage
+     number = Dir.open("#{Rails.root}/public/news").each.count - 3
+     file = params['upload']
+     filewhere = "#{Rails.root}/public/news/#{number}.jpg"
+     File.open("#{filewhere}", "wb") do |f|  
+        f.write(file.read)
+     end
+     filename = "/news/#{number}.jpg"
+     message = "It's ok"
+    @text = params[:CKEditor].blank? ? @record.to_json(:only=>[:id, :type], :methods=>[:url, :content_type, :size, :filename, :format_created_at], :root => "asset") : "<script type='text/javascript'>window.parent.CKEDITOR.tools.callFunction(#{params[:CKEditorFuncNum]}, \"#{filename}\", \"#{message}\");</script>"
+    render :text=>@text
+  end
+
   # GET /system_site_maps
   # GET /system_site_maps.json
   def index
@@ -70,7 +85,7 @@ layout "admin"
     @new.destroy
 
     respond_to do |format|
-      format.html { redirect_to admin_news_url }
+      format.html { redirect_to :controller => :news, :action => :index }
     end
   end
 end

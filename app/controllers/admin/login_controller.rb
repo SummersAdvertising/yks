@@ -12,11 +12,21 @@ class Admin::LoginController < ApplicationController
       respond_to do |format|
         if @user.first != nil
           session[:user] = @user.first.user
-          format.html { redirect_to controller: "news", action: "index" }
-        else    
+          if params[:url] != nil && params[:url] != ""
+            format.html { redirect_to params[:url], :status => :moved_permanently }
+          else
+            format.html { redirect_to controller: "news", action: "index" }  
+          end
+          #redirect_to controller: "news", action: "index"
+        else
           @user = User.new
           session[:user] = nil
-          format.html { render action: "index" }
+          if params[:url] != nil && params[:url] != ""
+    			  format.html { redirect_to :controller => :login, :url => params[:url] }
+  			  else
+      			  format.html { redirect_to :controller => :login }
+  			  end
+          #render action: "index"
         end
       end
     end

@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="contactstyle.css"/>
+<title>誼光家事服務，實現每一個乾淨的願望</title>
+<% if notice != nil %>
+<script>
+alert('資料已送出。');
+window.close();
+</script>
+<% end %>
+</head>
+
+<body>
+please go to <%= url_for(:action => 'show', :controller => 'admin/tickets', :id => 1, :only_path => false)%>
+<%= form_for([:admin,@ticket], :url => {:controller => 'contact', :action => "create"}) do |f| %>
+<div id="contactbody">
+ <div id="contcattitle">我們將有專人與您接洽，謝謝</div>
+ <div id="contcattitle2">感謝您的光臨，請填寫以下資料<br /><br /><br />
+ </div>
+ <div id="formtitle">姓名：</div>
+ <div id="formtext">
+   <label>
+   <%= f.text_field :name %>
+   </label>
+ </div>
+ <div id="formtitle">聯絡電話：</div>
+ <div id="formtext">
+   <label>
+   <%= f.text_field :phone %>
+   </label>
+ </div>
+ <div id="formtitle">希望服務地址：</div>
+ <div id="formtext">
+   <label>
+   <%= f.text_field :address %>
+   </label>
+ </div>
+ <div id="formtitle">E-mail：</div>
+ <div id="formtext">
+   <label>
+   <%= f.text_field :email %>
+   </label>
+ </div>
+ <div id="formtitle">希望服務時間：</div>
+ <div id="formtext">
+   <label>
+   <%= f.radio_button :hopetime, 0 %>
+   </label>
+ 平日　 
+ <label>
+ <%= f.radio_button :hopetime, 1 %>
+ </label>
+ 周末及假日</div>
+ <div id="checkbutton">
+ <input type="image" name="imageField" id="imageField" src="images/checkbtn.png" onClick="form.onsubmit();">
+ </div>
+</div> 
+<% end %>
+</body>
+</html>

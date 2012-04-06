@@ -44,12 +44,14 @@ def create
     if @banner.save
      
       #file.original_filename
+      if params[:upload] != nil
        file = params[:upload]['filename']
        filename = @banner.id
-       filewhere = "public/banners/#{filename}.jpg"
+       filewhere = "#{Rails.root}/public/banners/#{filename}.jpg"
        File.open("#{filewhere}", "wb") do |f|  
           f.write(file.read)
        end
+      end
       format.html { redirect_to [:admin,@banner], notice: t("helpers.notice.new") }
     else
       format.html { render action: "new" }
@@ -65,12 +67,14 @@ def update
   respond_to do |format|
     if @banner.update_attributes(params[:banner])
       #file.original_filename
+      if params[:upload] != nil
        file = params[:upload]['filename']
        filename = @banner.id
-       filewhere = "public/banners/#{filename}.jpg"
+       filewhere = "#{Rails.root}/public/banners/#{filename}.jpg"
        File.open("#{filewhere}", "wb") do |f|  
           f.write(file.read)  
        end
+      end
       format.html { redirect_to [:admin,@banner], notice: t("helpers.notice.update") }
     else
       format.html { render action: "edit" }

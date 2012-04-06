@@ -3,7 +3,7 @@
 <head>
   <title>誼光後台管理系統</title>
   <meta http-equiv="cache-control" content="no-cache"> 
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag    "admin", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   <%= javascript_include_tag "rails" %>
@@ -26,15 +26,20 @@
 
 <div id="main">
 	<div id="side" class="left">
+		<% if session[:user] == 'master' %>
 		<ol>
 			<ul class="side-box">
 				<div class="side-title"><%= menu t("news.tablename"), "news", 'index'%></div>
 			</ul>
 			<ul class="side-box">
-				<div class="side-title"><%= menu t("services.tablename"), "service_types", 'index'%></div>
+				<div class="side-title"><%= menu t("services.tablename"), "service_types"%></div>
 			<div class="side-text">
 				<% SystemSiteMap.find(2).system_site_maps.each do |service| %>
-<li><%= link_to service.title, :controller => 'services', :action => 'index', :pid=>service.id %></li>
+<<<<<<< HEAD
+<li><%= menu service.title, "services", 'index', service.id %></li>
+=======
+<li><%= menu service.title, "services", "index", service.id %></li>
+>>>>>>> 2f7fcefcac741255c4144a4e5e60bd510786d85c
 <% end %>
 			</div>
 			</ul>
@@ -53,7 +58,6 @@
 				<div class="side-title"><%= menu t("tickettypes.tablename"), 'ticket_types'%></div>
 			</ul>
 		</ol>
-		<% if session[:user] == 'master' %>
 		<ol>
 			<ul class="side-box">
 				<div class="side-title"><%= menu t("users.tablename"), 'users'%></div>
@@ -62,6 +66,10 @@
 				<div class="side-title"><%= menu "網站地圖", 'system_site_maps', 'index'%></div>
 			</ul>
 		</ol>
+		<% else %>
+			<ul class="side-box">
+				<div class="side-title"><%= menu t("tickets.tablename"), 'tickets'%></div>
+			</ul>
 		<% end %>
 		<ol>
 			<ul id="side-none" class="side-box"></ul>

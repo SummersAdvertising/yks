@@ -28,4 +28,8 @@ module ApplicationHelper
     #<%= link_to t("helpers.form.back"), :action => "index" %>
     raw link_to (text != nil ? text : t("helpers.form.back")), {:action => "index", :pid => params[:pid]}, :class => "back"
   end
+  
+  def nl2br(html)
+    raw(html.gsub(/[(\n)(\r)]/, "\n" => "<br/>", "\r" => "" ))
+  end
 end

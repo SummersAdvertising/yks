@@ -37,5 +37,12 @@
   <%= @ticket.define.name %>
 </div>
 
-<%= render 'shared/admin_form_command', :data => @ticket %>
+<% if session[:user] == 'master' %>
+  <%= render 'shared/admin_form_command', :data => @ticket %>
+<% else %>
+<span class="tool">
+		<%=link_to t("helpers.edit"), {:action => "remarkedit", :id => @ticket.id}, :class => "mod"%>
+    <%= back %>
+</span>
+<% end %>
 </div>

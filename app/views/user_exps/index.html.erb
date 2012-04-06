@@ -1,0 +1,21 @@
+
+   <div id="rightframe">
+   
+   <% @user_exps.each do |user_exp| %>
+   	
+	<div id="witnessframe">
+		<div id="witnessphoto"><img src="user_exps/<%= user_exp.id %>.jpg" width="101" height="124"></div>
+		<div id="witnessline"></div>
+		<div id="witnesstitle"><%= user_exp.title %></div>
+		<div id="witnessline"></div>
+		<div id="witnessname"><%= user_exp.name %></div>
+		<div id="witnesstext">根據您府上的坪數、住家整潔現況、特殊清潔項目及您的需求服務進行訪談討論。量身訂做一套屬於府上的清潔規劃。本公司販售整體服務價值，有別一般以價格計算。</div>
+	</div>   	
+
+   <% end %>
+
+   </div><!--rightframe end-->
+   <div id="menuout">
+    <div id="menuimage"><img src="<%= image_path("witnesstitle.png") %>" width="274" height="59"></div>
+    <%= render :partial => "pages/bussiness" %>
+   </div><!--menuout end-->

@@ -1,0 +1,219 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="stylesheet" type="text/css" href="framestyle.css"/>
+<link rel="stylesheet" type="text/css" href="textstyle.css"/>
+<link rel="stylesheet" type="text/css" href="servicestyle.css"/>
+<title>誼光家事服務，實現每一個乾淨的願望</title>
+<script type="text/javascript" src="jquery-1.2.6.min.js"></script>
+<script type="text/javascript" src="scripts/btn_function.js"></script>
+<script src="menu.js" type="text/javascript"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		
+		var animateLock = false;
+		
+		$('#btn1').mouseover(function(e) {
+			
+			if ( e &&e.stopPropagation) {
+				e.stopPropagation();
+			} else {
+				window.event.cancelBubble = true;
+			}
+			
+			if ($('#businessbox').is(':not(:visible)')) {				
+				$('#businessbox').toggle('slow');
+			}
+			
+		}).click(function(e) {
+			if ( e &&e.stopPropagation) {
+				e.stopPropagation();
+			} else {
+				window.event.cancelBubble = true;
+			}
+			$('#businessbox').toggle('slow');
+			
+			return;
+		});
+		
+		$(this).click(function() { 
+			if ($('#businessbox').is(':visible') && !animateLock) {				
+				$('#businessbox').toggle('slow');
+			}
+		});
+		
+		$(".topMenuAction").click( function() {
+			if ($("#openCloseIdentifier").is(":hidden")) {
+				$("#slider").animate({ 
+					marginTop: "-161px"
+					}, 500 );
+				$("#topMenuImage").html('<img src="images/open.png" alt="open" />');
+				$("#openCloseIdentifier").show();
+			} else {
+				$("#slider").animate({ 
+					marginTop: "-20px"
+					}, 500 );
+				$("#topMenuImage").html('<img src="images/close.png" alt="close" />');
+				$("#openCloseIdentifier").hide();
+			}
+		});  
+	});
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+</script>
+<script type="text/javascript"> // 預先載入影像
+function preloadImages() {
+ var a = (typeof arguments[0] == 'object')? arguments[0] : arguments;
+ for(var i = a.length -1; i > 0; i--) {
+  jQuery("<img>").attr("src", 'images/'+a[i]);
+ }
+}
+preloadImages("btn_click.png","btn_out.png","btn_over.png","businessbg.png","businessend.png","businesstopbg.png","close.png","contactbg.png","menubg.png","menubg2.png","menubgend.png","menuover.png","needbtn.png","needbtn2.png","open.png","slider.png");
+
+</script>
+</head>
+
+<body>
+<div id="outbody">
+ 
+  <div id="topframe">
+   <div id="logoframe"><a href="index.htm"><img src="images/logo.png" width="210" height="122"></a></div>
+   <div id="btnbar">
+    <div class="nav"><a href="about.htm">關於誼光</a></div>
+    <div class="nav"><a href="preferential.htm">最新優惠</a></div>
+    <div class="nav"><a href="#">服務優勢</a></div>
+    <div class="nav"><a href="service1.htm" class="active">服務項目</a></div>
+    <div class="nav"><a href="witness.htm">用戶見證</a></div>
+    <div class="nav"><a href="recruit.htm">人員招募</a></div>
+    <div class="nav2"><img src="images/facebookbtn.png" width="16" height="16"></div>
+   </div>
+  </div>
+  <!--topframe end-->
+  <div id="topframe2">
+   <div id="slidercover"><img src="images/slidercover.png" width="218" height="38"></div>
+   <div id="sliderWrap">
+       <div id="openCloseIdentifier"></div>
+	   <div id="slider">
+			<div id="sliderContent">
+			  <div id="needbtn"><a href="#"><img src="images/needbtn.png" width="149" height="36" id="neetbtn" name="neetbtn" onmouseover="mouseOver1()" onmouseout="mouseOut1()" onClick="MM_openBrWindow('contact.htm','contact','scrollbars=yes,width=630,height=530')"></a></div>
+              <div id="needphone">
+                 台北：(02) 2503-3500<br>
+                 板橋：(02) 2961-4594<br>
+                 桃園：(03) 339-8353<br>
+                 新竹：(03) 561-1686
+              </div> 
+            </div>
+			<div id="openCloseWrap">
+				<a href="#" class="topMenuAction" id="topMenuImage"><img src="images/open.png" alt="open" /></a></div>
+	   </div>
+   </div>
+   <!--sliderWrap end-->
+  </div><!--topframe2 end-->
+
+</div><!--outbody end-->
+ <div id="middlebody">
+   <div id="rightframe">
+    <div id="servicetitle1">臨時居家清潔服務</div>
+    <div id="servicetitle3">大掃除服務</div>
+    <div id="line1"></div>
+    <div id="servicetitle2">平均報價</div>
+    <div id="line1"></div>
+    <div class="gray_15" id="servicecontent">2200元/人/4hr 為報價基準</div>
+    <div id="line1"></div>
+    <div id="servicetitle2">介紹</div>
+    <div id="line1"></div>
+    <div id="servicecontent"><span class="gray_15"><span class="black_15">【項目】</span><br>
+      <ul>
+      <li>依派工單施作。</li>
+      <li>為避免不必要的爭端，對於清潔過程中，因物品本身汰舊可能造成的損失，應先告知客戶，商討對於該物是否進行清潔。如協助幫忙清運垃圾，收納整理，需把時間估算進去，並告知客戶以達成共識。</li>
+      <li>實際價格依人數與所需時間調整。<br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+      </li>
+      </ul>
+      </span></div>
+   </div><!--rightframe end-->
+   <div id="menuout">
+    <div id="menuimage"><img src="images/servicetitle.png" width="274" height="59"></div>
+	<div id="menulistbody">
+      <ul id="menu">
+		<li>
+			<a href="service1.htm">定期居家清潔服務</a>
+            <ul></ul>
+		</li>
+		<li>
+			<a href="service2.htm">臨時居家清潔</a>
+			<ul>
+				<li><a href="#">定期清潔體驗服務</a></li>
+				<li><a href="#">四小時單次服務</a></li>
+				<li><a href="#">單一區間清潔</a></li>
+				<li><a href="#">裝潢後細清服務</a></li>
+				<li><a href="#">大掃除服務</a></li>
+			</ul>
+		</li>
+		<li>
+			<a href="service3.htm">特殊項目服務</a>
+			<ul>
+				<li><a href="#">寢具除蟎清潔</a></li>
+				<li><a href="#">觀景窗清潔</a></li>
+				<li><a href="#">一般窗清潔</a></li>
+				<li><a href="#">浴室拉門除皂垢</a></li>
+                <li><a href="#">沙發蒸氣清潔</a></li>
+                <li><a href="#">洗滌服務</a></li>
+                <li><a href="#">石材保養清潔</a></li>
+                <li><a href="#">乾洗服務</a></li>
+                <li><a href="#">矽立康重灌</a></li>
+			</ul>
+		</li>
+		<li>
+			<a href="service4.htm">常見問題</a>
+            <ul></ul>
+		</li>
+	  </ul>
+    </div><!--menulistbody end-->
+    <div id="menuimage"><img src="images/menubgend.png" width="274" height="15"></div>
+    <div id="menubanner"><img src="images/banner1.jpg" width="260" height="90"></div>
+    <div id="menuimage"><img src="images/businessicon.png" width="274" height="89" id="btn1"></div>
+    <div id="businessbox" style="display:none">
+     <div id="businesstitle">
+       <br>
+       <br>
+       新光保全事業群連結</div>
+     <div id="businesslist">
+       <a href="http://www.bjyks.com.cn/" target="_blank">北京誼光物業管理</a><br>
+       <a href="http://www.yks.com.tw/front/bin/cglist.phtml?Category=337645" target="_blank">新保事業群</a><br>
+       <a href="http://www.sks.com.tw/index.php?option=com_content&view=category&layout=blog&id=3&Itemid=83" target="_blank">新保文化基金會</a><br>
+       <a href="http://www.sks.com.tw/" target="_blank">台灣新光保全</a><br>
+       <a href="http://www.104.com.tw/jobbank/cust_job/introduce.cfm?invoice=16840445000" target="_blank">台灣保全公司(現金運送業務)</a><br>
+       <a href="http://tw.myblog.yahoo.com/sks-blog/" target="_blank">新光保全部落格-暗夜の薔薇騎士Blog</a><br>
+       <a href="http://tw.myblog.yahoo.com/anhsin-classroom/profile" target="_blank">新光保全-安心教室推廣活動Blog</a><br>
+       <a href="http://tw.myblog.yahoo.com/h121151/" target="_blank">公寓大廈管理維護探討Blog</a>     </div>
+     <div id="businessend"></div>
+    </div><!--businessbox end-->
+   </div><!--menuout end-->
+</div>
+  <!--middlebody end-->
+<br clear="all" /> 
+<div id="footerframe">
+ <div id="tel"><span class="white_22">台北</span><br>
+   <span class="white_16">(02)2503-3500 </span></div>
+ <div id="tel"><span class="white_22">板橋</span><br>
+  <span class="white_16">(02)2961-4594  </span></div>
+ <div id="tel"><span class="white_22">桃園</span><br>
+  <span class="white_16">(03)339-8353   </span></div>
+ <div id="tel"><span class="white_22">新竹</span><br>
+  <span class="white_16">(03)561-1686   </span></div>
+ <div id="otherlink">| <a href="http://www.bjyks.com.cn/" target="_blank">北京誼光物業管理</a> | <a href="http://www.yks.com.tw/front/bin/cglist.phtml?Category=337645" target="_blank">新保事業群</a> | <a href="http://www.sks.com.tw/index.php?option=com_content&view=category&layout=blog&id=3&Itemid=83" target="_blank">新保文化基金會</a> | <a href="http://www.sks.com.tw/" target="_blank">台灣新光保全</a> | <a href="http://www.104.com.tw/jobbank/cust_job/introduce.cfm?invoice=16840445000" target="_blank">台灣保全公司(現金運送業務)</a> |<br>
+| <a href="http://tw.myblog.yahoo.com/sks-blog/" target="_blank">新光保全部落格-暗夜の薔薇騎士Blog</a> | <a href="http://tw.myblog.yahoo.com/anhsin-classroom/profile" target="_blank">新光保全-安心教室推廣活動Blog</a> | <a href="http://tw.myblog.yahoo.com/h121151/" target="_blank">公寓大廈管理維護探討Blog</a> |<br>
+© Copyright 2012 Yi-Kong Housekeeping Service All Rights Reserved.  </div>
+</div><!--footerframe end-->
+
+</body>
+</html>

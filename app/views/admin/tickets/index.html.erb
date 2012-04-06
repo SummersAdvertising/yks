@@ -14,7 +14,12 @@
 
 <% @tickets.each do |ticket| %>
   <tr class="list-content">
-    <td class="first"><a><%= show ticket, ticket.name %></a><%= render 'shared/admin_list_command', :data => ticket %><div class="list-command"><%=link_to t("helpers.edit"), {:action => "remarkedit", :id => ticket.id}, :class => "mod"%></div></td>
+    <td class="first"><a><%= show ticket, ticket.name %></a>
+		<% if session[:user] == 'master' %>
+			<%= render 'shared/admin_list_command', :data => ticket %>
+		<% else %>
+			<div class="list-command"><%=link_to t("helpers.edit"), {:action => "remarkedit", :id => ticket.id}, :class => "mod"%></div>
+		<% end %></td>
     <td><%= ticket.phone %></td>
     <td><%= ticket.address %></td>
     <td><%= ticket.email %></td>
