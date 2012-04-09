@@ -1,4 +1,7 @@
 class Admin::LoginController < ApplicationController
+
+	layout 'simple'
+	
   def index
     @user = User.new
 

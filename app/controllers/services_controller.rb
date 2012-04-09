@@ -18,6 +18,7 @@ class ServicesController < ApplicationController
 		 
 		 build_service_content
 		 
+		 
 		  respond_to do | format |
 		 	format.html { render :template => 'services/show.html.erb' }
 		 end
@@ -49,14 +50,14 @@ private
 		end
 				
 		@services = Service.all
-		
 		# 產生 Service hash
 		@services.each do | service |
 			origin_list[service.system_site_map_id.to_i]['service'] = service	
 		end
 		
 		@menu_tree = origin_list.first[1]
-						
+		
+		
 	end
 	
 	def build_service_content
