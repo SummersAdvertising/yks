@@ -36,6 +36,11 @@
   <b><%= t("tickets.status") %>：</b>
   <%= @ticket.define.name %>
 </div>
-
+<% if session[:user] == 'master' %>
   <%= render 'shared/admin_form_command', :data => @ticket %>
+<% else %>
+<span class="tool">
+<%= back %>
+</span>
+<% end %>
 </div>
