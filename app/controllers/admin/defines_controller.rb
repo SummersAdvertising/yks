@@ -2,6 +2,15 @@ class Admin::DefinesController < AdminController
     layout "admin"
   # GET /defines
   # GET /defines.json
+  before_filter :permission
+
+  def permission
+    if session[:user] != 'master'
+		  respond_to do |format|
+			format.html { redirect_to :controller => :tickets, :action => :index }
+		  end
+ 	 end
+  end
   def index
     @defines = Define.all
 

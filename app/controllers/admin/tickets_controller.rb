@@ -1,5 +1,14 @@
 class Admin::TicketsController < AdminController
-layout "admin"
+layout "admin"  
+  before_filter :permission, :except => [:index, :show, :edit, :update]
+
+  def permission
+    if session[:user] != 'master'
+		  respond_to do |format|
+			format.html { redirect_to :controller => :tickets, :action => :index }
+		  end
+ 	 end
+  end
 # GET /system_site_maps
 # GET /system_site_maps.json
 def index

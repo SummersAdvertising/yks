@@ -1,5 +1,14 @@
 class Admin::TicketTypesController < AdminController
   layout "admin"
+  before_filter :permission
+
+  def permission
+    if session[:user] != 'master'
+		  respond_to do |format|
+			format.html { redirect_to :controller => :tickets, :action => :index }
+		  end
+ 	 end
+  end
 # GET /defines
 # GET /defines.json
 def index

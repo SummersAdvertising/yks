@@ -4,36 +4,36 @@
       <h2><%= pluralize(@ticket.errors.count, "error") %> prohibited this services from being saved:</h2>
 
       <ul>
-      <% @banner.errors.full_messages.each do |msg| %>
+      <% @ticket.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
     </div>
   <% end %>
-
-  <div class="field form-time">
-    <%= f.label :name, '姓名' %><br />
-    <%= f.text_field :name %>
+  <div id="ticket">
+  <div class="field form-title">
+    <%= f.label :name, '姓名' %>
+    <%= @ticket.name %>
   </div>
-  <div class="field form-time">
-    <%= f.label :phone, '聯絡電話' %><br />
-    <%= f.text_field :phone %>
+  <div class="field form-title">
+    <%= f.label :phone, '聯絡電話' %>
+    <%= @ticket.phone %>
   </div>
-  <div class="field form-time">
-    <%= f.label :address, '希望服務地址' %><br />
-    <%= f.text_field :address %>
+  <div class="field form-title">
+    <%= f.label :address, '希望服務地址' %>
+    <%= @ticket.address %>
   </div>
-  <div class="field form-time">
-    <%= f.label :email, 'email' %><br />
-    <%= f.text_field :email %>
+  <div class="field form-title">
+    <%= f.label :email, 'email' %>
+    <%= @ticket.email %>
   </div>
-  <div class="field form-radio">
-    <%= f.label :hopetime, '希望服務時間' %><br />
-    <%= f.radio_button :hopetime, 0 %>平日
-    <%= f.radio_button :hopetime, 1 %>周末及假日
+  <div class="field form-title">
+    <%= f.label :hopetime, '希望服務時間' %>
+    <%= (@ticket.hopetime==0?"平日":"周末及假日") %>
+  </div>
   </div>
   <div class="field form-content">
-    <h3><%= f.label :remark, '註解' %></h3><br />
+    <h3><%= f.label :remark, '註解' %></h3><br>
     <%= f.text_area :remark %>
   </div>
 
