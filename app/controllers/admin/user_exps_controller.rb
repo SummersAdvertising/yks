@@ -73,7 +73,6 @@ def update
     if @userexp.update_attributes(params[:user_exp])
      if params[:upload]     	
 	     file = params[:upload]['filename']
-	     exit
 	     filename = @userexp.id
 	     filewhere = "public/user_exps/#{filename}.jpg"
 	     File.open("#{filewhere}", "wb") do |f|  
