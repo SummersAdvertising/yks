@@ -1,5 +1,5 @@
 <ul>
-<% @banners.each do |banner| %>
+<% banners.each do |banner| %>
   <li>
   <%= link_to banner.link do  %>
   <%= image_tag "/banners/" + banner.id.to_s + ".jpg" %>

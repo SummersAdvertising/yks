@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
  def list_banners
- 	@banners = Banner.all
+ 	@partial_banners = Banner.all
  	 
  end
 

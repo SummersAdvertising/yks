@@ -1,4 +1,12 @@
-<%= render "Banners/index", :locals => { :banners => @banners } %>
+<ul>
+<% @partial_banners.each do |banner| %>
+  <li>
+  <%= link_to banner.link do  %>
+  <%= image_tag "/banners/" + banner.id.to_s + ".jpg" %>
+  <% end %>
+  </li>
+<% end %>
+</ul>
 <div id="menubanner"><img src="<%= image_path("banner1.jpg") %>" width="260" height="90"></div>
 
 <div id="menuimage"><img src="<%= image_path("businessicon.png") %>" width="274" height="89" id="btn1"></div>
