@@ -12,7 +12,7 @@
   <% end %>
 
   <div class="field form-file">
-	<%= raw '<img src="/user_exps/' + @userexp.id.to_s + '.jpg">' if params[:action] == "edit" %>
+	<%= raw '<img src="' + image_path("/user_exps/#{@userexp.id}.jpg") + '" alt="open" />' if params[:action] == "edit" %>
 	<%= label 'upload', 'filename', '檔案' %>
     <%= file_field 'upload', 'filename' %>
   </div>

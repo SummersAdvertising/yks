@@ -35,8 +35,8 @@
 				<div class="side-title"><%= menu t("services.tablename"), "service_types"%></div>
 			<div class="side-text">
 				<% SystemSiteMap.find(2).system_site_maps.each do |service| %>
-<li><%= menu service.title, "services", 'index', service.id %></li>
-<% end %>
+				<li><%= menu service.title, "services", 'index', service.id %></li>
+				<% end %>
 			</div>
 			</ul>
 			<ul class="side-box">

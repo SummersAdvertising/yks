@@ -16,7 +16,7 @@
 		itemAry = content[1]['blockcontent'].split("\n")
 	%>	
 	
-  <span class="black_15">【<%= content[1]['block'] %>】</span><br>
+  <span class="black_15"><%= if content[1]['block'].length > 0 then '【' + content[1]['block'] + '】' end  %></span><br>
   <span class="gray_13">
   <ul>
   	<% 
@@ -42,7 +42,9 @@
   <ul id="menu">
   <% @menu_tree['children'].each do | mainCategory | %>
   	<li>
-		<a href="<%= url_for service_path(mainCategory['service']) %>" <%= if mainCategory['sitemap'].id == @parent_id || mainCategory['service'].id.to_s == params[:id] then 'class=linkActived' end %>>
+		<a href="<%= url_for service_path(mainCategory['service']) %>" 
+			<%= if mainCategory['sitemap'].id == @parent_id  || mainCategory['service'].id.to_s == params[:id] then 'class=linkActived' end %>
+		>
 			<%= mainCategory['sitemap'].title %>
 		</a>
 		<ul>
@@ -59,4 +61,5 @@
 </div><!--menulistbody end-->
 <div id="menuimage"><img src="<%= image_path("menubgend.png") %>" width="274" height="15"></div>
 <%= render :partial => 'pages/bussiness' %>
+<div id="menuimage"><img src="<%= image_path("menubgend.png") %>" width="274" height="15"></div>
 </div><!--menuout end-->
