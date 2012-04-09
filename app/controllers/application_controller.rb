@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_filter :set_locale
+  before_filter :list_banners
 
   def permission
   respond_to do |format|
@@ -8,6 +9,11 @@ class ApplicationController < ActionController::Base
   end
 
   protect_from_forgery
+
+ def list_banners
+ 	@banners = Banner.all
+ 	 
+ end
 
   def set_locale
     # 可以將 ["en", "zh-TW"] 設定為 VALID_LANG 放到 /config/environment.rb 中

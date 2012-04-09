@@ -68,10 +68,7 @@ ActiveRecord::Schema.define(:version => 20120328081704) do
   end
 
   create_table "system_site_maps", :force => true do |t|
-<<<<<<< HEAD
-=======
     t.string   "title"
->>>>>>> 20d6a53bd5e4a30036681ec8775f1e50b2c726bf
     t.integer  "system_site_map_id"
     t.boolean  "is_static"
     t.string   "controller"
@@ -81,10 +78,6 @@ ActiveRecord::Schema.define(:version => 20120328081704) do
     t.string   "script"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
-<<<<<<< HEAD
-    t.string   "title"
-=======
->>>>>>> 20d6a53bd5e4a30036681ec8775f1e50b2c726bf
   end
 
   create_table "tickets", :force => true do |t|
