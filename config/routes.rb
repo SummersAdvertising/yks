@@ -5,6 +5,7 @@ Yks::Application.routes.draw do
     resources :services
     resources :service_types
     resources :news
+    resources :images
     resources :user_exps
     resources :banners
     resources :tickets

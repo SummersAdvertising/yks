@@ -1,5 +1,14 @@
 class Admin::UserExpsController < AdminController
-layout "admin"
+layout "admin"  
+  before_filter :permission
+
+  def permission
+    if session[:user] != 'master'
+		  respond_to do |format|
+			format.html { redirect_to :controller => :tickets, :action => :index }
+		  end
+ 	 end
+  end
 # GET /system_site_maps
 # GET /system_site_maps.json
 def index
@@ -64,7 +73,6 @@ def update
     if @userexp.update_attributes(params[:user_exp])
      if params[:upload]     	
 	     file = params[:upload]['filename']
-	     exit
 	     filename = @userexp.id
 	     filewhere = "public/user_exps/#{filename}.jpg"
 	     File.open("#{filewhere}", "wb") do |f|  

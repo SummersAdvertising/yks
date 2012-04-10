@@ -1,16 +1,26 @@
 class Admin::NewsController < AdminController
   skip_before_filter :verify_authenticity_token
   layout "admin", :except => [:uploadimage]
+  before_filter :permission
+
+  require 'uuidtools'
+  def permission
+    if session[:user] != 'master'
+		  respond_to do |format|
+			format.html { redirect_to :controller => :tickets, :action => :index }
+		  end
+ 	 end
+  end
   
   def uploadimage
-     number = Dir.open("#{Rails.root}/public/news").each.count - 3
+     number = UUIDTools::UUID.random_create
      file = params['upload']
      filewhere = "#{Rails.root}/public/news/#{number}.jpg"
      File.open("#{filewhere}", "wb") do |f|  
         f.write(file.read)
      end
      filename = "/news/#{number}.jpg"
-     message = "It's ok"
+     message = t('news.upload_success')
     @text = params[:CKEditor].blank? ? @record.to_json(:only=>[:id, :type], :methods=>[:url, :content_type, :size, :filename, :format_created_at], :root => "asset") : "<script type='text/javascript'>window.parent.CKEDITOR.tools.callFunction(#{params[:CKEditorFuncNum]}, \"#{filename}\", \"#{message}\");</script>"
     render :text=>@text
   end
@@ -29,7 +39,10 @@ class Admin::NewsController < AdminController
   # GET /system_site_maps/1.json
   def show
     @new = News.find(params[:id])
-
+    #@new.time = '1985-10-14'
+	#params[:time] = @new.time
+	#exit
+	
     respond_to do |format|
       format.html # show.html.erb
     end

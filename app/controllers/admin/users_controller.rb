@@ -1,12 +1,12 @@
 class Admin::UsersController < AdminController
   layout "admin"
   require 'digest/sha1'
-  before_filter :permission
+  before_filter :permission, :except => [:change, :changepw]
 
   def permission
     if session[:user] != 'master'
 		  respond_to do |format|
-			format.html { redirect_to :controller => :news, :action => :index }
+			format.html { redirect_to :controller => :tickets, :action => :index }
 		  end
  	 end
   end

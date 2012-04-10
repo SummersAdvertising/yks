@@ -1,4 +1,4 @@
-<h1><%= t("tickets.tablename") %><%= new %></h1>
+<h1><%= t("tickets.tablename") %></h1>
 
 
 <div class="list">
@@ -15,11 +15,9 @@
 <% @tickets.each do |ticket| %>
   <tr class="list-content">
     <td class="first"><a><%= show ticket, ticket.name %></a>
-		<% if session[:user] == 'master' %>
-			<%= render 'shared/admin_list_command', :data => ticket %>
-		<% else %>
-			<div class="list-command"><%=link_to t("helpers.edit"), {:action => "remarkedit", :id => ticket.id}, :class => "mod"%></div>
-		<% end %></td>
+	<% if session[:user] == 'master' %>
+				<%= render 'shared/admin_list_command', :data => ticket %>
+	<% end %></td>
     <td><%= ticket.phone %></td>
     <td><%= ticket.address %></td>
     <td><%= ticket.email %></td>
