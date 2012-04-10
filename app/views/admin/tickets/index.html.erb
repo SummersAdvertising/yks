@@ -17,9 +17,7 @@
     <td class="first"><a><%= show ticket, ticket.name %></a>
 	<% if session[:user] == 'master' %>
 				<%= render 'shared/admin_list_command', :data => ticket %>
-	<% else %>
-	<div class="list-command">
-	<%= edit ticket %></div><% end %></td>
+	<% end %></td>
     <td><%= ticket.phone %></td>
     <td><%= ticket.address %></td>
     <td><%= ticket.email %></td>

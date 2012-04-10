@@ -1,3 +1,8 @@
+<% if notice != nil %>
+<script>
+alert('密碼變更完成，請重新登入。');
+</script>
+<% end %>
 <%= form_for([:admin,@user], :url => {:controller => :login, :action => :login}) do |f| %>
   <%= hidden_field_tag 'url', params[:url] %>
 	<ul id="type">

@@ -1,9 +1,19 @@
 class Admin::NewsController < AdminController
   skip_before_filter :verify_authenticity_token
   layout "admin", :except => [:uploadimage]
+  before_filter :permission
+
+  require 'uuidtools'
+  def permission
+    if session[:user] != 'master'
+		  respond_to do |format|
+			format.html { redirect_to :controller => :tickets, :action => :index }
+		  end
+ 	 end
+  end
   
   def uploadimage
-     number = Dir.open("#{Rails.root}/public/news").each.count - 3
+     number = UUIDTools::UUID.random_create
      file = params['upload']
      filewhere = "#{Rails.root}/public/news/#{number}.jpg"
      File.open("#{filewhere}", "wb") do |f|  
