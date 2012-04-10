@@ -3,6 +3,7 @@ class Admin::NewsController < AdminController
   layout "admin", :except => [:uploadimage]
   before_filter :permission
 
+  require 'uuidtools'
   def permission
     if session[:user] != 'master'
 		  respond_to do |format|
@@ -12,7 +13,7 @@ class Admin::NewsController < AdminController
   end
   
   def uploadimage
-     number = Dir.open("#{Rails.root}/public/news").each.count - 3
+     number = UUIDTools::UUID.random_create
      file = params['upload']
      filewhere = "#{Rails.root}/public/news/#{number}.jpg"
      File.open("#{filewhere}", "wb") do |f|  
