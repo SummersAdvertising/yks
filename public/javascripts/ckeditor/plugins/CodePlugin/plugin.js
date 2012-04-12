@@ -1,5 +1,5 @@
 ﻿var iframe = null;
-var iframeWindow = null;
+var iframeContent = null;
 CKEDITOR.plugins.add('CodePlugin',
 {
 	requires: ['iframedialog'],
@@ -24,7 +24,7 @@ CKEDITOR.plugins.add('CodePlugin',
                     [
                        {
                           id : 'iframe',
-                          label : 'Insert YouTube Movie...',
+                          label : '選擇圖片',
                           expand : true,
                           elements :
                                 [
@@ -35,7 +35,7 @@ CKEDITOR.plugins.add('CodePlugin',
                                       height : '100%',
                                       onContentLoad : function() {
 										 iframe = document.getElementById( this._.frameId );
-										iframeWindow = iframe.contentWindow;
+										 iframeContent = iframe.contentWindow.document;
                                       }
                                    }
                                 ]
@@ -43,7 +43,10 @@ CKEDITOR.plugins.add('CodePlugin',
                     ],
               onOk : function()
               {
-                 editor.insertHtml('a' + iframe.$('#test').value);
+				 var image = iframeContent.getElementById('selectimage').value;
+				 if(image!=""){
+					editor.insertHtml('<img src=' + image + '/>');
+				 }
               }
            };
         } );
