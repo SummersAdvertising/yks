@@ -12,7 +12,7 @@ layout "admin"
 # GET /system_site_maps
 # GET /system_site_maps.json
 def index
-  @tickets = Ticket.all
+  @tickets = Ticket.order("time desc").all
 
   respond_to do |format|
     format.html # index.html.erb

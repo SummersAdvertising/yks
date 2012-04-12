@@ -13,7 +13,7 @@ protect_from_forgery :except => 'upload'
 # GET /system_site_maps
 # GET /system_site_maps.json
 def index
-  @banners = Banner.all
+  @banners = Banner.order("time desc").all
 
   respond_to do |format|
     format.html # index.html.erb
@@ -95,6 +95,8 @@ end
 # DELETE /system_site_maps/1.json
 def destroy
   @banner = Banner.find(params[:id])
+  file = "#{Rails.root}/public/banners/#{params[:id]}.jpg"
+  File.delete(file) if FileTest.exist?(file)
   @banner.destroy
 
   respond_to do |format|

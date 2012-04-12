@@ -23,7 +23,14 @@ $(document).ready(function(){
 	}, "格式為xxxx-xxxxxxxx。");
 	
 	//須與form表單ID名稱相同
-	$("#new_ticket").validate();
+	$("#new_ticket").validate({  
+	    invalidHandler: function(form, validator) {  
+	      var errors = validator.numberOfInvalids();  
+	      if (errors) {  
+	        alert('資料填入有誤。');
+	      }
+	    }  
+	 });
 });
 </script>
 </head>

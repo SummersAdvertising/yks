@@ -23,6 +23,8 @@ CKEDITOR.editorConfig = function( config )
     '/',
     ['Styles','Format','Font','FontSize'],
     ['TextColor','BGColor'],
-    ['Maximize','ShowBlock']
+    ['Maximize','ShowBlock'],
+    ['Code']
     ];
+	config.extraPlugins = 'CodePlugin';
 };

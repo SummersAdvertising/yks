@@ -19,7 +19,7 @@
     <%= f.label :time, '時間' %>
     <%= f.text_field :time %>
   </div>
-  <div class="field form-content">
+  <div class="field form-content" style="width: 800px; height: 600px;">
     <h3><%= f.label :content, '內容' %></h3>
     <%= f.text_area :content %>
 			<script type="text/javascript">
@@ -32,7 +32,9 @@
 				// Replace the <textarea id="editor"> with an CKEditor
 				// instance, using default configurations.
         CKEDITOR.replace( 'news_content', 
-             {  
+             { 
+				  width:800,
+				  height:430,
                   filebrowserImageUploadUrl : '<%= url_for(:action => 'uploadimage', :controller => 'news') %>'
              }
            );

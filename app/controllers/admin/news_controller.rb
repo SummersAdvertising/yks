@@ -28,7 +28,7 @@ class Admin::NewsController < AdminController
   # GET /system_site_maps
   # GET /system_site_maps.json
   def index
-    @news = News.all
+    @news = News.order("time desc").all
 
     respond_to do |format|
       format.html # index.html.erb

@@ -12,7 +12,7 @@ layout "admin"
 # GET /system_site_maps
 # GET /system_site_maps.json
 def index
-  @userexps = UserExp.all
+  @userexps = UserExp.order("time desc").all
 
   respond_to do |format|
     format.html # index.html.erb
@@ -90,6 +90,8 @@ end
 # DELETE /system_site_maps/1.json
 def destroy
   @userexp = UserExp.find(params[:id])
+  file = "#{Rails.root}/public/user_exps/#{params[:id]}.jpg"
+  File.delete(file) if FileTest.exist?(file)
   @userexp.destroy
 
   respond_to do |format|
