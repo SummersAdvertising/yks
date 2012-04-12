@@ -1,5 +1,5 @@
 class Admin::ImagesController < AdminController
-    layout "admin"#:except => [:index]
+    layout :except => [:index]#"admin"
   # GET /defines
   # GET /defines.json
   before_filter :permission

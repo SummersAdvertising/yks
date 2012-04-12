@@ -17,9 +17,9 @@ CKEDITOR.plugins.add('CodePlugin',
         CKEDITOR.dialog.add( 'CodePlugin', function ()
         {
            return {
-              title : 'YouTube Dialog',
-              minWidth : 550,
-              minHeight : 200,
+              title : '圖片管理',
+              minWidth : 800,
+              minHeight : 600,
               contents :
                     [
                        {
