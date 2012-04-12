@@ -20,7 +20,7 @@ class Admin::NewsController < AdminController
         f.write(file.read)
      end
      filename = "/news/#{number}.jpg"
-     message = "It's ok"
+     message = t('news.upload_success')
     @text = params[:CKEditor].blank? ? @record.to_json(:only=>[:id, :type], :methods=>[:url, :content_type, :size, :filename, :format_created_at], :root => "asset") : "<script type='text/javascript'>window.parent.CKEDITOR.tools.callFunction(#{params[:CKEditorFuncNum]}, \"#{filename}\", \"#{message}\");</script>"
     render :text=>@text
   end
@@ -39,7 +39,10 @@ class Admin::NewsController < AdminController
   # GET /system_site_maps/1.json
   def show
     @new = News.find(params[:id])
-
+    #@new.time = '1985-10-14'
+	#params[:time] = @new.time
+	#exit
+	
     respond_to do |format|
       format.html # show.html.erb
     end

@@ -40,3 +40,6 @@ gem 'jquery-rails'
 gem 'execjs'
 gem 'therubyracer'
 gem 'mysql2'
+
+gem 'capistrano'
+gem 'capistrano-ext'

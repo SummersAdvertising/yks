@@ -3,12 +3,19 @@
 <head>
   <title>誼光後台管理系統</title>
   <meta http-equiv="cache-control" content="no-cache"> 
-  <%= stylesheet_link_tag    "admin", :media => "all" %>
+  <%= stylesheet_link_tag	 "admin", :media => "all" %>
+  <%= stylesheet_link_tag	 "jquery-ui", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
   <%= javascript_include_tag "rails" %>
-<%= javascript_include_tag "/javascripts/jquery-1.7.1.min.js" %>
+  <%= javascript_include_tag "/javascripts/jquery-1.7.1.min.js" %>
+  <%= javascript_include_tag "jquery-ui" %>
 
+	<script>
+	$(document).ready(function() {
+		$( ".datetimepicker" ).datepicker({ dateFormat : 'yy-mm-dd' });
+	});
+	</script>
 
 </head>
 <body>

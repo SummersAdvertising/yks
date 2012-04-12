@@ -16,3 +16,10 @@
 /log/*.log
 /tmp
 .bash_history
+
+*.log
+tmp/**/*
+tmp/*
+doc/api
+doc/app
+config/database.yml.sample
