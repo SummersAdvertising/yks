@@ -19,6 +19,12 @@ set :password, "1qaz2wsx"
 set :group, "webs"
 
 default_environment["PATH"] = "/opt/ree/bin:/usr/local/bin:/usr/bin:/bin:/usr/games"
+#default_environment['PATH']='/usr/lib/ruby1.8/bin:/home/apps/.gems/bin:/usr/local/bin:/usr/bin:/bin'
+
+# $:.unshift(File.expand_path('./lib', ENV['rvm_path'])) # Add RVM's lib directory to the load path.
+# require "rvm/capistrano"                  # Load RVM's capistrano plugin.
+# set :rvm_ruby_string, '1.9.3-p0@rails3'        # Or whatever env you want it to run in.
+# set :rvm_type, :user  # Copy the exact line. I really mean :user here
 
 namespace :deploy do
 	desc "restart"
