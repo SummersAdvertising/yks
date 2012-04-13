@@ -2,28 +2,45 @@
 <head>
 <script type="text/javascript" src="<%=image_path "/javascripts/jquery-1.7.1.min.js"%>"></script>
 <script type="text/javascript">
-function changeImage(image){
-	$('#selectimage').val(image);
-}
+$(document).ready(function() { 
+	$('#list tr').click(function() { 
+		
+		var $objTr = $(this);
+		var image = $objTr.find('td img');
+		var id = parseInt(image.attr("id"));
+		var src = image.attr("src");
+		$('#list tr:nth-child(' + id + ')').addClass('selected');
+		$('#list tr:not(:nth-child(' + id + '))').removeClass('selected');
+		
+		$('#selectimage').val(src);
+		
+	});
+});
+
 </script>
+<style>
+.selected
+{
+	background-color: #CCCCCC;
+}
+</style>
 </head>
 
 <body>
 <input type="hidden" id="selectimage">
 <div class="list">
-<table>
-  <tr>
-    <td class=""></td>
-    <td class=""><%= t("images.name") %></td>
-  </tr>
-<% @dirs.each do |dir|
+<table id="list" width="100%">
+<%
+ i = 0
+ @dirs.each do |dir|
 	next if dir == "."
 	next if dir == ".."
 	next if dir == ".DS_Store"
+	i = i + 1
 	%>
   <tr class="list-content">
-    <td class="first" align="center" valign="middle"><img src="<%= image_path("/news/#{dir}") %>" style="width: auto; height: auto; max-width: 100px; max-height: 100px;" onclick="changeImage('<%= image_path("/news/#{dir}") %>')" /></td>
-	<td>
+    <td class="first" align="center" valign="middle"><img id="<%=i%>" src="<%= image_path("/news/#{dir}") %>" style="width: auto; height: auto; max-width: 100px; max-height: 100px;" /></td>
+	<td width="50px;">
 	<div class="list-command">
 	<%= link_to t("helpers.delete"), { :action => "destroy", :image => dir }, :class => "del", :confirm => "Are you sure you want to delete this article?", :method => :delete %>
 	</div></td>

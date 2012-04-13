@@ -18,8 +18,8 @@ CKEDITOR.plugins.add('CodePlugin',
         {
            return {
               title : '圖片管理',
-              minWidth : 800,
-              minHeight : 600,
+              minWidth : 400,
+              minHeight : 200,
               contents :
                     [
                        {
