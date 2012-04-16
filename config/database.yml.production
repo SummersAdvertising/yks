@@ -1,5 +1,7 @@
 production:
   adapter: mysql2
+  encoding: utf8
+  reconncet: false
   database: yks_db_production
   pool: 5
   timeout: 5000

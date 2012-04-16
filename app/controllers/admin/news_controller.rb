@@ -39,10 +39,7 @@ class Admin::NewsController < AdminController
   # GET /system_site_maps/1.json
   def show
     @new = News.find(params[:id])
-    #@new.time = '1985-10-14'
-	#params[:time] = @new.time
-	#exit
-	
+    
     respond_to do |format|
       format.html # show.html.erb
     end

@@ -37,6 +37,10 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
+group :production do
+  gem 'therubyracer'
+end
+
 gem 'execjs'
 gem 'therubyracer'
 gem 'mysql2'
