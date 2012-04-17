@@ -129,13 +129,15 @@ h2 {
 .form-status input {
 	width:13px;
 	position:relative;
-	left:50px;
+	left: 80px;
+	margin-top: 12px;
 	bottom:35px;
 }
 .form-status select {
 	width:82px;
 	position:relative;
 	left:50px;
+	margin-top: 8px;
 	bottom:35px;
 }
 /*-------------------------------------------------------------------修改密碼*/

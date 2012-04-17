@@ -3,5 +3,7 @@ zh-TW:
         tablename: 服務管理
         title: 標題
         content: 內容
+        introduce: 介紹
+        price: 平均報價
         time: 時間
         status: 狀態

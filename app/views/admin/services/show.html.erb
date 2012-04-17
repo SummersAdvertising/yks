@@ -13,7 +13,13 @@
 </div>
 
 <div>
-  <b><%= t("services.content") %>：</b>
+  <b><%= t("services.price") %>：</b>
+  <%= @service.price %>
+</div>
+
+<div>
+  <b><%= t("services.introduce") %>：</b>
+  <br />
 	<% 
 		@service.content.each do | content | 
 		if content[1]['block'] != "" || content[1]['blockcontent'] != ""

@@ -86,10 +86,8 @@ layout "admin"
   # DELETE /system_site_maps/1
   # DELETE /system_site_maps/1.json
   def destroy
-    @service = Service.find(params[:id])
-    system_site_map = SystemSiteMap.where( :parameter => params[:id] ).first
-    system_site_map.destroy
-    @service.destroy
+  
+	_destroy( params[:id] )
 
     respond_to do |format|
       format.html { redirect_to({:action=>:index}, notice: t("helpers.notice.update")) }
@@ -97,6 +95,25 @@ layout "admin"
   end
   
 private
+	def _destroy( id )			
+	    service = Service.find( id )
+	    # 遞回方式摧毀其下的所有子節點
+	    children = SystemSiteMap.where( :system_site_map_id => service.system_site_map_id )
+	    
+	    if children.length > 0
+		    children.each do | child |
+		    	child_service = Service.where( :system_site_map_id => child.id )[0]
+		    	_destroy( child_service.id )
+		    end
+		end	    
+		
+		system_site_map = SystemSiteMap.where( :parameter => id ).first
+	    
+	    system_site_map.destroy
+	    service.destroy
+	    
+	end
+
 	def package_content		
 	    contents = params[:contents]	    
 	    @service.content = ActiveSupport::JSON.encode(contents	)
