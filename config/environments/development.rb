@@ -40,7 +40,11 @@ Yks::Application.configure do
 
   # Do not compress assets
   config.assets.compress = false
+  
+  config.assets.compile = false
 
   # Expands the lines which load the assets
   config.assets.debug = true
+  
+  config.assets.precompile += %w(common.css)
 end
