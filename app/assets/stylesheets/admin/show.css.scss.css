@@ -32,7 +32,7 @@
 	border-radius: 5px;
 }
 #notice span {
-	background:url(http://www.summersvilla.com/limin/backstage/img/notice.png) left center no-repeat;
+	background:url(<%= asset_data_uri('notice.jpg') %>) left center no-repeat;
 	padding:0 0 2px 20px
 }
 /*-------------------------------------------------------------------編輯區域*/
