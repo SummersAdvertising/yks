@@ -1,0 +1,8 @@
+function preloadImages() {
+ var a = (typeof arguments[0] == 'object')? arguments[0] : arguments;
+ for(var i = a.length -1; i > 0; i--) {
+  jQuery("<img>").attr("src", a[i]);
+ }
+}
+
+preloadImages(<%= asset_data_uri('btn_click.png') %>,<%= asset_data_uri('btn_out.png') %>,<%= asset_data_uri('btn_over.png') %>,<%= asset_data_uri('businessbg.png') %>,<%= asset_data_uri('businessend.png') %>,<%= asset_data_uri('businesstopbg.png') %>,<%= asset_data_uri('close.png') %>,<%= asset_data_uri('contactbg.png') %>,<%= asset_data_uri('menubg.png') %>,<%= asset_data_uri('menubg2.png') %>,<%= asset_data_uri('menubgend.png') %>,<%= asset_data_uri('menuover.png') %>,<%= asset_data_uri('needbtn.png') %>,<%= asset_data_uri('needbtn2.png') %>,<%= asset_data_uri('open.png') %>,<%= asset_data_uri('slider.png') %>);
