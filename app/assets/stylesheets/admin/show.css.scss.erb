@@ -1,0 +1,87 @@
+/*-------------------------------------------------------------------檢視文章*/
+.show {
+  font-size:12px;
+  font-family:"sans-serif";
+  color: #333333;
+}
+/*-------------------------------------------------------------------文章項目*/
+.show div {
+	background:#F7FCFE;
+	border:1px solid #D1E5EE;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	padding:5px 10px;
+	margin-bottom:5px;
+	line-height:20px;
+}
+/*-------------------------------------------------------------------文章標題*/
+.show b {
+	font: 700 13px "sans-serif";
+	color: #21759B;
+	text-shadow: 0 1px 0 #fff;
+}
+/*-------------------------------------------------------------------提示訊息*/
+#notice {
+	font: 300 12px "sans-serif";
+	background: #FFFFDC;
+	padding: 5px 50px;
+	margin-bottom: 10px;
+	border: 1px solid #DDDD82;
+	text-align:center;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+#notice span {
+	background:url(<%= asset_data_uri 'notice.png' %>) left center no-repeat;
+	padding:0 0 2px 20px
+}
+/*-------------------------------------------------------------------編輯區域*/
+.back, .edit .view {
+	display: none;
+}
+.show .tool {
+	overflow:hidden;
+*overflow:none
+}
+.show .tool a {
+  float: left;
+  display: block;
+  -webkit-border-radius: 15px;
+  border-radius: 15px;
+  width: 50px;
+  height: 17px;
+  margin: 10px 5px 0 0;
+}
+/*-------------------------------------------------------------------檢視返回*/
+
+.show .back {
+  background: #f9f9f9;
+  background: -webkit-linear-gradient(top, white 0%, #f4f4f4 100%);
+  background: -moz-linear-gradient(top, white 0%, #f4f4f4 100%);
+  border: 1px solid #bbb;
+  color: #464646!important;
+  text-shadow: 0 1px white;
+  text-align: center;
+  padding:1px 0 0 0;
+  height:22px!important;
+}
+.show .back:hover {
+	border: 1px solid #666;
+	color: black;
+}
+/*-------------------------------------------------------------------檢視修改*/
+.show .mod {
+	background: #257EA8;
+	background: -webkit-linear-gradient(top, #298cba 0%, #227399 100%);
+	background: -moz-linear-gradient(top, #298cba 0%, #227399 100%);
+	font: 700 13.2px "sans-serif";
+	color: #fff!important;
+	text-align: center;
+	border: 1px solid #298CBA;
+	text-shadow: 0 -1px 0 #195572;
+	padding: 4px 0 3px;
+}
+.show .mod:hover, .edit .view:hover {
+	border: 1px solid #13455B;
+	color: #eaf2fa !important;
+}
