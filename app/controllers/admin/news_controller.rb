@@ -57,7 +57,16 @@ class Admin::NewsController < AdminController
 
   # GET /system_site_maps/1/edit
   def edit
-    @new = News.find(params[:id])
+  	if params[:id] == 'images'  		
+    	@dirs = Dir.open("#{Rails.root}/public/news/")
+  		respond_to do |format|
+  			format.html { render :template => 'admin/images/index' }
+  		end
+  		
+  	else
+    	@new = News.find(params[:id])
+    end
+    
   end
 
   # POST /system_site_maps

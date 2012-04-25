@@ -8,7 +8,7 @@ CKEDITOR.plugins.add('CodePlugin',
         editor.addCommand('CodePlugin', new CKEDITOR.dialogCommand('CodePlugin')); //定義dialog，也就是下面的code
         editor.ui.addButton('Code',     //定義button的名稱及圖片,以及按下後彈出的dialog
         {                               //這裡將button名字取叫'Code'，因此剛剛上方的toolbar也是加入名為Code的按鈕
-            label: '插入高亮程式碼',
+            label: '圖片管理',
             icon: '/images/icon/codeicon.png',
             command: 'CodePlugin'
         });
@@ -30,7 +30,7 @@ CKEDITOR.plugins.add('CodePlugin',
                                 [
                                    {
                                       type : 'iframe',
-                                      src : '../images',
+                                      src : './images',
                                       width : '100%',
                                       height : '100%',
                                       onContentLoad : function() {
@@ -44,8 +44,9 @@ CKEDITOR.plugins.add('CodePlugin',
               onOk : function()
               {
 				 var image = iframeContent.getElementById('selectimage').value;
+				 
 				 if(image!=""){
-					editor.insertHtml('<img src=' + image + '/>');
+					editor.insertHtml('<img src="' + image + '" />');
 				 }
               }
            };

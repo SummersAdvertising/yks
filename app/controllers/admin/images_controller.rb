@@ -11,8 +11,9 @@ class Admin::ImagesController < AdminController
 		  end
  	 end
   end
+  
   def index
-    @dirs = Dir.open("#{Rails.root}/public/news/")
+    @dirs = Dir.open("#{Rails.root}/public/#{params[:_controller]}/")
     respond_to do |format|
       format.html # index.html.erb
     end

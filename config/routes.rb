@@ -1,5 +1,8 @@
 Yks::Application.routes.draw do
   namespace :admin do
+  
+  	match ':_controller(/:_id)/images'		=> 'images#index'
+  	
     resources :defines
     resources :system_site_maps
     resources :services
@@ -16,13 +19,15 @@ Yks::Application.routes.draw do
     match 'logout' => 'login#logout'
     match 'change' => 'users#change'
     match 'changepw' => 'users#changepw'
-    match 'uploadimage' => 'news#uploadimage'
+    match 'uploadimage' => 'news#uploadimage'    
+    
   end
   
   
   match 'contact' => 'contact#new'
   
   match 'page-(:id).html' => 'system#content'
+  
   resources :system_site_maps
   resources :user_exps
   resources :services
@@ -85,6 +90,8 @@ Yks::Application.routes.draw do
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
+  
+  
   match ':controller(/:action(/:id))(.:format)'
   
   root :to => 'system_site_maps#index'
