@@ -5,10 +5,10 @@ a{text-decoration:none;font:300 14px "微軟正黑體";cursor:pointer}
 
 /*-----------------------------------------------------------------------------------------------------------------------------------頁首---*/
 
-#header{height:400px;background:image-url("index-header.jpg") 0 0 no-repeat;position:relative;z-index:2}
+#header{height:400px;background:<%= asset_data_uri "index-header.jpg" %> 0 0 no-repeat;position:relative;z-index:2}
 #header li{float:left}
 h1{float:left;width:50%;padding:10px 0 0 50px}
-h1 a{display:block;width:139px;height:89px;text-indent:-7777px;font-size:0px;background:image-url("index-logo.jpg") 0 0 no-repeat}
+h1 a{display:block;width:139px;height:89px;text-indent:-7777px;font-size:0px;background:<%= asset_data_uri "index-logo.jpg" %> 0 0 no-repeat}
 h2{display:none}
 
 #top{float:right;width:44%;padding:30px 0 0 0}
@@ -19,33 +19,33 @@ h2{display:none}
 #top img:hover{margin-top:-2px}
 
 #need{position:absolute;top:307px;left:80px;display:block;width:149px;height:36px;text-indent:-7777px;font-size:0px;
-      background:image-url("needbtn.png") 0 0 no-repeat;z-index:3}
-#need:active{background:image-url("needbtn2.png") 0 0 no-repeat}
-#need:hover{*background:image-url("needbtn2.png") 0 0 no-repeat}
+      background:<%= asset_data_uri "needbtn.png" %> 0 0 no-repeat;z-index:3}
+#need:active{background:<%= asset_data_uri "needbtn2.png" %> 0 0 no-repeat}
+#need:hover{*background:<%= asset_data_uri "needbtn2.png" %> 0 0 no-repeat}
 
 /*-----------------------------------------------------------------------------------------------------------------------------------導航---*/
 
-#nav{top:200px;clear:both;height:37px;background:image-url("index-nav.png") 0 0 no-repeat;position:absolute;top:365px;left:37px;z-index:2}
+#nav{top:200px;clear:both;height:37px;background:<%= asset_data_uri "index-nav.png" %> 0 0 no-repeat;position:absolute;top:365px;left:37px;z-index:2}
 .nav-title{display:block;width:225px;height:37px;text-indent:-7777px;font-size:0px;background-position:0 0;
            background-repeat:no-repeat;-moz-transition:all .3s ease;-webkit-transition:all .3s ease}
 #nav li:hover .nav-title{background-position: 0 36px}
-#nav-1{background:image-url("index-nav-1.png")}
-#nav-2{background:image-url("index-nav-2.png")}
-#nav-3{background:image-url("index-nav-3.png")}
-#nav-4{background:image-url("index-nav-4.png")}
+#nav-1{background:<%= asset_data_uri "index-nav-1.png" %>}
+#nav-2{background:<%= asset_data_uri "index-nav-2.png" %>}
+#nav-3{background:<%= asset_data_uri "index-nav-3.png" %>}
+#nav-4{background:<%= asset_data_uri "index-nav-4.png" %>}
 #nav li:hover .nav-text{display:inline}
 
 .nav-text{display:none;position:absolute;width:266px;margin-left:-20px;top:25px;z-index:9!important}
 .nav-text a{font-size:14px;color:#464646;line-height:30px}
 .nav-text a:hover{color:#e45306;text-shadow:0 0 2px #FFC7A9}
 .nav-text span{color:#7b3104;font:700 16px ""}
-.nav-text td{background:image-url("index-nav-ct.png") 0 0 repeat-y;width:266px;text-align:center;}
-.nav-top{background:image-url("index-nav-top.png") 0 0 no-repeat!important;height:42px}
-.nav-bt{background:image-url("index-nav-bt.png") 0 0 no-repeat!important;height:28px}
+.nav-text td{background:<%= asset_data_uri "index-nav-ct.png" %> 0 0 repeat-y;width:266px;text-align:center;}
+.nav-top{background:<%= asset_data_uri "index-nav-top.png" %> 0 0 no-repeat!important;height:42px}
+.nav-bt{background:<%= asset_data_uri "index-nav-bt.png" %> 0 0 no-repeat!important;height:28px}
 
 /*-----------------------------------------------------------------------------------------------------------------------------------最新---*/
 
-#news{height:244px;background:image-url("index-news.jpg") 0 0 no-repeat;position:relative;z-index:1}
+#news{height:244px;background:<%= asset_data_uri "index-news.jpg" %> 0 0 no-repeat;position:relative;z-index:1}
 #news-list{color:#e0540b;font-size:13px;padding:90px 0 0 60px;*position:relative;*top:90px;*left:60px}
 #news-list a{color:#000}
 #news-list a:hover{text-decoration:underline}
@@ -64,9 +64,9 @@ h2{display:none}
 /*------------------------------------------------------------------------------------------------------------------------------頁尾(叮噹)---*/
 
 #footerframe{position:relative;z-index:2;margin:-150px auto 0 auto;height:247px;width:1024px;
-             background:image-url("index-footer.png") 0 0 no-repeat;}
+             background:<%= asset_data_uri "index-footer.png" %> 0 0 no-repeat;}
 #tel{float:left;padding:172px 30px 0px 100px;}
-#otherlink{float:right;width:1024px;padding:26px 0px 0px 0px;text-align:center;color:#111111;font-size:12px;line-height:20px;background:image-url("index-footer.jpg") 800px 30px no-repeat;padding-bottom:20px}
+#otherlink{float:right;width:1024px;padding:26px 0px 0px 0px;text-align:center;color:#111111;font-size:12px;line-height:20px;background:<%= asset_data_uri "index-footer.jpg" %> 800px 30px no-repeat;padding-bottom:20px}
 #otherlink a{color:#424242;text-decoration:none;font-size:12px}
 #otherlink a:hover{text-decoration:underline;}
 .white_22{font:700 22px "";color:#ffffff;}
