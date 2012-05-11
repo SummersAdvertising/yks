@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>誼光家事服務，實現每一個乾淨的願望</title>
+
+<%= stylesheet_link_tag 'reset', :media => 'all' %>
+<%= stylesheet_link_tag 'index', :media => 'all' %>
+
+
+<script type="text/javascript">
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+</script>
+
+</head>
+
+<body>
+<div id="header">
+  <h1><a href="<%= root_url %>">誼光家事</a></h1>
+  <h2>實現每一個乾淨的願望  有求必應的智慧家事服務</h2>
+  <ul id="top">
+    <li><%= link_to '關於誼光', :controller => 'page', :action => 'about' %></li>
+    <li><span>|</span></li>
+    <li><%= link_to '最新優惠', :controller => 'page', :action => 'preferential' %></li>
+    <li><span>|</span></li>
+    <li><%= link_to '服務項目', services_path %></li>
+    <li><span>|</span></li>
+    <li><%= link_to '用戶見證', user_exps_path %></li>
+    <li><span>|</span></li>
+    <li><%= link_to '人員招募', :controller => 'page', :action => 'recruit' %></li>
+    <li><a><img src="<%= image_path("facebookbtn.png") %>" title="分享到facebook" alt="分享到facebook"/></a></li>
+  </ul>
+  <a id="need" onclick="MM_openBrWindow('<%= url_for(:action => 'index', :controller => 'contact') %>','contact','scrollbars=yes,width=630,height=530')">填寫詳細需求</a>
+  <ul id="nav">
+  <%
+    service_index = 0;
+  	SystemSiteMap.find(2).system_site_maps.limit(3).each do |service|
+  		service_index += 1
+  		%>
+  			<li class="nav-box"> <a class="nav-title" href="<%= url_for(:controller => :services, :action => :show, :id => service.parameter ) %>" id="nav-<%= service_index %>"><%= service.title  %></a>
+  		<%
+	  		if service.system_site_maps.length > 0
+	  			%>
+	  			<table class="nav-text" width="100%" border="0" cellspacing="0" cellpadding="0">
+			        <tr>
+			          <td class="nav-top">&nbsp;</td>
+			        </tr>
+		  			<% service.system_site_maps.each do | sub_service | %>		  		
+				        <tr>
+				          <td><%= link_to sub_service.title, :controller => :services, :action => :show, :id => sub_service.parameter %></td>
+				        </tr>		
+				  	<% end %>	  			
+			        <tr>
+			          <td class="nav-bt">&nbsp;</td>
+			        </tr>
+		      	</table>
+	  			<%
+  			end
+  	end
+  %>
+   <li class="nav-box"> <a class="nav-title" id="nav-4">更多服務</a>
+      <table class="nav-text" width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td class="nav-top">&nbsp;</td>
+        </tr>
+        <tr>
+          <td><span>看更多新光保全事業群<br>
+            與您生活有關的貼心服務<br>
+            <br>
+            </span></td>
+        </tr>
+        <tr>
+          <td><a href="#">保全監視系統</a></td>
+        </tr>
+        <tr>
+          <td><a href="#">全方位安全系統</a></td>
+        </tr>
+        <tr>
+          <td><a href="#">門禁管理系統/門禁差勤管理系統</a></td>
+        </tr>
+        <tr>
+          <td><a href="#">ezCALL移動式無線照護系統</a></td>
+        </tr>
+        <tr>
+          <td><a href="#">AED自動心臟電擊器</a></td>
+        </tr>
+        <tr>
+          <td><a href="#">GPS車隊管理系統/汽車衛星定位</a></td>
+        </tr>
+        <tr>
+          <td><a href="#">寧威防煙面罩</a></td>
+        </tr>
+        <tr>
+          <td><a href="#">神龍滅火器</a></td>
+        </tr>
+        <tr>
+          <td><a href="#">iHome多功能觸控主機</a></td>
+        </tr>
+        <tr>
+          <td><a href="#">SIS-1301 IP CAM網路攝影機</a></td>
+        </tr>
+        <tr>
+          <td class="nav-bt">&nbsp;</td>
+        </tr>
+      </table>
+    </li>
+  </ul>
+</div>
+<!--header-->
+<div id="news">
+  <table width="601" border="0" cellspacing="7" cellpadding="0" id="news-list">
+  	<% News.where( :status => 'enabled').order( "time desc, created_at desc" ).limit(3).each do | news | %>
+	    <tr>
+	      <td class="news-time"><%= news.time.strftime( '%Y.%m/%d' ) %></td>
+	      <td class="news-title"><%= link_to news.title, :controller => :news, :action => 'show', :id => news.id %></td>
+	    </tr>
+  	<% end %>
+  </table>
+  <a href="<%= url_for(:controller => 'page', :action => 'preferential') %>" id="news-ad"><img src="<%= image_path("index-ad.jpg") %>"></a> </div>
+<!--news-->
+
+<div id="main">
+  <div class="article">
+    <h3>嚴選團隊，讓您更心安</h3>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="14%"><img src="<%= image_path("index-atc1.jpg") %>"></td>
+        <td width="86%" valign="top">為了執行極高規格的清潔要求，除了必須通過身體檢查，家事員在為您服務前，都已通過家事教育、現場實作經驗、時間控制、服務品質這四大考核才能「畢業」，絕非一般派遣人員或打工阿桑，個個都是訓練有素、服務一流的專業家事達人！ <br>
+          <span>快撥電話找誼光，看看什麼是專業家事員的風範！</span></td>
+      </tr>
+      <tr>
+        <td colspan="2"><img src="<%= image_path("index-atc2.jpg") %>"></td>
+      </tr>
+    </table>
+  </div>
+  <div class="article">
+    <h3>清潔秘訣一：天天都動腦，問題難不倒</h3>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="67%" valign="top">我們對「專業」的定義，就是「為客戶解決難纏問題的能力」，無論是結著恐怖油垢的流理台排水孔、永遠刷不乾淨的廁所地板、總是鞭長莫及的門縫窗框，您困擾已久的問題、您避之唯恐不及的難纏角落，我們都已經為其他客戶解決！ <br>
+          <br>
+          您一定不相信：我們有一整套因應不同窗型搭配使用的刮刀、能深入浴室拉門縫清理黴班而生的刷子、光是清掃浴室，就動用高達18件清潔工具，就連電動牙刷的底座要怎麼清，誼光都有一套標準清潔流程！ <br>
+          <br>
+          雖然已經研發出許多獨家工具和打掃秘訣，誼光最引以自豪的，就是每天的研究會議從不間斷──每天，都要強迫大家討論前一天遇到的所有問題，並一一提出解決辦法，曾有客戶抱怨馬桶刷不乾淨，經家事員實地服務後，才發現馬桶瓷面早已破損露出土褐色，回公司立刻回報、研究，隔天家事員立刻揹著專業的水電工具前去，重新為馬桶上釉修補，順利解決原本只有找水電工，或換馬桶才能解決的問題！ <br>
+          <span>忍耐已久的問題儘管放馬過來，讓專業團隊為您解決！</span><br>
+          <br></td>
+        <td width="33%" valign="top"><img src="<%= image_path("index-atc3.jpg") %>"></td>
+      </tr>
+      <tr>
+        <td colspan="2"><img src="<%= image_path("index-atc4.jpg") %>"></td>
+      </tr>
+    </table>
+  </div>
+  <div class="article">
+    <h3>清潔秘訣二：戰略性思考，杜絕二次汙染</h3>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td valign="top">如果家事員不能習慣戰略性思考，像工程師設計建築藍圖一樣有完備的計畫，就會一邊打掃，一邊因為開關窗、人員走動或其他疏失，讓已經掃過的地方再度蒙上灰塵，這是一般最常見「無可避免」或「根本沒想到」的疏失，但在誼光看來，這樣是不及格的！ <br>
+          <br>
+          為此，誼光特別針對快速解讀空間、規劃打掃流程訓練家事員，讓服務前先動腦成為反射動作，嚴格要求讓入塵量降到最低，做到真正的一塵不染！ <br>
+          <span>快撥電話給誼光，體驗真正的「一塵不染」！</span></td>
+        <td><img src="<%= image_path("index-atc5.jpg") %>"></td>
+      </tr>
+    </table>
+  </div>
+  <div class="article">
+    <h3>清潔秘訣三：高效能水淨過濾系統，殲滅過敏原</h3>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td valign="top"><img src="<%= image_path("index-atc6.jpg") %>"></td>
+        <td valign="top">您可曾在睡中因皮膚發癢或眼睛不舒服而醒來，或者沒感冒卻經常打噴嚏、流鼻水、氣喘、頭痛、感覺疲勞、容易感到憂鬱？ <br>
+          <br>
+          事實是，每當你躺上床，總有百萬隻的塵螨跟你睡在一起，而您的鼻子就像全功率的吸塵器，大口大口吸進這恐怖的健康殺手，每一次呼吸，都流失一點健康！ <br>
+          <br>
+          誼光重金導入高效能水淨清新過濾系統，以水洗濾空氣，不在清潔後讓灰塵、過敏原與異味有再回到空氣的機會，經過每分鐘2000轉之超高速震動拍打，一次就能濾出數百萬隻塵蟎，讓他們再也無法傷害你和你的家人！ <br>
+          <br>
+          布面傢俱如沙發、窗簾、床單床墊，經過除蟎機清潔，再以蒸氣清洗後，才能達到深層除螨的效果，過敏兒不用再吃藥傷身傷荷包，只要找誼光，就能讓您一覺到天亮、睡醒不再打噴嚏！ <br>
+          <span>別再讓塵螨佔據你和家人的床和身體，快打電話找誼光，還你全家的健康！</span></td>
+      </tr>
+    </table>
+  </div>
+  <div class="article">
+    <h3>收納美學三原則：看起來舒服、找起來輕鬆、用完好歸位</h3>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td valign="top">會收不會收，真的差很多，唯有懂得收納的美學，找東西才不會腸思枯竭，更不用再依賴運氣和直覺！ <br>
+          <br>
+          無論衣櫃、書架、酒櫃、相本、用過或沒用過的瓶瓶罐罐、報章雜誌，整理起來都有不同的學問，凡經過誼光家事員打掃的屋主，總會驚呼原來我家這麼大，空間好好用，這就是收納的魔術！ <br>
+          <br>
+          當然，我們也相信您的亂中有序一定有道理有別於一般的家事服務，在誼光的獨特訓練過程中，特別要求尊重屋主的整理方式，盡量在最短的移動中將東西收納整齊，若東西非得被移動得遠些，必定留紙條告知，這種不厭其煩的服務品質，需要鍛鍊過的耐心與細心，更是大多服務公司做不到的。 <br>
+          <span>馬上撥電話給誼光，體會東西井井有條、全家以你為中心運轉的喜悅！</span></td>
+        <td><img src="<%= image_path("index-atc7.jpg") %>"></td>
+      </tr>
+    </table>
+  </div>
+  <div class="article">
+    <h3>你的家事服務還在按鐘點或人頭計費嗎？</h3>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td valign="top">打掃用時間或人頭計費，無法預先得知確切的服務費，要是服務人員效率不高，無論超時加碼或是草草了事，對您來說都是不公平的！ <br>
+          <br>
+          全國首創按服務計費，每次為您服務，都是視現場估價實況，詳盡記錄所有項目，應該清理的部份說到作到，服務完畢後，現場主任會逐項與客戶驗收會簽，確保完成與您約定的所有項目！ <br>
+          <br>
+          如果家事員素質不齊，按服務計費絕對有可能常常造成虧損，因此幾乎沒有公司敢用這樣的方式經營，由此可見誼光家事堅持品質的決心！ <br>
+          <span>快撥電話立即體驗，什麼叫做良心事業！</span></td>
+        <td valign="top"><img src="<%= image_path("index-atc8.jpg") %>"></td>
+      </tr>
+    </table>
+  </div>
+  <div class="article">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td><img src="<%= image_path("index-atc9.jpg") %>"></td>
+      </tr>
+      <tr>
+        <td><img src="<%= image_path("index-atc10.jpg") %>"></td>
+      </tr>
+    </table>
+  </div>
+</div>
+<!--main-->
+<div id="footerframe">
+ <div id="tel"><span class="white_22">台北</span><br>
+   <span class="white_16">(02)2503-3500 </span></div>
+ <div id="tel"><span class="white_22">板橋</span><br>
+  <span class="white_16">(02)2961-4594  </span></div>
+ <div id="tel"><span class="white_22">桃園</span><br>
+  <span class="white_16">(03)339-8353   </span></div>
+ <div id="tel"><span class="white_22">新竹</span><br>
+  <span class="white_16">(03)561-1686   </span></div>
+ <div id="otherlink"><a href="http://www.yks.com.tw/front/bin/cglist.phtml?Category=337645" target="_blank"> | 新保事業群</a> | <a href="http://www.sks.com.tw/index.php?option=com_content&view=category&layout=blog&id=3&Itemid=83" target="_blank">新保文化基金會</a> | <a href="http://www.sks.com.tw/" target="_blank">台灣新光保全</a>
+|<a href="http://tw.myblog.yahoo.com/anhsin-classroom/profile" target="_blank"> 新光保全-安心教室推廣活動Blog</a> | <br>
+© Copyright 2012 Yi-Kong Housekeeping Service All Rights Reserved.  </div>
+</div><!--footerframe end-->
+</body>
+</html>

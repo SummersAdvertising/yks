@@ -84,11 +84,11 @@ preloadImages("btn_click.png","btn_out.png","btn_over.png","businessbg.png","bus
 <body>
 <div id="outbody">
   <div id="topframe">
-   <div id="logoframe"><a href="index.htm"><img src="<%= image_path("logo.png") %>" width="210" height="122"></a></div>
+   <div id="logoframe"><a href="<%= root_url %>"><img src="<%= image_path("logo.png") %>" width="210" height="122"></a></div>
    <div id="btnbar">
     <div class="nav"><%= link_to '關於誼光', :controller => 'page', :action => 'about' %></div>
     <div class="nav"><%= link_to '最新優惠', :controller => 'page', :action => 'preferential' %></div>
-    <div class="nav"><%= link_to '服務優勢', :controller => 'page', :action => 'preferential' %></div>
+    <div class="nav"><%= link_to '服務優勢', root_url + "#main" %></div>
     <div class="nav"><%= link_to '服務項目', services_path %></div>
     <div class="nav"><%= link_to '用戶見證', user_exps_path %></div>
     <div class="nav"><%= link_to '人員招募', :controller => 'page', :action => 'recruit' %></div>

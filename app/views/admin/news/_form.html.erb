@@ -17,7 +17,11 @@
   </div>
   <div class="field form-time">
     <%= f.label :time, '時間' %>
-    <%= f.text_field :time, :class => 'datetimepicker' %>
+    <%= f.text_field :time, :class => 'datetimepicker', :value => if not @new.time.nil? then @new.time.strftime( '%Y-%m-%d' ) end %>
+  </div>
+  <div class="field form-title">
+    <%= f.label :status, '狀態' %>
+    <%= f.select :status, {'顯示於前台' => :enabled,'隱藏於前台'  => :disabled} %>
   </div>
   <div class="field form-content" style="width: 800px; height: 600px;">
     <h3><%= f.label :content, '內容' %></h3>

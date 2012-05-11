@@ -1,5 +1,15 @@
 # encoding=UTF-8
 class SystemSiteMapsController < ApplicationController
+
+	# default index
+	def index
+		 
+		 
+		 respond_to do | format |
+		 	format.html { render :layout => nil }
+		 end
+	end
+
   # GET /system_site_maps/1
   # GET /system_site_maps/1.json
   def show

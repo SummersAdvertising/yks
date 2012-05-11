@@ -12,7 +12,7 @@ layout "admin"
   # GET /system_site_maps
   # GET /system_site_maps.json
   def index
-    @services = SystemSiteMap.where( :system_site_map_id => params[:pid])
+    @services = SystemSiteMap.where( :system_site_map_id => params[:pid]).order(:time => :DESC)
     @system_site_map = SystemSiteMap.find(params[:pid])
 
     respond_to do |format|
@@ -104,18 +104,17 @@ layout "admin"
 private
 	def _destroy( id )			
 	    service = Service.find( id )
-	    
+	   	    
 	    # 遞回方式摧毀其下的所有子節點
-	    children = SystemSiteMap.where( :system_site_map_id => @service.system_site_map_id )
+	    children = SystemSiteMap.where( :system_site_map_id => service.system_site_map_id )
 	    
 	    if children.length > 0
 		    children.each do | child |
 		    	child_service = Service.find( :system_site_map_id => child.id )
 		    	_destroy( child_service.id )
 		    end
-		end	    
+		end	   
 	    
-	    exit
 	    system_site_map = SystemSiteMap.where( :parameter => id ).first
 	    
 	    system_site_map.destroy
