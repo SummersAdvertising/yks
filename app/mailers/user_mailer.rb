@@ -1,3 +1,4 @@
+# encoding: utf-8
 class UserMailer < ActionMailer::Base
   default from: "from@example.com"
 
@@ -10,6 +11,6 @@ class UserMailer < ActionMailer::Base
     @greeting = "Hi"
     @ticket = ticket
     @id = ticket.id
-    mail(:to => ticket.email, :subject => "Send Test")
+    mail(:to => ticket.email, :subject => "客服留言通知信 - 誼光家事網站")
   end
 end
