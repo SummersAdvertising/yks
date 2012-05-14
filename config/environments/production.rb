@@ -34,6 +34,18 @@ Yks::Application.configure do
   # Defaults to Rails.root.join("public/assets")
   # config.assets.manifest = YOUR_PATH
 
+  config.action_mailer.smtp_settings = {
+      :address => "smtp.gmail.com",
+      :port => "587",
+      :domain => "gmail.com",
+      :authentication => "plain",
+      :user_name => "yuzhe@summers.com.tw",
+      :password => "20101101",
+      :enable_starttls_auto => true
+   }
+  # Don't care if the mailer can't send
+  config.action_mailer.raise_delivery_errors = false
+  
   # Specifies the header that your server uses for sending files
   # config.action_dispatch.x_sendfile_header = "X-Sendfile" # for apache
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for nginx
