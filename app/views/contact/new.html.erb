@@ -9,9 +9,10 @@
 alert('資料已送出。');
 window.close();
 </script>
-<% end %>
+<% else %>
 <script src="javascripts/jquery-1.7.1.min.js" type="text/javascript"></script>
 <script src="javascripts/jquery.validate.js" type="text/javascript"></script>
+<% end %>
 <%#<script src="js/cmxforms.js" type="text/javascript"></script>%>
  
 <script type="text/javascript">
@@ -19,8 +20,8 @@ $(document).ready(function(){
 	
 	$.validator.addMethod("phone", function(value, element)
 	{
-	return this.optional(element) || /^(0([2-9]){1}([0-9]){1,2}-([0-9]){4,7})$/i.test(value);
-	}, "格式為xxxx-xxxxxxxx。");
+	return this.optional(element) || /^([0-9\+]+)$/i.test(value);
+	}, "格式有誤。");
 	
 	//須與form表單ID名稱相同
 	$("#new_ticket").validate({  
