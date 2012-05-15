@@ -1,6 +1,6 @@
 class UserExpsController < ApplicationController
 	def index
-		 @user_exps = UserExp.all
+		 @user_exps = UserExp.all(:order => "time desc")
 		 
 		 respond_to do |format|
 		 	format.html

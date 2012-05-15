@@ -38,28 +38,7 @@
 </div><!--rightframe end-->
 <div id="menuout">
 <div id="menuimage"><img src="<%= image_path("servicetitle.png") %>" width="274" height="59"></div>
-<div id="menulistbody">
-  <ul id="menu">
-  <% @menu_tree['children'].each do | mainCategory | %>
-	<% if mainCategory['sitemap'].id == @parent_id  || mainCategory['service'].id.to_s == params[:id] then is_current_service = true end%>
-  	<li>
-		<a href="<%= url_for service_path(mainCategory['service']) %>" <%= if is_current_service then 'class=linkActived' end %>	>
-			<%= mainCategory['sitemap'].title %>
-		</a>
-		<% if is_current_service %>
-			<ul>
-		  	<% mainCategory['children'].each do | serviceHash | %>  		
-					<li <%= if serviceHash['service'].id == @service_id then 'class=serviceSelected' end %>>
-						<%= link_to serviceHash['sitemap'].title, service_path(serviceHash['service']) %>
-					</li>
-		  	<% end %>
-			</ul>
-		<% end %>
-	</li>
-  
-  <% end %>
-  </ul>
-</div><!--menulistbody end-->
+<%= render :partial => 'menu' %>
 <div id="menuimage"><img src="<%= image_path("menubgend.png") %>" width="274" height="15"></div>
 <%= render :partial => 'pages/bussiness' %>
 </div><!--menuout end-->

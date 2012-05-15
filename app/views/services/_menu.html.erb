@@ -1,0 +1,26 @@
+<div id="menulistbody">
+  <ul id="menu">
+  <% @menu_tree['children'].each do | mainCategory | %>
+	<% if mainCategory['sitemap'].id == @parent_id  || mainCategory['service'].id.to_s == params[:id] then is_current_service = true end%>
+  	<li>
+		<a href="<%= url_for service_path(mainCategory['service']) %>" <%= if is_current_service then 'class=linkActived' end %>	>
+			<%= mainCategory['sitemap'].title %>
+		</a>
+		<% if is_current_service %>
+			<ul>
+		  	<% mainCategory['children'].each do | serviceHash | %>  		
+					<li <%= if serviceHash['service'].id == @service_id then 'class=serviceSelected' end %>>
+						<%= link_to serviceHash['sitemap'].title, service_path(serviceHash['service']) %>
+					</li>
+		  	<% end %>
+			</ul>
+		<% end %>
+	</li>
+  
+  <% end %>
+		<li>
+			<%= link_to '常見問題', service_path('faq'), :class =>if params[:id] == 'faq' then "linkActived" end %>
+            <ul></ul>
+		</li>
+  </ul>
+</div><!--menulistbody end-->

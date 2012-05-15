@@ -14,14 +14,24 @@ class ServicesController < ApplicationController
 	end
 	
 	def show
-		 @service = Service.find( params[:id] )
-		 
-		 build_service_content
-		 
+		 if params[:id] != 'faq'
+			 @service = Service.find( params[:id] )		 
+			 build_service_content
+		 end
 		 
 		  respond_to do | format |
-		 	format.html { render :template => 'services/show.html.erb' }
+		  	if params[:id] == 'faq'
+				format.html { render :template => 'pages/faq' }
+		  	else
+		 		format.html { render :template => 'services/show.html.erb' }
+		 	end
 		 end
+	end
+	
+	def faq		
+		respond_to do | format |
+			format.html { render :template => 'pages/faq' }
+		end		
 	end
 	
 private
