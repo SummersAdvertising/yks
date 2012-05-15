@@ -1,7 +1,7 @@
 <ul>
 <% @partial_banners.each do |banner| %>
   <li>
-  <%= link_to banner.link, :target => '_blank' do  %>
+  <%= link_to banner.link do  %>
   <div id="menubanner"><img src="<%= root_url + "/banners/" + banner.id.to_s + ".jpg" %>" width="260" height="90"></div>  
   <% end %>
   </li>

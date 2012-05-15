@@ -30,7 +30,7 @@ function MM_openBrWindow(theURL,winName,features) { //v2.0
     <li><%= link_to '用戶見證', user_exps_path %></li>
     <li><span>|</span></li>
     <li><%= link_to '人員招募', :controller => 'page', :action => 'recruit' %></li>
-    <li><a><img src="<%= image_path("facebookbtn.png") %>" title="分享到facebook" alt="分享到facebook"/></a></li>
+    <li><a target="_blank" href="http://www.facebook.com/sharer.php?u=http://ykhome.com.tw&t=誼光家事服務，實現每一個乾淨的願望" title="分享到facebook" alt="分享到facebook"><img src="<%= image_path("facebookbtn.png") %>" width="16" height="16"></a></li>
   </ul>
   <a id="need" onclick="MM_openBrWindow('<%= url_for(:action => 'index', :controller => 'contact') %>','contact','scrollbars=yes,width=630,height=530')">填寫詳細需求</a>
   <ul id="nav">
