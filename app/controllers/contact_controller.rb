@@ -7,7 +7,7 @@ class ContactController < ApplicationController
   def create
     @ticket = Ticket.new(params[:ticket])
     @ticket.time = Time.now
-    @ticket.define_id = 1
+    @ticket.define_id = -1
     respond_to do |format|
       if @ticket.save
         UserMailer.confirm(@ticket).deliver

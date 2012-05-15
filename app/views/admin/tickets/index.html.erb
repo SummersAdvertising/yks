@@ -22,7 +22,7 @@
     <td><%= ticket.address %></td>
     <td><%= ticket.email %></td>
     <td><%= (ticket.hopetime==0?"平日":"周末及假日") %></td>
-    <td><%= ticket.define.name %></td>
+    <td><%= (ticket.define == -1 ? '尚未處理' : ticket.define.name) %></td>
   </tr>
 <% end %>
 </table>
