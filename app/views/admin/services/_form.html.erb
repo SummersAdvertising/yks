@@ -30,8 +30,10 @@
   <div id="service-form-right">
   <% 0.upto(4) do |i| %>
   <div class="field form-content">
-    <h3><%= text_field "contents[" + i.to_s  + "]", "block" %></h3>
-    <%= text_area "contents[" + i.to_s  + "]", "blockcontent" %>
+    <h3><%= text_field "contents[" + i.to_s  + "]", "block", :value => @service.content[i.to_s]['block']  %></h3>
+    <% params[:services] =  @service.content['1']
+    #exit %>
+    <%= text_area "contents[" + i.to_s  + "]", "blockcontent", :value => @service.content[i.to_s]['blockcontent'] %>
   </div>
   <% end %>
   </div>
@@ -40,30 +42,5 @@
     <%= cancel %>
   </div>
 </div>  
-<% if @service.content != nil %>
-    <script>
-    //假設傳入的JSON內容如下：
-    //Data = <%#= raw @service.content%>
-
-    //我們可以透過.length得知其中的物件數
-    //var NumOfJData = JData.length; //NumOfJData=3
-
-    //利用alert來逐筆將資料以message window的方式傳出
-    //for (var i = 0; i < NumOfJData; i++) {
-    //  $('#contents_block' + i).val(JData[i]["title"]);
-    //  $('#contents_blockcontent' + i).val(JData[i]["content"]);
-    //}
-    <% 
-      i=0
-  		@service.content.each do | content |
-  	%>
-      $('#contents_<%= i%>_block').val("<%=content[1]['block']%>");
-      $('#contents_<%= i%>_blockcontent').val("<%=content[1]['blockcontent']%>");
-	  <%
-	    i=i+1
-	    end
-	  %>
-    </script>
-<% end %>    
 </div>
 <% end %>

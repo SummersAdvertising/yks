@@ -15,7 +15,7 @@ class UserMailer < ActionMailer::Base
     admins = User.where( :define_id => 6 );
     
     admins.each do | admin |
-    	mail(:to => admin.email, :subject => "客服留言通知信 - 誼光家事網站")
+    	if admin.email? then mail(:to => admin.email, :subject => "客服留言通知信 - 誼光家事網站") end
     end
     
   end

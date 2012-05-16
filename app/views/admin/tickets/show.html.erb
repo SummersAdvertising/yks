@@ -33,8 +33,18 @@
 </div>
 
 <div>
+  <b><%= t("tickets.create_time") %>：</b>
+  <%= @ticket.created_at.localtime.strftime('%Y-%m-%d %H:%M:%S') %>
+</div>
+
+<div>
+  <b><%= t("tickets.updated_time") %>：</b>
+  <%= @ticket.updated_at.localtime.strftime('%Y-%m-%d %H:%M:%S') %>
+</div>
+
+<div>
   <b><%= t("tickets.status") %>：</b>
-  <%= @ticket.define.name %>
+  <%= (@ticket.define.class !=  Define ?  ' * 尚未指定' : @ticket.define.name) %>
 </div>
 <% if session[:user] == 'master' %>
   <%= render 'shared/admin_form_command', :data => @ticket %>

@@ -52,7 +52,7 @@ function MM_openBrWindow(theURL,winName,features) { //v2.0
   <ul id="nav">
   <%
     service_index = 0;
-  	SystemSiteMap.find(2).system_site_maps.limit(3).each do |service|
+  	@index_services.each do |service|
   		service_index += 1
   		%>
   			<li class="nav-box"> <a class="nav-title" href="<%= url_for(:controller => :services, :action => :show, :id => service.parameter ) %>" id="nav-<%= service_index %>"><%= service.title  %></a>
@@ -127,7 +127,7 @@ function MM_openBrWindow(theURL,winName,features) { //v2.0
 <!--header-->
 <div id="news">
   <table width="601" border="0" cellspacing="7" cellpadding="0" id="news-list">
-  	<% News.where( :status => 'enabled').order( "time desc, created_at desc" ).limit(3).each do | news | %>
+  	<% @index_news.each do | news | %>
 	    <tr>
 	      <td class="news-time"><%= news.time.strftime( '%Y.%m/%d' ) %></td>
 	      <td class="news-title"><%= link_to news.title, :controller => :news, :action => 'show', :id => news.id %></td>

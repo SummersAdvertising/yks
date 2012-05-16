@@ -3,9 +3,12 @@ class SystemSiteMapsController < ApplicationController
 
 	# default index
 	def index
-		 
-		 
-		 respond_to do | format |
+		
+		@index_services = SystemSiteMap.find(2).system_site_maps.limit(3)
+		
+		@index_news = News.where( "status = 'enabled' AND not ISNULL(time)").order( "time desc, created_at desc" ).limit(3)
+		
+	 	respond_to do | format |
 		 	format.html { render :layout => nil }
 		 end
 	end

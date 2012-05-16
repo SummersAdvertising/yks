@@ -11,6 +11,16 @@
     </div>
   <% end %>
   <div id="ticket">
+  
+  <div class="field form-title">
+    <%= f.label :created_at, t("tickets.create_time")  %>
+    <%= @ticket.created_at.localtime.strftime('%Y-%m-%d %H:%M:%S') %>
+  </div>
+  <div class="field form-title">
+    <%= f.label :updated_at, t("tickets.updated_time") %>
+    <%= @ticket.updated_at.localtime.strftime('%Y-%m-%d %H:%M:%S') %>
+  </div>
+  
   <div class="field form-title">
     <%= f.label :name, '姓名' %>
     <%= @ticket.name %>

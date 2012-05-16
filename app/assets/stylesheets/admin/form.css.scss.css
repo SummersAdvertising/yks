@@ -72,13 +72,14 @@ h2 {
 	padding: 10px;
 	border-bottom: 1px solid #ccc;
 }
+
 .form-content textarea {
+	padding: 12px;
 	max-width: 95%;
 	width: 95%;
  *max-width: 92%;
  *width: 92%;
 	border: 0;
-	padding: 0 10px;
 	font: 300 13px "sans-serif";
 	color: #222;
 	overflow:auto;

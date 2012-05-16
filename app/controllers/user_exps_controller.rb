@@ -1,7 +1,7 @@
 class UserExpsController < ApplicationController
 	def index
 		 
-		  @totals = UserExp.count
+		  @totals = UserExp.where(:status => 'enabled').count
 		  @perpage = 5
 		  
 		  start = params[ :start ] ? params[ :start ].to_i : 0;
