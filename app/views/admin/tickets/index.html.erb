@@ -34,10 +34,10 @@
     <td><%= ticket.address %></td>
     <td><%= ticket.email %></td>
     <td><%= (ticket.hopetime==0?"平日":"周末及假日") %></td>
-    <td><%= (ticket.define == -1 ? '尚未處理' : ticket.define.name) %></td>
+    <td><%= (ticket.define.class !=  Define ?  ' * 尚未指定' : ticket.define.name) %></td>
   </tr>
 <% end %>
 </table>
-
+<p>** 尚未指定的狀態可能來自於新的客戶填單，或者誤刪了已經指定的表單狀態。</p>
 
 </div>
