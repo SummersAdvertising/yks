@@ -2,6 +2,18 @@
 
 
 <div class="list">
+
+<p class="pageContainer"> < 第 <%= @current_page_no +1 %> 頁 >
+前往 
+<% for page_no in 0..(@totals/@perpage) do 
+	offset = page_no * @perpage
+%>
+	<span class="pageBox"><%= if @current_page_no == page_no then content_tag( :span,  page_no +1 ) else link_to( page_no+1, :action => 'index', :start => offset ) end %></span>
+	
+<% end %>
+頁
+</p>
+
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr class="list-title">
     <td><%= t("tickets.name") %></td>
@@ -26,4 +38,6 @@
   </tr>
 <% end %>
 </table>
+
+
 </div>

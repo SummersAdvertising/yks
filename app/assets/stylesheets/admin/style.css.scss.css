@@ -26,3 +26,29 @@ a {
 #main a:hover {
 	color:#D54E21
 }
+
+.pageContainer {
+	margin: 12px;
+}
+
+.pageBox {
+	margin: 0 2px;
+}
+
+.pageBox span {
+	padding: 3px 2px;
+	background: #CCC;
+	color: #222;
+	border: 1px #666 solid;
+}
+
+.pageBox a {
+	padding: 3px 2px;
+	background: #999;
+	color: #FFF!important;
+	border: 1px #333 solid;
+}
+
+.pageBox a:hover {
+	background: #666;
+}
