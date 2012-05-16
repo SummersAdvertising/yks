@@ -11,6 +11,12 @@ class UserMailer < ActionMailer::Base
     @greeting = "Hi"
     @ticket = ticket
     @id = ticket.id
-    mail(:to => ticket.email, :subject => "客服留言通知信 - 誼光家事網站")
+    
+    admins = User.where( :define_id => 6 );
+    
+    admins.each do | admin |
+    	mail(:to => admin.email, :subject => "客服留言通知信 - 誼光家事網站")
+    end
+    
   end
 end

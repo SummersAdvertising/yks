@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120328081704) do
+ActiveRecord::Schema.define(:version => 20120516061348) do
 
   create_table "banners", :force => true do |t|
     t.string   "link"
@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(:version => 20120328081704) do
   end
 
   create_table "system_site_maps", :force => true do |t|
+    t.string   "title"
     t.integer  "system_site_map_id"
     t.boolean  "is_static"
     t.string   "controller"
@@ -77,7 +78,6 @@ ActiveRecord::Schema.define(:version => 20120328081704) do
     t.string   "script"
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
-    t.string   "title"
   end
 
   create_table "tickets", :force => true do |t|
@@ -109,6 +109,7 @@ ActiveRecord::Schema.define(:version => 20120328081704) do
     t.integer  "define_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "email"
   end
 
 end

@@ -16,7 +16,7 @@ def index
   @perpage = 5
   
   start = params[ :start ] ? params[ :start ].to_i : 0;
-  @tickets = Ticket.order("define_id asc, time desc").offset( start ).limit( @perpage )
+  @tickets = Ticket.order("define_id asc, updated_at asc").offset( start ).limit( @perpage )
   @current_page_no = start / @perpage
   
 

@@ -9,3 +9,5 @@ zh-TW:
         remark: 註記
         time: 時間
         status: 狀態
+        create_time: 建立時間
+        updated_time: 更新時間

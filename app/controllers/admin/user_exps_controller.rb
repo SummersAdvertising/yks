@@ -12,8 +12,13 @@ layout "admin"
 # GET /system_site_maps
 # GET /system_site_maps.json
 def index
-  @userexps = UserExp.order("time desc").all
-
+  @totals = UserExp.count
+  @perpage = 5
+  
+  start = params[ :start ] ? params[ :start ].to_i : 0;
+  @userexps = UserExp.order("time desc").offset( start ).limit( @perpage )
+  @current_page_no = start / @perpage
+  
   respond_to do |format|
     format.html # index.html.erb
   end

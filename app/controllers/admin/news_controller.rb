@@ -27,9 +27,14 @@ class Admin::NewsController < AdminController
 
   # GET /system_site_maps
   # GET /system_site_maps.json
-  def index
-    @news = News.order("time desc").all
-
+  def index  
+	@totals = News.count
+	@perpage = 5
+	
+	start = params[ :start ] ? params[ :start ].to_i : 0;
+	@news = News.order("time desc").offset( start ).limit( @perpage )
+	@current_page_no = start / @perpage
+  
     respond_to do |format|
       format.html # index.html.erb
     end

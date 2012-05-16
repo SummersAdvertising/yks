@@ -19,6 +19,6 @@ class NewsController < ApplicationController
 	
 private
 	def news_menu
-		 @news_all = News.all
+		 @news_all = News.order('time desc').first(7)
 	end
 end

@@ -1,6 +1,7 @@
 
    <div id="rightframe">
    
+   
    <% @user_exps.each do |user_exp| %>
    	
 	<div id="witnessframe">
@@ -13,7 +14,7 @@
 	</div>   	
 
    <% end %>
-
+   <%= render :partial => 'shared/pagination'%>
    </div><!--rightframe end-->
    <div id="menuout">
     <div id="menuimage"><img src="<%= image_path("witnesstitle.png") %>" width="274" height="59"></div>

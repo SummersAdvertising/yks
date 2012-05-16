@@ -11,5 +11,11 @@
   <b><%= t("users.define_id") %>：</b>
   <%= @user.define.name %>
 </div>
+
+<div>
+  <b>E-Mail：</b>
+  <%= @user.email %>
+</div>
+
 <%= render 'shared/admin_form_command', :data => @user %>
 </div>

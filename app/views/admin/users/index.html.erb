@@ -8,6 +8,9 @@
 		<%= t("users.user") %>
 	</td>
     <td>
+		E-mail
+	</td>
+    <td>
 	    <%= t("users.define_id") %></td>
     </tr>
 
@@ -17,6 +20,7 @@
 		<a><%= show user, user.user %></a>
 		<%= render 'shared/admin_list_command', :data => user %>
 	</td>
+    <td><%= user.email %></td>
     <td><%= user.define.name %></td>
   </tr>
 <% end %>

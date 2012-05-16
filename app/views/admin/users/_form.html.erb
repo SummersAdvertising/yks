@@ -19,6 +19,12 @@
     <%= f.label :password, '密碼' %><br />
     <%= f.password_field :password %>
   </div>
+  
+  <div class="field">
+    <%= f.label :email, '信箱' %><br />
+    <%= f.text_field :email %>
+  </div>
+  
   <div class="field form-status">
     <h3><%= f.label :define_id, '角色' %></h3><br />
 	<%= f.select :define_id, Define.where( :usetype => 'usertype' ).collect {|p| [ p.name, p.id ] }, {:prompt => 'Select Type'}%>
