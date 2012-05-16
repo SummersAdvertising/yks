@@ -31,8 +31,6 @@
   <% 0.upto(4) do |i| %>
   <div class="field form-content">
     <h3><%= text_field "contents[" + i.to_s  + "]", "block", :value => @service.content[i.to_s]['block']  %></h3>
-    <% params[:services] =  @service.content['1']
-    #exit %>
     <%= text_area "contents[" + i.to_s  + "]", "blockcontent", :value => @service.content[i.to_s]['blockcontent'] %>
   </div>
   <% end %>
