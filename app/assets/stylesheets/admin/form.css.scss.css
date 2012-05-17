@@ -25,6 +25,10 @@ h2 {
 	font: 300 13px "sans-serif";
 	color: #222;
 }
+
+.field input.shortText {
+	width: 80px;
+}
 /*-------------------------------------------------------------------編輯修改*/
 .actions input {
 	background: #f9f9f9;

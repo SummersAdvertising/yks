@@ -50,8 +50,7 @@ def create
   @banner = Banner.new(params[:banner])
   
   respond_to do |format|
-    if @banner.save
-     
+    if @banner.save     
       #file.original_filename
       if params[:upload] != nil
        file = params[:upload]['filename']

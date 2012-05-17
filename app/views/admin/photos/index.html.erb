@@ -1,0 +1,18 @@
+<h1><%= t("photos.tablename") %><%= new %></h1>
+
+
+<div class="list">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr class="list-title">
+    <td width="20%"></td>
+    <td><%= t("photos.name") %></td>
+  </tr>
+
+<% @photos.each do |photo| %>
+  <tr class="list-content">
+  	<td class="first" align="center" valign="middle"><img src="<%= photo.filename %>" alt="open" /></td>
+    <td class="first"><a><%= show photo, photo.name %></a><%= render 'shared/admin_list_command', :data => photo %></td>
+  </tr>
+<% end %>
+</table>
+</div>

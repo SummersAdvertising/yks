@@ -1,0 +1,35 @@
+<%= form_for [:admin, @photo], :html => { :multipart => true } do | f |%>
+	<% if @photo.errors.any? %>		
+    <div id="error_explanation">
+      <h2><%= pluralize(@photo.errors.count, "error") %> prohibited this services from being saved:</h2>
+
+      <ul>
+      <% @photo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+	<% end %>
+	
+  <div class="field form-title">
+	<%= f.label :name, '圖片代號' %><br />
+    <%= f.text_field :name %>
+  </div>
+  
+  <div class="field form-title">
+	<%= label 'properties', 'width', '圖片寬' %> * <%= label 'properties', 'height', '圖片高' %> (單位為像素)<br />
+    <%= text_field :properties, 'width', :class => 'shortText', :value => @properties['width'] %> * <%= text_field :properties, 'height', :class => 'shortText', :value => @properties['height'] %>
+  </div>  
+  
+	<div class="field form-file">
+		<%= raw '<img width="' + @properties['width'] + '" height="' + @properties['height'] + '" src="' + @photo.filename + '" alt="open" />' if params[:action] == "edit" %>
+		<%= label 'upload_file', 'filename', '檔案' %>
+	    <%= file_field 'upload_file', 'filename'%>
+  	</div>
+	
+  <div class="actions">
+    <%= submit %>
+    <%= cancel %>
+  </div>
+	
+<% end %>

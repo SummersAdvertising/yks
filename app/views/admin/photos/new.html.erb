@@ -1,0 +1,5 @@
+<h1><%= t("photos.tablename") %> - <%= t("helpers.new") %></h1>
+
+<%= render :partial => 'form'%>
+
+<%= render 'shared/admin_form_command', :data => @photo %>

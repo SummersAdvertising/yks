@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120516061348) do
+ActiveRecord::Schema.define(:version => 20120517090352) do
 
   create_table "banners", :force => true do |t|
     t.string   "link"
@@ -54,6 +54,16 @@ ActiveRecord::Schema.define(:version => 20120516061348) do
     t.string   "status"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "photos", :force => true do |t|
+    t.string   "filename"
+    t.text     "properties"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.string   "name"
+    t.string   "file_path"
+    t.string   "file_extension"
   end
 
   create_table "services", :force => true do |t|

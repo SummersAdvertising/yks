@@ -14,6 +14,8 @@ Yks::Application.routes.draw do
     resources :tickets
     resources :ticket_types
     resources :users
+    resources :photos
+    
     match 'login' => 'login#index'
     match 'login/login' => 'login#login'
     match 'logout' => 'login#logout'
@@ -32,6 +34,7 @@ Yks::Application.routes.draw do
   resources :user_exps
   resources :services
   resources :banners
+  resources :photos
   
   match 'page/:pagename' => 'system_site_maps#show'
 

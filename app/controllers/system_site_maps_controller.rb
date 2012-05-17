@@ -8,6 +8,9 @@ class SystemSiteMapsController < ApplicationController
 		
 		@index_news = News.where( "status = 'enabled' AND not ISNULL(time)").order( "time desc, created_at desc" ).limit(3)
 		
+		@head_banner = Photo.where( :name => 'index_head_banner' ).first
+		@event_banner = Photo.where( :name => 'index_event_banner' ).first
+		
 	 	respond_to do | format |
 		 	format.html { render :layout => nil }
 		 end

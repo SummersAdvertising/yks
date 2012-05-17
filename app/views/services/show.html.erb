@@ -1,12 +1,15 @@
 <div id="rightframe">
 <div id="servicetitle1"><%= @service.title %></div>
 <div id="line1"></div>
-<div id="servicetitle2">平均報價</div>
+<% if @service.price != '' %>
+	<div id="servicetitle2">平均報價</div>
+	<div id="line1"></div>
+	<div class="gray_15" id="servicecontent">
+		<%= @service.price.gsub(/\n/, '<br />').html_safe %>
+	</div>
 <div id="line1"></div>
-<div class="gray_15" id="servicecontent">
-	<%= @service.price.gsub(/\n/, '<br />').html_safe %>
-</div>
-<div id="line1"></div>
+<%end%>
+
 <div id="servicetitle2">介紹</div>
 <div id="line1"></div>
 <div id="servicecontent">

@@ -19,8 +19,6 @@ class Admin::ImagesController < AdminController
     end
   end
 
-  # DELETE /system_site_maps/1
-  # DELETE /system_site_maps/1.json
   def destroy
     File.delete("#{Rails.root}/public/news/#{params[:image]}")
 

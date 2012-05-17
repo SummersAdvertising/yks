@@ -12,11 +12,11 @@
     </div>
   <% end %>
   <div class="field form-title">
-    <%= f.label :title, '標題' %>（40 字內為佳）
+    <%= f.label :title, '標題' %>（30 字內為佳）
     <%= f.text_field :title %>
   </div>
   <div class="field form-time">
-    <%= f.label :time, '時間' %>
+    <%= f.label :time, '時間' %>（** 必填 )
     <%= f.text_field :time, :class => 'datetimepicker', :value => if not @new.time.nil? then @new.time.strftime( '%Y-%m-%d' ) end %>
   </div>
   <div class="field form-title">

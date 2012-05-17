@@ -1,0 +1,8 @@
+zh-TW:
+    photos:
+        tablename: Photos
+        link: 連結
+        name: 圖片代號
+        time: 時間
+        status: 狀態
+        preview: 圖片預覽

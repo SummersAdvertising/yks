@@ -1,0 +1,16 @@
+<h1><%= t("photos.tablename") %> - <%= t("helpers.show") %></h1>
+
+<%= render 'shared/admin_form_notice' %>
+<div class="show">
+<div>
+  <b><%= t("photo.name") %>：</b>
+  <%= @photo.name %>
+</div>
+
+<div>
+  <b><%= t("photo.preview") %>：</b>
+  <img width="<%= @properties['width']  %>" height="<%= @properties['height'] %>" src="<%= image_path(@photo.filename) %>" />
+</div>
+
+<%= render 'shared/admin_form_command', :data => @photo %>
+</div>
