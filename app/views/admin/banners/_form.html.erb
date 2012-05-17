@@ -13,7 +13,7 @@
   <div class="field form-file">
 	<%= raw '<img src="' + image_path("/banners/#{@banner.id}.jpg") + '" alt="open" />' if params[:action] == "edit" %>
 	<%= label 'upload', 'filename', '檔案' %>
-	<p class="sizeTip">(建議尺寸：260x90 px)</p>
+	<p class="sizeTip">(建議尺寸：260x90 pixel)</p>
 	<%= file_field 'upload', 'filename' %>    
   </div>
   <div class="field form-title">
