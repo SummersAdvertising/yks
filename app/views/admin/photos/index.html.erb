@@ -11,7 +11,9 @@
 <% @photos.each do |photo| %>
   <tr class="list-content">
   	<td class="first" align="center" valign="middle"><img src="<%= photo.filename %>" alt="open" /></td>
-    <td class="first"><a><%= show photo, photo.name %></a><%= render 'shared/admin_list_command', :data => photo %></td>
+    <td class="first"><a><%= show photo, photo.name %></a>
+    	<div class="list-command"><%= link_to '修改', :action => :edit, :id =>  photo.id %></div>
+    </td>
   </tr>
 <% end %>
 </table>

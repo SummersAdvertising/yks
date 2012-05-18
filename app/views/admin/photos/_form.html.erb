@@ -13,12 +13,20 @@
 	
   <div class="field form-title">
 	<%= f.label :name, '圖片代號' %><br />
-    <%= f.text_field :name %>
+	<% if params[ :action ] == 'edit'%>
+		<p><%= @photo.name %></p>
+	<% else %>
+    	<%= f.text_field :name %>
+  	<% end %>
   </div>
   
   <div class="field form-title">
 	<%= label 'properties', 'width', '圖片寬' %> * <%= label 'properties', 'height', '圖片高' %> (單位為像素)<br />
-    <%= text_field :properties, 'width', :class => 'shortText', :value => @properties['width'] %> * <%= text_field :properties, 'height', :class => 'shortText', :value => @properties['height'] %>
+	<% if params[ :action ] == 'edit'%>
+		<p><%= @properties['width'] %> * <%= @properties['height'] %></p>
+	<% else %>
+    	<%= text_field :properties, 'width', :class => 'shortText', :value => @properties['width'] %> * <%= text_field :properties, 'height', :class => 'shortText', :value => @properties['height'] %>
+  	<% end %>
   </div>  
   
 	<div class="field form-file">
