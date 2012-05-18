@@ -30,8 +30,8 @@
   <div id="service-form-right">
   <% 0.upto(4) do |i| %>
   <div class="field form-content">
-    <h3><%= text_field "contents[" + i.to_s  + "]", "block", :value => @service.content[i.to_s]['block']  %></h3>
-    <%= text_area "contents[" + i.to_s  + "]", "blockcontent", :value => @service.content[i.to_s]['blockcontent'] %>
+    <h3><%= text_field "contents[" + i.to_s  + "]", "block", :value => (@service.content[i.to_s]['block'] if params[ :action ] == 'edit' )  %></h3>
+    <%= text_area "contents[" + i.to_s  + "]", "blockcontent", :value => (@service.content[i.to_s]['blockcontent'] if params[ :action ] == 'edit' )  %>
   </div>
   <% end %>
   </div>
