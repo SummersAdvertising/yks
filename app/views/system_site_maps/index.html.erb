@@ -47,6 +47,7 @@ $(function(){
 </head>
 
 <body>
+<img src="<%= image_path("logo.png") %>" style="display: none;" />
 <div id="header" style="background: url('<%= @head_banner.filename %>')">
 <div id="brush"><img src="<%= image_path("am1.png") %>"></div>
   <h1><a href="<%= root_url %>">誼光家事</a></h1>
@@ -164,7 +165,7 @@ $(function(){
   	<% end %>
   </table>
   
-  <a href="<%= url_for(:controller => 'page', :action => 'preferential') %>" id="news-ad"><img src="<%= @event_banner.filename %>"></a> 
+  <a href="<%= @event_banner.properties['link'].nil? ? url_for(:controller => 'page', :action => 'preferential') : @event_banner.properties['link'] %>" id="news-ad"><img src="<%= @event_banner.filename %>"></a> 
   <p id="advantages" style="height: 20px;position: relative;top: 50px;"/>
   </div>
 <!--news-->

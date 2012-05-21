@@ -8,8 +8,13 @@
 </div>
 
 <div>
+  <b>連結：</b>
+  <%= @photo.properties['link']  %>
+</div>
+
+<div>
   <b><%= t("photo.preview") %>：</b>
-  <img width="<%= @properties['width']  %>" height="<%= @properties['height'] %>" src="<%= image_path(@photo.filename) %>" />
+  <img width="<%= @photo.properties['width']  %>" height="<%= @photo.properties['height'] %>" src="<%= image_path(@photo.filename) %>" />
 </div>
 
 <%= render 'shared/admin_form_command', :data => @photo %>

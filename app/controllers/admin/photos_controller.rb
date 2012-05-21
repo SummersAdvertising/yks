@@ -1,20 +1,18 @@
 class Admin::PhotosController < AdminController
-
 	def index
 		 @photos = Photo.order('updated_at desc').all		 
 	end
 	
 	def show
 		 @photo = Photo.find( params[:id] )
-		 @properties = JSON.parse(@photo.properties)
 	end
 	
 	def new
 		@photo = Photo.new
 		
-		@properties = Hash.new
-		@properties['width'] = ''
-		@properties['height'] = ''
+		@photo.properties = Hash.new
+		@photo.properties['width'] = ''
+		@photo.properties['height'] = ''
 		
 		respond_to do | format |
 			format.html
@@ -23,7 +21,6 @@ class Admin::PhotosController < AdminController
 	
 	def edit
 		 @photo = Photo.find( params[:id] )		 
-		 @properties = JSON.parse(@photo.properties)
 	end
 		
 	def create
@@ -31,7 +28,7 @@ class Admin::PhotosController < AdminController
 		
 		process_upload
 			
-		@photo.properties = ActiveSupport::JSON.encode(params[ :properties ])
+		@photo.properties = params[ :properties ]
 		
 	 	 if !@error && !@photo.save
 	 	 	 @errors = true
@@ -51,10 +48,11 @@ class Admin::PhotosController < AdminController
 	def update
 		 
 		@photo = Photo.find( params[:id] )
+		
 		@origin_filename = @photo.filename;		
-		@origin_filepath = @photo.file_path + @photo.name + '.' + @photo.file_extension;
-			
-		@photo.name = params[ :photo ][ :name ] if !params[ :photo ][ :name ].nil?
+		@origin_filepath = @photo.file_path + @photo.name + '.' + @photo.file_extension;		
+		
+		@photo.name = params[ :photo ][ :name ] if !params[ :photo ].nil? && !params[ :photo ][ :name ].nil?
 		
 		if !params[:upload_file].nil?
 			File.delete(@origin_filepath)
@@ -64,7 +62,7 @@ class Admin::PhotosController < AdminController
 			@photo.filename = root_url + 'uploads/photos/' + @photo.name + '.' + @photo.file_extension
 		end
 		
-		@photo.properties = ActiveSupport::JSON.encode(params[ :properties ])
+		@photo.properties =@photo.properties.merge(params[ :properties ])
 		
 		if !@error && !@photo.save
 			@errors = true

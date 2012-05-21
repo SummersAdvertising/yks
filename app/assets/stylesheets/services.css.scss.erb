@@ -11,6 +11,9 @@
 	z-index:3px;
 }
 /*左方目錄下拉選單*/
+ul#menu {
+  background-image:url("<%= asset_data_uri "menubg.png" %>");	
+}
 ul#menu, ul#menu ul {
   list-style-type:none;
   margin: 0;
@@ -23,9 +26,11 @@ ul#menu a {
   text-decoration: none;	
 }
 
-ul#menu li {
-
+ul.listActived {
+	padding-bottom:  30px!important;
+  background-image:url("<%= asset_data_uri "menubg.png" %>");	
 }
+
 
 ul#menu li a {
   background-image:url("<%= asset_data_uri "menubg.png" %>");
@@ -49,9 +54,9 @@ ul#menu li a:hover {
 
 ul#menu li ul li a {
   background-image:url("<%= asset_data_uri "menubg2.png" %>");
-  font: 15px "微軟正黑體", Arial, Helvetica, sans-serif;
+  font: 13px "微軟正黑體", Arial, Helvetica, sans-serif;
   color:#541e1e;	
-  padding:10px 30px 10px 10px;
+  padding:5px 30px 5px 10px;
 }
 
 ul#menu li ul li a:hover, ul#menu li ul li.serviceSelected a {

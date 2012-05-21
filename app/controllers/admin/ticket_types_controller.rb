@@ -9,10 +9,19 @@ class Admin::TicketTypesController < AdminController
 		  end
  	 end
   end
+
+	def move_up
+	
+	end
+	
+	def move_down
+	
+	end
+
 # GET /defines
 # GET /defines.json
 def index
-  @tickettypes = Define.where( :usetype => 'tickettype' )
+  @tickettypes = Define.where( :usetype => 'tickettype' ).order("sort asc, updated_at desc")
   @tickettype = Define.new
 
   respond_to do |format|

@@ -10,9 +10,14 @@
     <td><%= t("user_exps.title") %></td>
   </tr>
 
-<% @userexps.each do |userexp| %>
+<% @userexps.each do |userexp| 
+   		
+   			setted_images_src ="/user_exps/#{userexp.id}.jpg"
+   			image_src = File.exist?("public#{setted_images_src}") ? setted_images_src : image_path('witnessman.jpg')
+   			
+%>
   <tr class="list-content">
-  	<td class="first" align="center" valign="middle"><img src="<%= image_path("/user_exps/#{userexp.id}.jpg") %>" alt="open" /></td>
+  	<td class="first" align="center" valign="middle"><img src="<%= image_src %>" alt="open" /></td>
     <td class="first"><%= show userexp, userexp.title %><%= render 'shared/admin_list_command', :data => userexp %></td>
   </tr>
 <% end %>

@@ -19,18 +19,23 @@
     	<%= f.text_field :name %>
   	<% end %>
   </div>
+    
+  <div class="field form-title">
+	<%= label 'properties', 'link', '連結' %><br />
+    <%= text_field :properties, 'link', :value => (@photo.properties['link'] if !@photo.properties['link'].nil?) %>
+  </div>  
   
   <div class="field form-title">
 	<%= label 'properties', 'width', '圖片寬' %> * <%= label 'properties', 'height', '圖片高' %> (單位為像素)<br />
 	<% if params[ :action ] == 'edit'%>
-		<p><%= @properties['width'] %> * <%= @properties['height'] %></p>
+		<p><%= @photo.properties['width'] %> * <%= @photo.properties['height'] %></p>
 	<% else %>
-    	<%= text_field :properties, 'width', :class => 'shortText', :value => @properties['width'] %> * <%= text_field :properties, 'height', :class => 'shortText', :value => @properties['height'] %>
+    	<%= text_field :properties, 'width', :class => 'shortText', :value => @photo.properties['width'] %> * <%= text_field :properties, 'height', :class => 'shortText', :value => @photo.properties['height'] %>
   	<% end %>
   </div>  
   
 	<div class="field form-file">
-		<%= raw '<img width="' + @properties['width'] + '" height="' + @properties['height'] + '" src="' + @photo.filename + '" alt="open" />' if params[:action] == "edit" %>
+		<%= raw '<img width="' + @photo.properties['width'] + '" height="' + @photo.properties['height'] + '" src="' + @photo.filename + '" alt="open" />' if params[:action] == "edit" %>
 		<%= label 'upload_file', 'filename', '檔案' %>
 	    <%= file_field 'upload_file', 'filename'%>
   	</div>

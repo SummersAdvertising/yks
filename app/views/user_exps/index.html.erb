@@ -2,10 +2,16 @@
    <div id="rightframe">
    
    
-   <% @user_exps.each do |user_exp| %>
+   <% @user_exps.each do |user_exp| 
+   		
+   			setted_images_src = image_path('/user_exps/' + user_exp.id.to_s + '.jpg')
+   			puts setted_images_src
+   			image_src = File.exists?("public#{setted_images_src}") ? setted_images_src : image_path('witnessman.jpg')
+   	
+   %>
    	
 	<div id="witnessframe">
-		<div id="witnessphoto"><img src="user_exps/<%= user_exp.id %>.jpg" width="101" height="124"></div>
+		<div id="witnessphoto"><img src="<%= image_src %>" width="101" height="124"></div>
 		<div id="witnessline"></div>
 		<div id="witnesstitle"><%= user_exp.title %></div>
 		<div id="witnessline"></div>

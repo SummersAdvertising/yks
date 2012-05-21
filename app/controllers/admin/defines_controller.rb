@@ -12,7 +12,7 @@ class Admin::DefinesController < AdminController
  	 end
   end
   def index
-    @defines = Define.order("time desc").all
+    @defines = Define.order("sort asc, time desc").all
 
     respond_to do |format|
       format.html # index.html.erb

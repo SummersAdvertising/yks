@@ -9,9 +9,9 @@
 </ul>
 
 <div id="businessArea">	
-	<div id="menuimage"><img src="<%= image_path("businessicon.png") %>" width="274" height="89" id="btn1"></div>
+	<div id="menuimage"><img src="<%= image_path("businessicon.png") %>" onClick="openmenu()" width="274" height="89" id="btn1" style="cursor:pointer"></div>
 	<div id="businessbox" style="display:none">
-	 <div id="businesstitle">
+	 <div id="businesstitle" onClick="closemenu()">
 	   <br>
 	   <br>
 	   新光保全事業群連結</div>
@@ -26,3 +26,41 @@
 	 <div id="businessend"></div>
 	</div><!--businessbox end-->
 </div>
+
+
+<script type="text/javascript">
+
+
+function openmenu()
+{	
+		$("#businessbox").fadeIn(500,function(){
+		document.getElementById("businessbox").style.display="block";								  
+		});								
+				}
+		
+function closemenu()
+{	
+		$("#businessbox").fadeOut(500,function(){
+		document.getElementById("businessbox").style.display="none";								  
+		});								
+
+}
+		
+
+
+$(".topMenuAction").click( function() {
+	if ($("#openCloseIdentifier").is(":hidden")) {
+		$("#slider").animate({ 
+			marginTop: "-161px"
+			}, 500 );
+		$("#topMenuImage").html('<img src="<%= image_path("open.png") %>" alt="open" />');
+		$("#openCloseIdentifier").show();
+	} else {
+		$("#slider").animate({ 
+			marginTop: "-20px"
+			}, 500 );
+		$("#topMenuImage").html('<img src="<%= image_path("close.png") %>" alt="close" />');
+		$("#openCloseIdentifier").hide();
+	}
+});  
+</script>

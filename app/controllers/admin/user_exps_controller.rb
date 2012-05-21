@@ -56,12 +56,16 @@ def create
   
   respond_to do |format|
     if @userexp.save
-     file = params[:upload]['filename']
-     filename = @userexp.id
-     filewhere = "public/user_exps/#{filename}.jpg"
-     File.open("#{filewhere}", "wb") do |f|  
-        f.write(file.read)  
-     end
+    
+    	if !params[:upload].nil?
+			file = params[:upload]['filename']
+			filename = @userexp.id
+			filewhere = "public/user_exps/#{filename}.jpg"
+			File.open("#{filewhere}", "wb") do |f|  
+				f.write(file.read) 
+     		end
+     	end
+     	
       format.html { redirect_to [:admin,@userexp], notice: t("helpers.notice.new") }
     else
       format.html { render action: "new" }
