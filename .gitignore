@@ -28,3 +28,8 @@ config/database.yml.*
 # Assets 不需重新產生
 public/assets
 public/assets/*
+
+public/uploads/*
+public/banners
+public/user_exps
+public/news

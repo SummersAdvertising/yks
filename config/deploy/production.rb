@@ -32,4 +32,10 @@ after("deploy:update_code") do
 	db_config = "#{shared_path}/config/database.yml.production"
 	#db_config = "#{db_config} #{release_path}/config/database.yml.production"
 	run "cp #{db_config} #{release_path}/config/database.yml"
+	run "ln -s  #{shared_path}/production/uploads/banners #{current_path}/public/banners"
+	run "ln -s  #{shared_path}/production/uploads/news #{current_path}/public/news"
+	run "ln -s  #{shared_path}/production/uploads/user_exps #{current_path}/public/user_exps"
+	run "ln -s  #{shared_path}/production/uploads #{current_path}/public/uploads"
+	
+	#run "cd #{current_path}; RAILS_ENV=production bundle exec rake cache:clear"
 end
