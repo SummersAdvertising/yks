@@ -56,6 +56,8 @@ def create
     if @tickettype.save
       format.html { redirect_to admin_ticket_type_path(@tickettype), notice: t("helpers.notice.new") }
     else
+    
+  	 @tickettypes = Define.where( :usetype => 'tickettype' ).order("sort asc, updated_at desc")
       format.html { render action: "index" }
     end
   end

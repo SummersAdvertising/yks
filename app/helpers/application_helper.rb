@@ -16,7 +16,6 @@ module ApplicationHelper
   end
   
   def delete(data, text=nil)
-    #<td class=""><%= link_to t("helpers.delete"), user, confirm: t("helpers.confirm"), method: :delete %></td>
     raw link_to (text != nil ? text : t("helpers.delete")), { :action => "destroy", :pid => params[:pid], :id => data.id }, :class => "del", :confirm => "Are you sure you want to delete this article?", :method => :delete
   end
   
@@ -25,7 +24,6 @@ module ApplicationHelper
   end
   
   def back(text=nil)
-    #<%= link_to t("helpers.form.back"), :action => "index" %>
     raw link_to (text != nil ? text : t("helpers.form.back")), {:action => "index", :pid => params[:pid]}, :class => "back"
   end
   

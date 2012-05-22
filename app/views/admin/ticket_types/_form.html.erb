@@ -1,7 +1,6 @@
-<%= form_for([:admin,@tickettype], :url => {:controller => 'ticket_types', :action => (params["action"] == "index"? "create": "update")}) do |f| %>
-  <% if @tickettype.errors.any? %>
+<% if @tickettype.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@tickettype.errors.count, "error") %> prohibited this define from being saved:</h2>
+      <h2>儲存時發生錯誤:</h2>
 
       <ul>
       <% @tickettype.errors.full_messages.each do |msg| %>
@@ -10,6 +9,8 @@
       </ul>
     </div>
   <% end %>
+<%= form_for([:admin,@tickettype], :url => {:controller => 'ticket_types', :action => (params["action"] == "index"? "create": "update")}) do |f| %>
+  
 
   <div class="field">
     <%= f.label :name, '項目名稱' %>（5 字內為佳）<br />
