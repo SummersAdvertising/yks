@@ -17,7 +17,7 @@
     		<span>│</span>
 			<%= link_to '修改', :action => 'edit', :id => tickettype.id %>
 			<span>│</span>
-			<%= link_to '刪除', :action => 'destroy', :id => tickettype %>			
+			<%= link_to '刪除', {:action => "destroy", :id => tickettype.id} , :method => :delete, :confirm => '確定要刪除嗎？' %>			
 		</div>
     </td>
   </tr>
