@@ -47,3 +47,5 @@ gem 'mysql2'
 
 gem 'capistrano'
 gem 'capistrano-ext'
+
+gem 'youtube_it'
