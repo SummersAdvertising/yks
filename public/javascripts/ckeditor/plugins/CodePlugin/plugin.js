@@ -1,5 +1,6 @@
 ﻿var iframe = null;
 var iframeContent = null;
+
 CKEDITOR.plugins.add('CodePlugin',
 {
 	requires: ['iframedialog'],
