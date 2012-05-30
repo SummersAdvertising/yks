@@ -25,10 +25,9 @@ CKEDITOR.editorConfig = function( config )
     ['TextColor','BGColor'],
     ['Maximize','ShowBlock'],
     ['insertcode'],
-    ['apage'],
+    ['Page'],
     ['Code']
     ];
-	config.extraPlugins = 'CodePlugin';
-	//config.extraPlugins = 'insertcode';
-	//config.extraPlugins = 'apage';
+    
+	config.extraPlugins = 'apage,CodePlugin';
 };

@@ -121,7 +121,7 @@ private
 		 		@error_msg = "#{@upload_file.content_type} is wrong file type for photos."
 		 	end
 		 	
-		 	@photo.file_path = "#{Rails.root}/public/uploads/photos/"
+		 	@photo.file_path = "public/uploads/photos/"
 		 	file_name = @photo.name + '.' + @photo.file_extension
 		 	File.open( @photo.file_path + file_name , 'wb') do | file |
 		 		file.write( @upload_file.read )
