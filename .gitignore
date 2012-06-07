@@ -33,3 +33,8 @@ public/uploads/*
 public/banners
 public/user_exps
 public/news
+
+config/deploy/*
+config/deploy.rb
+
+config/database*
