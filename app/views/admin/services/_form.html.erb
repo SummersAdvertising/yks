@@ -26,6 +26,11 @@
     <h3><%= f.label :price, '平均報價' %></h3>
     <%= f.text_area :price %>
   </div>  
+  
+  <div class="actions">
+    <%= submit %>
+    <%= cancel %>
+  </div>
 </div>
   <div id="service-form-right">
   <% 0.upto(4) do |i| %>
@@ -35,10 +40,7 @@
   </div>
   <% end %>
   </div>
-  <div class="actions">
-    <%= submit %>
-    <%= cancel %>
-  </div>
+  <div style="clear:both"></div>
 </div>  
 </div>
 <% end %>
