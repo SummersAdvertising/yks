@@ -24,8 +24,6 @@ CKEDITOR.editorConfig = function( config )
     ['Styles','Format','Font','FontSize'],
     ['TextColor','BGColor'],
     ['Maximize','ShowBlock'],
-    ['insertcode'],
-    ['Page'],
     ['Code']
     ];
     

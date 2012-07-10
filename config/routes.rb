@@ -2,6 +2,7 @@ Yks::Application.routes.draw do
   namespace :admin do
   
   	match ':_controller(/:_id)/images'		=> 'images#index'
+  	match ':_controller(/:_id)/destroy'		=> 'images#destroy'
   	
     resources :defines
     resources :system_site_maps
