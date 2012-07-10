@@ -7,7 +7,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Define.create(usetype: 'usertype', name: '管理者')
+Define.create(usetype: 'usertype', name: '管理者', special_define: true)
 Define.create(usetype: 'usertype', name: '一般')
 User.create(user: 'master', password: '81fe8bfe87576c3ecb22426f8e57847382917acf', define_id: 1)
 

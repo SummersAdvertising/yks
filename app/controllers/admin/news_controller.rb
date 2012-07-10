@@ -5,7 +5,7 @@ class Admin::NewsController < AdminController
 
   require 'uuidtools'
   def permission
-    if session[:user] != 'master'
+    if !session[:master_admin]
 		  respond_to do |format|
 			format.html { redirect_to :controller => :tickets, :action => :index }
 		  end

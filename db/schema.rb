@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120521093025) do
+ActiveRecord::Schema.define(:version => 20120710094142) do
 
   create_table "banners", :force => true do |t|
     t.string   "link"
@@ -42,10 +42,11 @@ ActiveRecord::Schema.define(:version => 20120521093025) do
   create_table "defines", :force => true do |t|
     t.string   "usetype"
     t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
     t.string   "status"
     t.integer  "sort"
+    t.boolean  "special_define"
   end
 
   create_table "news", :force => true do |t|

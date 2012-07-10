@@ -11,10 +11,16 @@ class Admin::LoginController < ApplicationController
   end
     def login
       user = params[:user]
-      @user = User.where("user = :user AND password = :password", { :user => user["user"], :password => Digest::SHA1.hexdigest(user['password'])})
+      @user = User.where("user = :user AND password = :password", { :user => user["user"], :password => Digest::SHA1.hexdigest(user['password']) } )
+      
       respond_to do |format|
         if @user.first != nil
+	     
+	      @user_define = Define.find( @user.first.define_id )
           session[:user] = @user.first.user
+          session[:master_admin] = false
+          session[:master_admin] = true if @user_define.special_define == true
+          
           if params[:url] != nil && params[:url] != ""
             format.html { redirect_to params[:url], :status => :moved_permanently }
           else
