@@ -6,7 +6,7 @@ layout "admin"
  	 respond_to do |format|
 	 	 if session[:user] == nil then
 			format.html { redirect_to :controller => :login, :url => request.url }
-		 elsif !session[:master_admin] 
+		 else
 			format.html {}		
 		 end
  	 end
