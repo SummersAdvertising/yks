@@ -42,6 +42,7 @@ class Admin::LoginController < ApplicationController
     def logout
       respond_to do |format|
         session[:user] = nil
+        session[:master_admin] = nil
         format.html { redirect_to action:"index" }
       end
     end
