@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120710094142) do
+ActiveRecord::Schema.define(:version => 20121116070253) do
 
   create_table "banners", :force => true do |t|
     t.string   "link"
@@ -47,6 +47,35 @@ ActiveRecord::Schema.define(:version => 20120710094142) do
     t.string   "status"
     t.integer  "sort"
     t.boolean  "special_define"
+  end
+
+  create_table "knack_categories", :force => true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.string   "status"
+    t.integer  "sort"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "knack_photos", :force => true do |t|
+    t.string   "name"
+    t.string   "path"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "knack_id"
+  end
+
+  create_table "knacks", :force => true do |t|
+    t.string   "title"
+    t.datetime "date"
+    t.text     "content"
+    t.string   "status"
+    t.integer  "knack_category_id"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.string   "subtitle"
+    t.text     "description"
   end
 
   create_table "news", :force => true do |t|

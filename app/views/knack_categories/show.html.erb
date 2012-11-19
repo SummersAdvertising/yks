@@ -1,0 +1,17 @@
+<%= stylesheet_link_tag "services", :media => "all" %>
+<div id="rightframe">
+<div id="servicetitle1"><%= @category.title %></div>
+<div id="servicetitle3">&nbsp;</div>
+
+<% @knacks.each do | knack | %>
+	<div class="knacktitle"><%= link_to knack.title, knack_category_knack_path( @category, knack ) %></div>
+	<div id="line1"></div>
+<% end %>
+
+</div><!--rightframe end-->
+<div id="menuout">
+<div id="menuimage"><img src="<%= image_path("knacktitle.png") %>" width="274" height="59"></div>
+<%= render :partial => 'menu' %>
+<div id="menuimage"><img src="<%= image_path("menubgend.png") %>" width="274" height="15"></div>
+<%= render :partial => 'pages/bussiness' %>
+</div><!--menuout end-->

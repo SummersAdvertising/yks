@@ -1,9 +1,13 @@
 Yks::Application.routes.draw do
+  resources :knack_categories do
+  	resources :knacks
+  end
+
   namespace :admin do
   
   	match ':_controller(/:_id)/images'		=> 'images#index'
   	match ':_controller(/:_id)/destroy'		=> 'images#destroy'
-  	
+    match '/knack_categories/:knack_category_id/knacks/:id/createphoto' 			=> 'knack_photos#create', :via => [:post]    
     resources :defines
     resources :system_site_maps
     resources :services
@@ -16,6 +20,11 @@ Yks::Application.routes.draw do
     resources :ticket_types
     resources :users
     resources :photos
+    resources :knack_categories do
+    	resources :knacks do
+    		resources :knack_photos
+    	end
+    end
     
     match 'login' => 'login#index'
     match 'login/login' => 'login#login'

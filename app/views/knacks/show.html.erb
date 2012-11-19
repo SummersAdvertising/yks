@@ -1,0 +1,66 @@
+<%= stylesheet_link_tag "services", :media => "all" %>
+
+<div id="rightframe">
+<div id="servicetitle1"><%= @knack.title %></div>
+<div id="servicetitle3"> <%= @knack.description %></div>
+<div id="line1"></div>
+<% if @knack.subtitle.length > 0 %>
+<div id="servicetitle2"> <%= @knack.subtitle %></div>
+<div id="line1"></div>
+<% end %>
+	<div class="gray_15" id="servicecontent">
+		<% @paragraphs.each do | paragraph |
+				
+					case paragraph["type"]
+						when "paragraph"
+						%>
+							<p><%= paragraph["content"].html_safe %></p>	
+						<%
+						when "image"
+						%>
+							<p><a href="<%= paragraph["path"] %>" rel="shadowbox"><img src="<%= paragraph["path"] %>"></a></p>
+						<%
+						when "video"
+						%>							
+							<p><iframe width="480" height="290" src="http://www.youtube.com/embed/<%= paragraph['code'] %>" frameborder="0" allowfullscreen></iframe></p>
+						<%
+					end
+				
+				
+		end %>
+		
+		<div class="fb_share"><a target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=<%= URI::encode(root_url + knack_category_knack_path( @category, @knack ) ) %>"><img src="<%= image_path("fb_share.png") %>"></a></div>
+	    <div id="line1"></div>
+	    <% @recnet_knacks.each do | knack | %>
+	    	<% next if knack.id == @knack.id %>
+	    	<div class="knacktitle"><a href="<%= knack_category_knack_path( @category, knack ) %>"><%= knack.title %></a></div>	    
+	    <% end %>
+		<div class="knackmore"><a href="<%= knack_category_path( @category ) %>" target="_self">&gt;&gt; 更多<span class="knack_item"><%= @category.title %></span>清潔撇步</a></div>
+	</div>
+</div><!--rightframe end-->
+<div id="menuout">
+<div id="menuimage"><img src="<%= image_path("knacktitle.png") %>" width="274" height="59"></div>
+<%= render :partial => 'knack_categories/menu' %>
+<div id="menuimage"><img src="<%= image_path("menubgend.png") %>" width="274" height="15"></div>
+<%= render :partial => 'pages/bussiness' %>
+</div><!--menuout end-->
+
+<link media="all" rel="stylesheet" type="text/css" href="/shadowbox/shadowbox.css" />
+<script type="text/javascript" src="/shadowbox/shadowbox.js"></script>
+<script type="text/javascript">
+	
+function setupDemos() {
+
+    Shadowbox.setup('a[title="paragraphImage"]', {
+        gallery:        "mustang",
+        continuous:     true,
+        counterType:    "skip"
+    });
+
+}
+
+Shadowbox.init();
+
+setupDemos();
+	
+</script>

@@ -1,0 +1,9 @@
+<h1><%= t("knack.tablename") %> - <%= t("helpers.edit") %></h1>
+<div id="knack_form">
+  <%= render 'form' %>
+</div>
+
+<div id="contentBlock">	
+	  	<p id="json" style="display:none;"><%= @knack.content.html_safe if !@knack.content.nil? %></P>
+		 <div id="paragraph"></div>
+</div>

@@ -1,0 +1,18 @@
+<h1><%= t("knack.tablename") %> - <%= t('knack.categorylist') %> <%= new %></h1>
+
+<div class="list">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr class="list-title">
+    <td><%= t("knack.title") %></td>
+  </tr>
+
+<% @knack_categories.each do |knack_category| %>
+  <tr class="list-content">
+    <td class="first"><%= link_to knack_category.title, admin_knack_category_path( knack_category ) %> (<%= knack_category.status == 'enabled' ? '前台顯示' : '已隱藏' %>)<%= "- 排序值 #{knack_category.sort}" if knack_category.sort %>
+		<div class="list-command">
+		<%= link_to t("helpers.edit"), edit_admin_knack_category_path(knack_category), :class => "mod" %><span>│</span>
+		<%= link_to t("helpers.delete"), admin_knack_category_path( knack_category), :class => "del", :confirm => "Are you sure you want to delete this article?", :method => :delete %>
+	  </td>
+  </tr>
+<% end %>
+</table>

@@ -1,0 +1,11 @@
+<div id="menulistbody">
+	<ul id="menu" class="main-menu">
+		<% @categories.each do | category | %>
+	  	<li>
+			<a href="<%= url_for knack_category_path( category ) %>" <%= if category.id == @category_id then 'class=linkActived' end %>	>			
+				<%= category.title %>
+			</a>
+		</li>
+		<% end %>  
+	</ul>
+</div><!--menulistbody end-->

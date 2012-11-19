@@ -1,0 +1,429 @@
+<%= form_for [:admin, @category, @knack] do | f | %>
+	
+	<div id="service-form-left">
+	  <div class="field form-title">
+			<%= f.label :title, '秘訣名稱' %><br />
+			<%= f.text_field :title %>		
+	  </div>
+	  <div class="field form-subtitle">
+			<%= f.label :subtitle, '副標題' %><br />
+			<%= f.text_field :subtitle %>		
+	  </div>
+	  <div class="field form-description">
+			<%= f.label :description, '描述' %><br />
+			<%= f.text_field :description %>		
+	  </div>
+	  <div class="field form-time">
+	    <%= f.label :date, '時間' %><br />
+	    <%= f.text_field :date, :class => 'datetimepicker' %>
+	  </div>
+		  
+	  <div>
+			<%= f.label :status, '狀態' %><br />
+			<%= f.select :status, [['隱藏秘訣', 'disabled'], ['前台顯示', 'enabled']] %>
+	  </div>
+	  
+	  <div class="actions">
+			<button id="knackUpdate">更新</button>
+	  </div>
+	  
+	  
+	  	<div id="contentEditArea">
+		    <input id="knack_content" name="knack[content]" size="30" type="hidden">
+		    		    
+		    <div id="newTextParagraphArea" style="display: none;">	    
+			    <textarea id="newKnackParagraph"  placeholder="請將段落輸入在此處"></textarea><br />
+			    <button id="newParagraph">建立文字段落</button>
+		    </div>
+		    
+		    <div id="newVideoArea" style="display: none;">	    
+			    <input id="newVideoInput" style="width: 320px;" placeholder="請將整段youtube連結貼到此處" />
+			    <button id="newVideoBtn">建立影片段落</button>
+			    <div id="videoPreview"></div>
+		    </div>
+		    
+		    
+		    
+		    <label id="msg"></label>
+		    <br />
+		  </div>
+		
+		  <div id="knackControll">
+		  	<a href="javascript:void(0);" onClick="$('#newTextParagraphArea').show();">新增段落</a> | 
+		  	<a href="javascript:void(0);" id="newImg">新增圖片</a> | 
+		  	<a href="javascript:void(0);" id="newVideo">新增影片</a>
+		  </p>
+		
+			
+		<% end %>
+		
+		
+		<%= form_tag "createphoto", :id => "photo_form", :multipart => true, :name => "photo", :remote => true do %>
+		  <div id="imgUpload" style="display:none;">
+		      <hr />
+		      <label>上傳圖片</label><br />
+		      <%= file_field_tag 'upload_image'%><br />
+		      <label id="erromsg"></label>
+		  </div> 
+		<% end %>
+	  	</div>
+	</div>
+	
+
+<script type="text/javascript">
+$(document).ready(function(){
+	knackShow();
+	
+	$('#knackUpdate').click(function() {
+		knackUpdate();
+		return false;
+	});
+
+	$("#newVideo").click(function(){
+		var display = $("#newVideoArea").css("display")=="none" ? "block":"none";
+		$("#newVideoArea").css("display", display);
+	});
+	
+	// Video preview
+	$('#newVideoInput').change(function() {
+		var code = getYoutubeCode( $(this).val() );
+		$('#videoPreview').append('<iframe width="320" height="220" data-code="' + code + '" src="http://www.youtube.com/embed/' + code + '" frameborder="0" allowfullscreen></iframe>')
+	});
+	
+	$("#newImg").click(function(){
+		var display = $("#imgUpload").css("display")=="none" ? "block":"none";
+		$("#imgUpload").css("display", display);
+	});
+	
+
+	$("#newVideoBtn").bind("click", function() {		
+		if( $("#newVideoInput").val() ){		
+			var container = $('<div class="paragraphContainer" data-type="video"></div>');
+			var code = getYoutubeCode( $("#newVideoInput").val());
+			var paragraph = $("<div  class='paragraph'>" + '<iframe width="480" height="290" data-code="' + code + '" src="http://www.youtube.com/embed/' + code+ '" frameborder="0" allowfullscreen></iframe>' + "</div>");
+			container.append(paragraph);
+			$("#paragraph").append(container);
+			$("#newVideoInput").val("");
+
+			$(".paragraph").unbind();
+			$(container).bind("click",function(){
+				paragraphClick(this);
+			});
+			paragraphRollBottom();
+			knackUpdate();
+			$('#newVideoArea').fadeOut();
+		}
+		else{
+			$("#msg").html("請輸入內容");
+		}
+		
+		return false;
+	});
+	
+	$("#newParagraph").bind("click", newParagraph);
+	
+    $("#backtoList").click(function(){
+    	if(!$("#paragraph").html())
+    	{
+			$("#msg").html("請輸入內容或取消發文");
+			return false;
+		}
+		else if(!$("#knack_title").val())
+		{
+			$("#msg").html("請輸入標題或取消發文");
+			return false;
+		}
+    });
+});
+
+
+//add new content to paragraph
+function newParagraph(){
+	if($("#newKnackParagraph").val()){		
+		var container = $('<div class="paragraphContainer" data-type="paragraph"></div>');
+		var paragraph = $("<p  class='paragraph'>" + $("#newKnackParagraph").val().replace(/\n/g, "<br />") + "</p>");
+		container.append(paragraph);
+		$("#paragraph").append(container);
+		$("#newKnackParagraph").val("");
+
+		$(".paragraph").unbind();
+		$(container).bind("click",function(){
+			paragraphClick(this);
+		});
+
+		knackUpdate();
+		paragraphRollBottom();
+		$('#newTextParagraphArea').fadeOut();
+	}
+	else{
+		$("#msg").html("請輸入內容");
+	}
+	
+	return false;
+
+}
+function jsonPack(){
+	elementControlUnbind();
+
+	var article = "";
+	var obj = new Object();
+	obj.article = new Array();
+	$("#paragraph .paragraphContainer").children().each(function(){
+		if($(this).is("p")){
+			var p = new Object();
+			p.type = "paragraph";
+			p.content=$(this).html();
+			obj.article.push(p);
+		}
+		else if ($(this).is("div")) {
+			$(this).children().each(function(){
+				if ($(this).is("img")){
+					var img = new Object();
+					img.type = "image";
+					img.title = $(this).attr("alt");
+					img.id = $(this).attr("title");
+					img.path = $(this).attr("src");
+					img.width = $(this).width();
+					img.height = $(this).height();
+					obj.article.push(img);
+				} else if ($(this).is("iframe")) {
+					var video = new Object();
+					video.type = "video";
+					video.code = $(this).data("code");
+					
+					obj.article.push(video);
+				}
+			});
+		}
+	});
+	console.log(obj);
+	article = JSON.stringify(obj);
+	$("#knack_content").val(article);		
+}
+
+//save the knack
+$("#submit").click(function(){
+	if($("#paragraph").html())
+	{
+		if(!$("#knack_title").val())
+		{
+			$("#msg").html("請輸入標題或取消發文");
+			return false;
+		}
+		else
+		{
+			jsonPack();
+			return true;
+		}
+	}
+	else
+	{
+		$("#msg").html("請輸入內容或取消發文");
+		return false;
+	}
+});
+
+//ajax photo upload
+$('#upload_image').change(function(){
+		$('#photo_form').ajaxSubmit({
+			beforeSubmit: function(a,f,o) {
+			o.dataType = 'json';
+		},
+		complete: function(XMLHttpRequest, textStatus) {
+			var photo = jQuery.parseJSON(XMLHttpRequest.responseText);
+			if(photo.path[0] == "已經被使用"){
+				//upload failed
+				$("#erromsg").html(photo.path[0]);
+			}
+			else if(photo && photo.name != "can't be blank"){
+				if(photo=='not an image'){
+					$("#erromsg").html(photo);
+				}
+				else{
+					var img = "";
+					var photoname = photo.name;
+					var photopath = photo.knack_id + "/" + photo.name;
+					
+				var container = $('<div class="paragraphContainer" data-type="image"></div>');
+
+					img = "<div  class='paragraph paragraph-photo' data-photo_id=\"" + photo.id + "\"><img alt='" + photoname + "' src='/uploads/knack_photos/" + photopath + "' title='" + photo.id + "' style='display:block;' /></div>";
+					container.append(img);
+
+					$("#paragraph").append(container);
+					$('#photo_form').each(function(){
+						this.reset();
+					});
+					knackUpdate();					
+
+					$(".paragraph").unbind();
+					$(container).bind("click",function(){
+						paragraphClick(this);
+					});
+
+					setTimeout(function() {paragraphRollBottom();}, 200);
+					
+					$("#erromsg").html("");
+				}
+			}   			
+		},});
+	});
+
+//edit:show knack content
+function knackShow(){
+	if($("#json").html())
+	{
+		var obj = jQuery.parseJSON($("#json").html());
+		var article = "";
+		for(i=0;i<obj.article.length;i++)
+		{
+			var paragraph = obj.article[i];
+			var container = $('<div class="paragraphContainer" data-type="' + paragraph.type + '"></div>');
+			
+			if(JSON.stringify(paragraph.type)=='"paragraph"')
+			{	
+				article = "<p  class='paragraph'>"+jsonReplace(JSON.stringify(paragraph.content)).replace(/\\n/g, "<br />")+"</p>";
+			}
+			else if(JSON.stringify(paragraph.type)=='"image"')
+			{
+				article = "<div  class='paragraph paragraph-photo' data-photo_id=\"" + paragraph.id + "\"><img alt=" + JSON.stringify(paragraph.title) + " src=" + JSON.stringify(paragraph.path) + " title=" + JSON.stringify(paragraph.id) + " style='display:block;' /></div>";
+
+				//bind photo delete effect
+				$('#photo' + jsonReplace(JSON.stringify(paragraph.id))).bind('click',function(){						
+					$($(this).parent()).fadeOut(function() { $('#photo' + photo.id).unbind(); });						
+				});
+			} else if (JSON.stringify(paragraph.type)=='"video"') {
+					article = "<div  class='paragraph' data-code=\"" + paragraph.code + "\"><iframe width=\"480\" height=\"290\" data-code=\"" + paragraph.code + "\" src=\"http://www.youtube.com/embed/" + paragraph.code+ "\" frameborder=\"0\" allowfullscreen></iframe></div>";
+			}
+							
+			container.append( article );
+			
+			$("#paragraph").append(container);
+
+			$(".paragraph").unbind();
+			container.bind("click",function(){
+				paragraphClick(this);
+			});
+		}
+	}
+}
+
+//edit:ajax update knack content
+function knackUpdate(){
+	var knack_form = "#edit_knack_<%= @knack.id%>";
+	jsonPack();
+
+	$(knack_form).ajaxSubmit({
+			beforeSubmit: function(a,f,o) {
+			o.dataType = 'json';
+		},
+		complete: function(XMLHttpRequest, textStatus) {
+		},});
+}
+
+function paragraphClick(paragraph){
+	if($("#elementControl")){
+		elementControlUnbind();
+	}			
+
+	if($(paragraph).data("type") == "paragraph") {
+		$(paragraph).prepend('<div id="elementControl"><a href="javascript:void(0);" class="textDelete">刪除</a> | <span id="elementUp">往上</span> | <span id="elementDown">往下</span> | <span id="elementEdit">編輯</span> | </div>');
+	} else if( $(paragraph).data("type") == "image" ) {
+		$(paragraph).prepend('<div id="elementControl"><a class="photoDelete" href="/admin/knack_categories/<%= @category.id %>/knacks/<%= @knack.id %>/knack_photos/' + $(paragraph).children().children()[0].title + '" data-method="delete" rel="nofollow" data-remote="true">刪除</a> | <span id="elementUp">往上</span> | <span id="elementDown">往下</span></div>');
+	} else if( $(paragraph).data("type") == "video" ) {
+		$(paragraph).prepend('<div id="elementControl"><a href="javascript:void(0);" class="textDelete">刪除</a> | <span id="elementUp">往上</span> | <span id="elementDown">往下</span></div>');
+	}
+
+	elementControlBind();
+}
+
+function elementControlBind(){
+			
+	getParagraph = function(self) {
+		return $(self).parent().next();
+	}
+
+	$(".textDelete").bind("click",function(){
+		//bind photo delete effect
+		$(this).parent().parent().fadeOut(function() { $(this).remove(); knackUpdate(); });			
+		
+		return true;
+	});
+
+	$(".photoDelete").bind("click",function(){
+	});
+	
+	$("#elementEdit").bind("click",function(){
+		//編輯設定
+		
+		paragraph = getParagraph($(this));
+		
+		var editArea = $('<textarea class="paragraphEdit"></textarea>').html( br2nl( paragraph.html() ) );
+		
+		editArea.insertBefore(paragraph);
+					
+		$('<button class="submitEdit">編輯完成</button>').click(function() {
+			var editArea = $(this).prev();
+			var paragraph = $(this).next();
+							
+			paragraph.html( nl2br(editArea.val()) ).show();
+			editArea.remove();
+			$(this).remove();
+			
+			knackUpdate();
+			
+			return false;
+		}).insertAfter(editArea);
+		
+		paragraph.hide();
+		
+		
+	});
+	
+	$("#elementUp").bind("click",function(){
+		//make element order up
+		$(this).parents('.paragraphContainer').prev().before($(this).parent().parent());
+		knackUpdate();
+	});
+	$("#elementDown").bind("click",function(){
+		//make element order down
+		$(this).parent().parent().next().after($(this).parent().parent());
+		knackUpdate();
+	});
+}
+
+function elementControlUnbind(){
+	$("#elementControl").children().each(function(){			
+		$(this).unbind();
+	});
+	$("#elementControl").remove();		
+}
+
+function paragraphRollBottom() {
+	if (document.getElementById('contentBlock').scrollHeight > 600)
+		document.getElementById('contentBlock').scrollTop = document.getElementById('contentBlock').scrollHeight + 600;
+}
+
+function jsonReplace(string)
+{
+	return string.replace(/"([^"]*)"/g, "$1");
+}
+
+
+function nl2br(string) {
+	return string.replace(/\n/g, "<br />");
+}
+
+function br2nl(string) {
+	return string.replace(/<br[ \/]*>/g, "\n");
+}
+
+function getYoutubeCode( link ) {
+	if ( link != undefined ) {
+		return /[a-zA-Z0-9\?\.\:\/]+v=([a-zA-Z0-9_]+)&?.*/.exec(link)[1];	
+	}
+	
+	return '';
+	
+}
+
+</script>

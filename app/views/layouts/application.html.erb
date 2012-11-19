@@ -1,4 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -11,8 +11,9 @@
 <meta name="description" content="最懂怎麼掃，因為我們動腦！實現每一個乾
 淨的願望，有求必應的智慧家事服務"/>
 
-<meta property="og:title" content="真的超會掃，因為他們動腦－誼光家事服務" />
-<meta property="og:description" content="這就是傳說中的總統套房嗎？什麼，這是我家！誼光到底怎麼辦到的？全國第一家智慧家事服務，清潔密技免費大公開，快來瞧瞧！" />
+<meta property="og:title" content="<%= $meta_title.nil? ? "真的超會掃，因為他們動腦－誼光家事服務" : $meta_title %>" />
+
+<meta property="og:description" content="<%= $meta_description.nil? ? "這就是傳說中的總統套房嗎？什麼，這是我家！誼光到底怎麼辦到的？全國第一家智慧家事服務，清潔密技免費大公開，快來瞧瞧！" : $meta_description %>" />
 <meta property="og:image" content="<%= image_path("index-logo.jpg") %>" />
 <meta name="abstract" content="誼光家事服務，實現每一個乾淨的願望"/>
 <meta name="DC.Rights" content="誼光家事"/>
@@ -58,6 +59,7 @@ preloadImages("btn_click.png","btn_out.png","btn_over.png","businessbg.png","bus
     <div class="nav"><%= link_to '最新優惠', :controller => 'page', :action => 'preferential' %></div>
     <div class="nav"><%= link_to '服務優勢', root_url + "#advantages" %></div>
     <div class="nav"><%= link_to '服務項目', services_path %></div>
+    <div class="nav"><%= link_to '清潔撇步', knack_categories_path%></div>
     <div class="nav"><%= link_to '用戶見證', user_exps_path %></div>
     <div class="nav"><%= link_to '人員招募', :controller => 'page', :action => 'recruit' %></div>
     <div class="nav2"><a href="http://www.facebook.com/sharer.php?u=ykhome.com.tw" target="_blank"><img src="<%= image_path("facebookbtn.png") %>" width="16" height="16"></a></div>

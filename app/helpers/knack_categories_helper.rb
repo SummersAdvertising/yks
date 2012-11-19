@@ -1,0 +1,2 @@
+module KnackCategoriesHelper
+end

@@ -1,0 +1,35 @@
+<%= form_for([:admin, @knack_category]) do |f| %>
+  <% if @knack_category.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@knack_category.errors.count, "error") %> prohibited this knack_category from being saved:</h2>
+
+      <ul>
+      <% @knack_category.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title, t("knack.title") %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :description, t("knack.description")  %><br />
+    <%= f.text_field :description %>
+  </div>
+  <div class="field">
+		<%= f.label :status, '狀態' %><br />
+		<%= f.select :status, [['隱藏', 'disabled'], ['顯示', 'enabled']] %>
+  </div>
+  <div class="field">
+    <%= f.label :sort, t("knack.sort")  %><br />
+    <%= f.number_field :sort %>
+  </div>
+  <div class="actions">
+    <%= f.submit "更新" %>
+  </div>
+<% end %>
+
+

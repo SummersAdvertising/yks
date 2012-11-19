@@ -1,0 +1,20 @@
+<p>photos</p>
+ 
+<%= form_tag "/photos/createphoto", :multipart => true, :name => "photo" do %>
+	<div id="imgUpload" >
+    <label id="output">Upload a Picture</label><br />
+    <%= file_field_tag 'upload_image'%><br />
+    <%= submit_tag "upload" %>
+  </div>
+<% end %>
+
+
+<% @photos.each do |photo| %>
+  <div>
+  	<p><%= photo.name %></p>
+    <% path = "/assets/images/" %>
+  	<img alt=<%= photo.name %> src='<%= path + photo.name %>' width="200px" height="150px"  />
+    <br />
+   <%= link_to 'Del', photo_path(photo.id), :method => :delete %>
+  </div>
+<% end %>

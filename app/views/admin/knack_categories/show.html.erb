@@ -1,0 +1,20 @@
+<h1><%= @knack_category.title %> - <%= link_to '建立新秘訣', new_admin_knack_category_knack_path(  @knack_category ) %></h1>
+
+<div class="list">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr class="list-title">
+    <td><%= t("knack.title") %></td>
+  </tr>
+
+<% @knacks.each do |knack| %>
+  <tr class="list-content">
+    <td class="first"><%= link_to knack.title, edit_admin_knack_category_knack_path( @knack_category, knack ) %> (<%= knack.status == 'enabled' ? '前台顯示' : '已隱藏' %>)
+		<div class="list-command">
+		<%= link_to t("helpers.edit"), edit_admin_knack_category_knack_path(@knack_category, knack), :class => "mod" %><span>│</span>
+		<%= link_to t("helpers.delete"), admin_knack_category_knack_path( @knack_category, knack), :class => "del", :confirm => "確定刪除?", :method => :delete %>
+	  </td>
+  </tr>
+<% end %>
+</table>
+
+

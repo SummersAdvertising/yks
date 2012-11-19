@@ -1,0 +1,53 @@
+.paragraphContainer {
+	width: 600px;
+	margin: 8px;
+	border: 1px solid black;
+	padding: 8px;
+	background: #EFF8FF;
+}
+
+#newKnackParagraph {
+	width: 300px;
+	height: 240px;
+}
+
+#contentEditArea {
+	border-top: 1px dotted gray; 
+	margin-top: 20px; 
+	padding-top: 20px;
+}
+
+.paragraph{
+	
+}
+
+.paragraphEdit {
+	width: 600px;
+	height: 300px;
+}
+
+#knack_form {
+	
+}
+
+#contentBlock {
+	float: left;
+	margin-top: 26px;
+	margin-left: 8%;
+	padding-left: 8%;
+	border-left: 1px solid #21759B;
+	max-height: 600px;
+	overflow-y: scroll;
+	overflow-x:  hidden;
+}
+
+.paragraph-photo {
+	width: 620px;
+}
+	.paragraph-photo img {
+		max-width: 600px;
+		margin: 0 auto;
+	}
+	.paragraph iframe {
+		margin: 0 auto;
+	}

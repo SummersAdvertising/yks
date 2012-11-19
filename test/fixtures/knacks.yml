@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  date: 2012-11-09 12:08:55
+  content: MyText
+  status: MyString
+  knack_category_id: 1
+
+two:
+  title: MyString
+  date: 2012-11-09 12:08:55
+  content: MyText
+  status: MyString
+  knack_category_id: 1

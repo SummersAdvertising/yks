@@ -1,13 +1,18 @@
 class ApplicationController < ActionController::Base
-  before_filter :set_locale
+  before_filter :set_locale, :clear_setting
   before_filter :list_banners
 
   def permission
-  respond_to do |format|
-		format.html { redirect_to :controller => :login, :action => :login }
+	  respond_to do |format|
+			format.html { redirect_to :controller => :login, :action => :login }
+	  end
   end
+  
+  def clear_setting  	
+	  $meta_title = nil
+	  $meta_description = nil
   end
-
+  
   protect_from_forgery
 
  def list_banners
