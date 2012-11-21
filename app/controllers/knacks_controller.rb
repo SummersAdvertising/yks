@@ -11,9 +11,22 @@ class KnacksController < ApplicationController
 			
 				@categories = KnackCategory.where( :status => "enabled" ).order( "sort ASC" ).all					
 				@category = KnackCategory.find( params[ :knack_category_id ] )
-				
-				@recnet_knacks = @category.knacks.where( :status => "enabled" ).order("date desc").limit(3)
-
+												
+				isFound = false
+				@category.knacks.where( :status => "enabled" ).order("date desc").each do | knack |					
+					if isFound					
+						@next = knack
+						break
+					end
+					
+					if knack.id == @knack.id	
+						isFound = true
+						next
+					end
+					
+					@last = knack
+				end
+								
 				@category_id = @category.id
 				
 				@content = JSON.parse(@knack.content) if !@knack.content.nil?

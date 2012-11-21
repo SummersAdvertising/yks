@@ -7,11 +7,12 @@ class Admin::KnacksController < AdminController
 		@knack = @category.knacks.build
 		@knack.title = "未命名秘訣";
 		@knack.date = Time.now
+		@knack.content = '{"article":[]}';
 		
 		@knack.save
 		
 		respond_to do | format |
-			format.html 
+			format.html { redirect_to edit_admin_knack_category_knack_path( @category, @knack ) }
 		end
 	end
 	
@@ -73,7 +74,7 @@ class Admin::KnacksController < AdminController
     @knack.destroy
 
     respond_to do |format|
-      format.html { redirect_to knacks_url }
+      format.html { redirect_to admin_knack_category_path( @category ) }
       format.json { head :no_content }
       format.js #added
     end

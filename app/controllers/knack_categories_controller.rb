@@ -17,7 +17,7 @@ class KnackCategoriesController < ApplicationController
 	
 	def show
 		@category = KnackCategory.find( params[ :id ] )
-		@knacks = @category.knacks.where( :status => "enabled" )
+		@knacks = @category.knacks.where( :status => "enabled" ).order( "date desc" )
 		@category_id = @category.id
 		
 		respond_to do | format |

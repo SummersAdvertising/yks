@@ -31,10 +31,13 @@
 		
 		<div class="fb_share"><a target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=<%= URI::encode(root_url + knack_category_knack_path( @category, @knack ) ) %>"><img src="<%= image_path("fb_share.png") %>"></a></div>
 	    <div id="line1"></div>
-	    <% @recnet_knacks.each do | knack | %>
-	    	<% next if knack.id == @knack.id %>
-	    	<div class="knacktitle"><a href="<%= knack_category_knack_path( @category, knack ) %>"><%= knack.title %></a></div>	    
+	    <% if !@last.nil? %>
+	    	<div class="knacktitle">上一篇 <a title="<%= @last.title %>" href="<%= knack_category_knack_path( @category, @last ) %>"><%= @last.title %></a></div>	    
 	    <% end %>
+	    <% if !@next.nil? %>
+	    	<div class="knacktitle">下一篇 <a title="<%= @next.title %>" href="<%= knack_category_knack_path( @category, @next ) %>"><%= @next.title %></a></div>	    
+	    <% end %>
+	    
 		<div class="knackmore"><a href="<%= knack_category_path( @category ) %>" target="_self">&gt;&gt; 更多<span class="knack_item"><%= @category.title %></span>清潔撇步</a></div>
 	</div>
 </div><!--rightframe end-->
