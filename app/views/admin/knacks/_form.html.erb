@@ -419,7 +419,7 @@ function br2nl(string) {
 
 function getYoutubeCode( link ) {
 	if ( link != undefined ) {
-		return /[a-zA-Z0-9\?\.\:\/]+v=([a-zA-Z0-9_]+)&?.*/.exec(link)[1];	
+		return /[a-zA-Z0-9\?\.\:\/]+v=([a-zA-Z0-9_\-]+)&?.*/.exec(link)[1];	
 	}
 	
 	return '';
