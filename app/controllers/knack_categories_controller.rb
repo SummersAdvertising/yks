@@ -7,7 +7,7 @@ class KnackCategoriesController < ApplicationController
 		
 		respond_to do | format |
 			if @category.nil?				
-				format.html { redirect_to root_url}
+				format.html
 			else
 				@category_id = @category.id
 				format.html { redirect_to :action => "show", :id => @category_id}
