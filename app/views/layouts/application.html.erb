@@ -116,5 +116,26 @@ preloadImages("btn_click.png","btn_out.png","btn_over.png","businessbg.png","bus
 © Copyright 2012 Yi-Kong Housekeeping Service All Rights Reserved.  </div>
 </div><!--footerframe end-->
 
+<script type="text/javascript">
+
+$(".topMenuAction").click( function() {
+	if ($("#openCloseIdentifier").is(":hidden")) {
+		$("#slider").animate({ 
+			marginTop: "-181px"
+			}, 500 );
+		$("#topMenuImage").html('<img src="<%= image_path("open.png") %>" alt="open" />');
+		$("#openCloseIdentifier").show();
+	} else {
+		$("#slider").animate({ 
+			marginTop: "-20px"
+			}, 500 );
+		$("#topMenuImage").html('<img src="<%= image_path("close.png") %>" alt="close" />');
+		$("#openCloseIdentifier").hide();
+	}
+});  
+
+</script>
+
+
 </body>
 </html>
