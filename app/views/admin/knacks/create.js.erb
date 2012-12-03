@@ -1,7 +1,6 @@
 $('#posts').prepend('<%= escape_javascript(render(@post)) %>');
 $('#posts > li').first().effect('highlight', {color: 'cyan', mode: 'show'}, 2000);
 $('#post_form > form')[0].reset();
-console.log("evoked!!");
 
 
 //$('#output').html("<h1><%= @photo.name %></h1>").append("<%= @photo.name %>"); 
