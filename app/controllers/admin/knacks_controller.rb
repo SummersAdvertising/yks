@@ -69,7 +69,7 @@ class Admin::KnacksController < AdminController
     filedir = "app/assets/images/" + params[:id]
     if Dir.exists?(filedir)
       FileUtils.rm_r filedir
-    end     
+    end
 
     @knack.destroy
 

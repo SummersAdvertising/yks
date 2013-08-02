@@ -1,6 +1,6 @@
 # encoding=UTF-8
 class SystemSiteMapsController < ApplicationController
-
+	#layout false
 	# default index
 	def index
 		
