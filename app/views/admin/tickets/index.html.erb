@@ -20,7 +20,7 @@
 <% @tickets.each do |ticket| %>
   <tr class="list-content">
     <td class="first"><a><%= show ticket, ticket.name %></a>
-	<% if session[:user] == 'master' %>
+	<% if session[:master_admin] == true %>
 				<%= render 'shared/admin_list_command', :data => ticket %>
 	<% end %></td>
     <td><%= ticket.phone %></td>
