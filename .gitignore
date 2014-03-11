@@ -38,3 +38,6 @@ config/deploy/*
 config/deploy.rb
 
 config/database*
+
+config/environments/*
+
