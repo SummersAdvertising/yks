@@ -42,7 +42,6 @@ group :production do
 end
 
 gem 'execjs'
-gem 'therubyracer'
 gem 'mysql2'
 
 gem 'capistrano'
